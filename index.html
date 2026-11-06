@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MS — смыслы и визуальный брендинг</title>
+<style>
+  :root{
+    --bg:#f6f4f0;
+    --ink:#1c1b19;
+    --muted:#8a857d;
+    --line:#ddd8d0;
+    --card:#efece6;
+    --serif:"Georgia","Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  html{scroll-behavior:smooth}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- ЭКРАН 1 ---------- */
+  .hero{
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:96px 0 64px;
+  }
+
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(2.6rem,7.2vw,6.4rem);
+    line-height:1.04;
+    letter-spacing:-0.02em;
+    text-transform:uppercase;
+  }
+
+  .hero h1 span{display:block}
+
+  .hero .sub{
+    margin-top:28px;
+    font-size:clamp(0.95rem,1.5vw,1.15rem);
+    color:var(--muted);
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- ЭКРАН 2 ---------- */
+  .gap{
+    padding:120px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .gap p{
+    font-family:var(--serif);
+    font-size:clamp(1.25rem,2.6vw,1.9rem);
+    line-height:1.4;
+    max-width:760px;
+  }
+
+  .gap p + p{margin-top:24px}
+
+  .gap p.accent{color:var(--muted)}
+
+  /* ---------- ЭКРАН 3 ---------- */
+  .situations{
+    padding:120px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .eyebrow{
+    font-size:0.78rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:56px;
+  }
+
+  .situations .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:56px 48px;
+  }
+
+  .situation .num{
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+
+  .situation p{
+    font-size:1rem;
+    line-height:1.65;
+    max-width:30ch;
+  }
+
+  .situation .quote{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    line-height:1.5;
+    margin-bottom:14px;
+  }
+
+  .situation .answer{
+    color:var(--muted);
+    font-size:0.95rem;
+  }
+
+  /* ---------- ЭКРАН 4: кейсы ---------- */
+  .cases{
+    padding:120px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .cases-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:48px;
+  }
+
+  .cases-head .hint{
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .rail{
+    display:flex;
+    gap:24px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:20px;
+    scrollbar-width:thin;
+    scrollbar-color:var(--line) transparent;
+  }
+
+  .rail::-webkit-scrollbar{height:6px}
+  .rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+
+  .card{
+    flex:0 0 360px;
+    scroll-snap-align:start;
+    background:var(--card);
+    display:flex;
+    flex-direction:column;
+  }
+
+  .card .img{
+    aspect-ratio:4/3;
+    background:var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--serif);
+    font-size:1.4rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    overflow:hidden;
+  }
+
+  .card .img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .card .body{
+    padding:24px 24px 32px;
+  }
+
+  .card .name{
+    font-family:var(--serif);
+    font-size:1.35rem;
+    margin-bottom:10px;
+  }
+
+  .card .desc{
+    font-size:0.95rem;
+    line-height:1.6;
+    color:var(--ink);
+  }
+
+  /* ---------- ЭКРАН 5 ---------- */
+  .manifest{
+    padding:160px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .manifest h2{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(2rem,6vw,5rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+  }
+
+  .manifest p{
+    margin-top:28px;
+    font-size:clamp(1rem,1.6vw,1.15rem);
+    color:var(--muted);
+    max-width:38ch;
+  }
+
+  /* ---------- ЭКРАН 6 ---------- */
+  .founder{
+    padding:120px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .founder .inner{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:64px;
+    align-items:start;
+  }
+
+  .founder .photo{
+    aspect-ratio:3/4;
+    background:var(--line);
+    overflow:hidden;
+  }
+
+  .founder .photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+
+  .founder blockquote{
+    font-family:var(--serif);
+    font-size:clamp(1.3rem,2.4vw,1.9rem);
+    line-height:1.4;
+    max-width:34ch;
+  }
+
+  .founder .sign{
+    margin-top:28px;
+    font-size:0.85rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* ---------- ЭКРАН 7 ---------- */
+  .contact{
+    padding:140px 0 160px;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+
+  .contact .btn{
+    display:inline-block;
+    font-family:var(--sans);
+    font-size:clamp(1rem,1.6vw,1.2rem);
+    letter-spacing:0.04em;
+    color:var(--bg);
+    background:var(--ink);
+    padding:22px 56px;
+    text-decoration:none;
+    transition:opacity .25s ease;
+  }
+
+  .contact .btn:hover{opacity:.82}
+
+  .contact .brief{
+    display:block;
+    margin-top:28px;
+    font-size:0.9rem;
+    color:var(--muted);
+    text-decoration:underline;
+    text-underline-offset:4px;
+  }
+
+  /* ---------- АДАПТИВ ---------- */
+  @media (max-width:900px){
+    .situations .grid{grid-template-columns:1fr;gap:44px}
+    .situation p{max-width:none}
+    .founder .inner{grid-template-columns:1fr;gap:36px}
+    .founder .photo{max-width:260px}
+  }
+
+  @media (max-width:640px){
+    .wrap{padding:0 20px}
+    .hero{padding:72px 0 48px}
+    .gap,.situations,.cases,.manifest,.founder{padding:80px 0}
+    .contact{padding:96px 0 112px}
+    .card{flex:0 0 82vw}
+    .cases-head{flex-direction:column;align-items:flex-start;gap:12px}
+    .contact .btn{width:100%;padding:20px 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ЭКРАН 1 -->
+<header class="hero wrap">
+  <h1>
+    <span>Ваш бренд больше</span>
+    <span>чем видно</span>
+  </h1>
+  <p class="sub">чем видно снаружи</p>
+</header>
+
+<!-- ЭКРАН 2 -->
+<section class="gap wrap">
+  <p>Снаружи видно не всё. Бывает, бизнес вырос — а сайт, меню, вывеска остались прежними.</p>
+  <p class="accent">Не потому, что плохо сделаны. А потому, что форма не успела за смыслом.</p>
+  <p>Мы сокращаем это расстояние. Находим то, что уже есть, — и придаём этому форму.</p>
+</section>
+
+<!-- ЭКРАН 3 -->
+<section class="situations wrap">
+  <p class="eyebrow">С чем к нам приходят</p>
+  <div class="grid">
+    <div class="situation">
+      <p class="num">01</p>
+      <p class="quote">«У отеля был шаблонный сайт — и сразу форма бронирования. Всё. Больше ничего».</p>
+      <p class="answer">Мы сделали сайт, который передаёт атмосферу места, а не просто «забронируй».</p>
+    </div>
+    <div class="situation">
+      <p class="num">02</p>
+      <p class="quote">«Бизнес вырос — а сайт, меню, вывеска остались прежними. Снаружи не читается то, чем вы стали».</p>
+      <p class="answer">Находим смысл — и переводим в форму: логотип, текст, носители.</p>
+    </div>
+    <div class="situation">
+      <p class="num">03</p>
+      <p class="quote">«Есть история и характер — но они не стали частью бренда. Визуал живёт отдельно от смысла».</p>
+      <p class="answer">Собираем систему, чтобы всё звучало одинаково.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ЭКРАН 4 -->
+<section class="cases">
+  <div class="wrap">
+    <div class="cases-head">
+      <p class="eyebrow" style="margin-bottom:0">Кейсы</p>
+      <p class="hint">листайте →</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding-right:0">
+    <div class="rail" id="rail">
+
+      <article class="card">
+        <div class="img">Le Centre</div>
+        <div class="body">
+          <p class="name">Le Centre</p>
+          <p class="desc">Шале XVIII века. Нашли балкон, с которого объявляли новости деревни. Теперь это логотип, меню, униформа — всё в одной системе.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img">ANEO</div>
+        <div class="body">
+          <p class="name">ANEO</p>
+          <p class="desc">Название — одно из 52 слов, обозначающих снег. От льда к воде. Так родился знак.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img">MsFid</div>
+        <div class="body">
+          <p class="name">MsFid</p>
+          <p class="desc">Была не проблема логотипа, а отсутствие системы. Собрали её — и документы, приложение, сайт заговорили одинаково.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img">Презентация</div>
+        <div class="body">
+          <p class="name">Наша презентация</p>
+          <p class="desc">У нас не было презентации. Мы продавали в тексте — и давали общую ссылку на сайт. Но поняли: этому направлению нужна презентация. И решили сначала выстроить логику. Подумали, что человек должен понять из неё. Добавили своё рассуждение. Прописали, что за чем идёт. Обсудили и согласовали. Всё это время опирались на ценности студии — у нас есть своя карта смыслов. И только после этого шеф-дизайнер сделал дизайн.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ЭКРАН 5 -->
+<section class="manifest wrap">
+  <h2>Помогаем найти смысл</h2>
+  <p>Тот, что уже есть внутри. Просто его пока не видно снаружи.</p>
+</section>
+
+<!-- ЭКРАН 6 -->
+<section class="founder wrap">
+  <div class="inner">
+    <div class="photo">
+      <!-- Замените на реальное фото основателя -->
+      <img src="" alt="Основатель студии MS">
+    </div>
+    <div>
+      <blockquote>«Мне важно, чтобы бизнес выглядел так, как он на самом деле звучит внутри. Не громче. Не тише. Точнее».</blockquote>
+      <p class="sign">Основатель студии MS</p>
+    </div>
+  </div>
+</section>
+
+<!-- ЭКРАН 7 -->
+<section class="contact wrap">
+  <a class="btn" href="#brief">Обсудить проект</a>
+  <a class="brief" href="#brief">или заполните бриф</a>
+</section>
+
+<script>
+  // Горизонтальный скролл колесом мыши (только на десктопе, где нет тач-скролла)
+  (function(){
+    const rail = document.getElementById('rail');
+    if(!rail) return;
+    rail.addEventListener('wheel', function(e){
+      if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+        rail.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }
+    }, {passive:false});
+  })();
+</script>
+
+</body>
+</html>
