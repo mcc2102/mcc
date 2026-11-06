@@ -11,6 +11,12 @@
     --muted:#8a857d;
     --line:#ddd8d0;
     --card:#efece6;
+
+    --terracotta:#9c4a2f;      /* терракота с 3-го слайда */
+    --terracotta-dark:#843d26;
+    --forest:#1f3a2c;          /* тёмно-зелёный подвал с последнего слайда */
+    --forest-ink:#e9e3d8;
+
     --serif:"Georgia","Times New Roman",serif;
     --sans:"Helvetica Neue",Arial,sans-serif;
   }
@@ -218,10 +224,11 @@
     color:var(--ink);
   }
 
-  /* ---------- ЭКРАН 5 ---------- */
+  /* ---------- ЭКРАН 5: манифест (терракота) ---------- */
   .manifest{
     padding:160px 0;
-    border-top:1px solid var(--line);
+    background:var(--terracotta);
+    color:#f6efe6;
     text-align:center;
   }
 
@@ -234,13 +241,36 @@
     text-transform:uppercase;
   }
 
-  .manifest p{
+  .manifest .lead{
     margin-top:28px;
     font-size:clamp(1rem,1.6vw,1.15rem);
-    color:var(--muted);
-    max-width:38ch;
+    color:#f0ddd2;
+    max-width:40ch;
     margin-left:auto;
     margin-right:auto;
+  }
+
+  .manifest .body-text{
+    margin-top:40px;
+    max-width:56ch;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:clamp(1rem,1.5vw,1.1rem);
+    line-height:1.65;
+    color:#f6efe6;
+  }
+
+  .manifest .body-text p + p{margin-top:20px}
+
+  .manifest .closing{
+    margin-top:36px;
+    font-family:var(--serif);
+    font-size:clamp(1.15rem,2vw,1.4rem);
+    line-height:1.4;
+    max-width:34ch;
+    margin-left:auto;
+    margin-right:auto;
+    color:#f6efe6;
   }
 
   /* ---------- ЭКРАН 6 ---------- */
@@ -283,35 +313,70 @@
     color:var(--muted);
   }
 
-  /* ---------- ЭКРАН 7 ---------- */
+  /* ---------- ЭКРАН 7: подвал (тёмно-зелёный) ---------- */
   .contact{
-    padding:140px 0 160px;
-    border-top:1px solid var(--line);
+    padding:140px 0 120px;
+    background:var(--forest);
+    color:var(--forest-ink);
     text-align:center;
   }
 
+  .contact h2{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(1.8rem,4.5vw,3.4rem);
+    line-height:1.1;
+    text-transform:uppercase;
+    letter-spacing:-0.01em;
+    color:#f2ece1;
+  }
+
+  .contact .lead{
+    margin-top:32px;
+    max-width:52ch;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:clamp(1rem,1.5vw,1.15rem);
+    line-height:1.65;
+    color:#cdc5b6;
+  }
+
+  .contact .note{
+    margin-top:20px;
+    font-size:0.95rem;
+    color:#a9a293;
+  }
+
+  .contact .contacts{
+    margin-top:44px;
+    font-size:clamp(1rem,1.4vw,1.1rem);
+    line-height:1.7;
+    color:#f2ece1;
+  }
+
+  .contact .contacts a{
+    color:#f2ece1;
+    text-decoration:none;
+    border-bottom:1px solid rgba(242,236,225,.35);
+    transition:border-color .25s ease;
+  }
+
+  .contact .contacts a:hover{border-color:#f2ece1}
+
   .contact .btn{
     display:inline-block;
+    margin-top:44px;
     font-family:var(--sans);
-    font-size:clamp(1rem,1.6vw,1.2rem);
+    font-size:clamp(1rem,1.5vw,1.15rem);
     letter-spacing:0.04em;
-    color:var(--bg);
-    background:var(--ink);
-    padding:22px 56px;
+    color:#f6efe6;
+    background:var(--terracotta);
+    padding:22px 64px;
     text-decoration:none;
-    transition:opacity .25s ease;
+    transition:background .25s ease;
   }
 
-  .contact .btn:hover{opacity:.82}
-
-  .contact .brief{
-    display:block;
-    margin-top:28px;
-    font-size:0.9rem;
-    color:var(--muted);
-    text-decoration:underline;
-    text-underline-offset:4px;
-  }
+  .contact .btn:hover{background:var(--terracotta-dark)}
 
   /* ---------- АДАПТИВ ---------- */
   @media (max-width:900px){
@@ -329,8 +394,9 @@
     .hero h1{font-size:clamp(2.4rem,12vw,3.6rem)}
     .hero h1 .small{margin-top:0.6em}
 
-    .gap,.situations,.cases,.manifest,.founder{padding:80px 0}
-    .contact{padding:96px 0 112px}
+    .gap,.situations,.cases,.founder{padding:80px 0}
+    .manifest{padding:96px 0}
+    .contact{padding:96px 0 88px}
 
     .gap p{font-size:clamp(1.15rem,5vw,1.5rem)}
 
@@ -439,10 +505,18 @@
   </div>
 </section>
 
-<!-- ЭКРАН 5 -->
-<section class="manifest wrap">
-  <h2>Помогаем найти смысл</h2>
-  <p>Тот, что уже есть внутри. Просто его пока не видно снаружи.</p>
+<!-- ЭКРАН 5: манифест (терракота) -->
+<section class="manifest">
+  <div class="wrap">
+    <h2>Помогаем найти смысл</h2>
+    <p class="lead">Тот, что уже есть внутри. Просто его пока не видно снаружи.</p>
+
+    <div class="body-text">
+      <p>Мы не придумываем новое. Мы находим то, что уже работает в бизнесе — в истории, в людях, в том, как вы принимаете решения. И переводим это в форму.</p>
+    </div>
+
+    <p class="closing">Не меняем вас ради перемен. Делаем видимым то, чем вы уже стали.</p>
+  </div>
 </section>
 
 <!-- ЭКРАН 6 -->
@@ -458,11 +532,24 @@
   </div>
 </section>
 
-<!-- ЭКРАН 7 -->
-<section class="contact wrap">
-  <a class="btn" href="#brief">Обсудить проект</a>
-  <a class="brief" href="#brief">или заполните бриф</a>
-</section>
+<!-- ЭКРАН 7: подвал (тёмно-зелёный) -->
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Обсудим ваш проект?</h2>
+
+    <p class="lead">Напишите, что сейчас важно для вашего бизнеса. Что хотелось бы изменить или усилить. Можно просто в двух словах — я отвечу и предложу, с чего начать.</p>
+
+    <p class="note">Не обязательно брать всё сразу. Можно начать с одной задачи.</p>
+
+    <p class="contacts">
+      Телефон / WhatsApp / Telegram:<br>
+      <a href="tel:+79235703335">8 923 570-33-35</a><br>
+      Юлия, основатель студии MS
+    </p>
+
+    <a class="btn" href="https://wa.me/79235703335" target="_blank" rel="noopener">Написать</a>
+  </div>
+</footer>
 
 <script>
   (function(){
