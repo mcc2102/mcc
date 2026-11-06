@@ -12,10 +12,9 @@
     --line:#ddd8d0;
     --card:#efece6;
 
-    --terracotta:#9c4a2f;      /* терракота с 3-го слайда */
-    --terracotta-dark:#843d26;
-    --forest:#1f3a2c;          /* тёмно-зелёный подвал с последнего слайда */
-    --forest-ink:#e9e3d8;
+    --terracotta:#b0593a;      /* терракота */
+    --limo:#151412;            /* чёрный лимузин для подвала */
+    --limo-ink:#e9e4da;
 
     --serif:"Georgia","Times New Roman",serif;
     --sans:"Helvetica Neue",Arial,sans-serif;
@@ -224,11 +223,11 @@
     color:var(--ink);
   }
 
-  /* ---------- ЭКРАН 5: манифест (терракота) ---------- */
+  /* ---------- ЭКРАН 5: манифест (терракота, чёрный текст) ---------- */
   .manifest{
     padding:160px 0;
     background:var(--terracotta);
-    color:#f6efe6;
+    color:var(--ink);
     text-align:center;
   }
 
@@ -244,7 +243,7 @@
   .manifest .lead{
     margin-top:28px;
     font-size:clamp(1rem,1.6vw,1.15rem);
-    color:#f0ddd2;
+    color:rgba(28,27,25,.75);
     max-width:40ch;
     margin-left:auto;
     margin-right:auto;
@@ -257,7 +256,6 @@
     margin-right:auto;
     font-size:clamp(1rem,1.5vw,1.1rem);
     line-height:1.65;
-    color:#f6efe6;
   }
 
   .manifest .body-text p + p{margin-top:20px}
@@ -270,7 +268,6 @@
     max-width:34ch;
     margin-left:auto;
     margin-right:auto;
-    color:#f6efe6;
   }
 
   /* ---------- ЭКРАН 6 ---------- */
@@ -313,11 +310,11 @@
     color:var(--muted);
   }
 
-  /* ---------- ЭКРАН 7: подвал (тёмно-зелёный) ---------- */
+  /* ---------- ЭКРАН 7: подвал (чёрный лимузин) ---------- */
   .contact{
     padding:140px 0 120px;
-    background:var(--forest);
-    color:var(--forest-ink);
+    background:var(--limo);
+    color:var(--limo-ink);
     text-align:center;
   }
 
@@ -328,7 +325,7 @@
     line-height:1.1;
     text-transform:uppercase;
     letter-spacing:-0.01em;
-    color:#f2ece1;
+    color:var(--limo-ink);
   }
 
   .contact .lead{
@@ -338,45 +335,51 @@
     margin-right:auto;
     font-size:clamp(1rem,1.5vw,1.15rem);
     line-height:1.65;
-    color:#cdc5b6;
+    color:rgba(233,228,218,.7);
   }
 
   .contact .note{
     margin-top:20px;
     font-size:0.95rem;
-    color:#a9a293;
+    color:rgba(233,228,218,.5);
   }
 
   .contact .contacts{
     margin-top:44px;
     font-size:clamp(1rem,1.4vw,1.1rem);
     line-height:1.7;
-    color:#f2ece1;
+    color:var(--limo-ink);
   }
 
   .contact .contacts a{
-    color:#f2ece1;
+    color:var(--limo-ink);
     text-decoration:none;
-    border-bottom:1px solid rgba(242,236,225,.35);
+    border-bottom:1px solid rgba(233,228,218,.35);
     transition:border-color .25s ease;
   }
 
-  .contact .contacts a:hover{border-color:#f2ece1}
+  .contact .contacts a:hover{border-color:var(--limo-ink)}
 
+  /* кнопка — чёрная с терракотовым текстом */
   .contact .btn{
     display:inline-block;
     margin-top:44px;
     font-family:var(--sans);
     font-size:clamp(1rem,1.5vw,1.15rem);
     letter-spacing:0.04em;
-    color:#f6efe6;
-    background:var(--terracotta);
+    color:var(--terracotta);
+    background:#0b0a09;
+    border:1px solid rgba(176,89,58,.55);
     padding:22px 64px;
     text-decoration:none;
-    transition:background .25s ease;
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
   }
 
-  .contact .btn:hover{background:var(--terracotta-dark)}
+  .contact .btn:hover{
+    background:var(--terracotta);
+    color:var(--ink);
+    border-color:var(--terracotta);
+  }
 
   /* ---------- АДАПТИВ ---------- */
   @media (max-width:900px){
@@ -505,7 +508,7 @@
   </div>
 </section>
 
-<!-- ЭКРАН 5: манифест (терракота) -->
+<!-- ЭКРАН 5: манифест (терракота, чёрный текст) -->
 <section class="manifest">
   <div class="wrap">
     <h2>Помогаем найти смысл</h2>
@@ -532,7 +535,7 @@
   </div>
 </section>
 
-<!-- ЭКРАН 7: подвал (тёмно-зелёный) -->
+<!-- ЭКРАН 7: подвал (чёрный лимузин) -->
 <footer class="contact" id="contact">
   <div class="wrap">
     <h2>Обсудим ваш проект?</h2>
