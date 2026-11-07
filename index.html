@@ -12,8 +12,9 @@
     --line:#ddd8d0;
     --card:#efece6;
 
-    --terracotta:#b0593a;      /* терракота */
-    --limo:#151412;            /* чёрный лимузин для подвала */
+    --terracotta:#b0593a;
+    --terracotta-dark:#9c4a2f;
+    --limo:#151412;
     --limo-ink:#e9e4da;
 
     --serif:"Georgia","Times New Roman",serif;
@@ -106,14 +107,9 @@
 
   .situations .grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:56px 48px;
-  }
-
-  .situation{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    grid-template-columns:repeat(2,1fr);
+    gap:56px 56px;
+    text-align:left;
   }
 
   .situation .num{
@@ -121,12 +117,6 @@
     letter-spacing:0.12em;
     color:var(--muted);
     margin-bottom:18px;
-  }
-
-  .situation p{
-    font-size:1rem;
-    line-height:1.65;
-    max-width:30ch;
   }
 
   .situation .quote{
@@ -139,6 +129,12 @@
   .situation .answer{
     color:var(--muted);
     font-size:0.95rem;
+    line-height:1.6;
+  }
+
+  .situation .answer b{
+    color:var(--ink);
+    font-weight:600;
   }
 
   /* ---------- ЭКРАН 4: кейсы ---------- */
@@ -146,6 +142,14 @@
     padding:120px 0;
     border-top:1px solid var(--line);
     text-align:center;
+  }
+
+  .cases-lead{
+    font-family:var(--serif);
+    font-size:clamp(1.2rem,2.2vw,1.6rem);
+    line-height:1.4;
+    color:var(--muted);
+    margin-bottom:64px;
   }
 
   .cases-head{
@@ -178,7 +182,7 @@
   .rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 
   .card{
-    flex:0 0 360px;
+    flex:0 0 380px;
     scroll-snap-align:start;
     background:var(--card);
     display:flex;
@@ -214,13 +218,30 @@
   .card .name{
     font-family:var(--serif);
     font-size:1.35rem;
-    margin-bottom:10px;
+    margin-bottom:4px;
   }
 
-  .card .desc{
-    font-size:0.95rem;
+  .card .tag{
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+
+  .card .part{margin-top:16px}
+
+  .card .part .label{
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+
+  .card .part p{
+    font-size:0.92rem;
     line-height:1.6;
-    color:var(--ink);
   }
 
   /* ---------- ЭКРАН 5: манифест (терракота, чёрный текст) ---------- */
@@ -257,8 +278,6 @@
     font-size:clamp(1rem,1.5vw,1.1rem);
     line-height:1.65;
   }
-
-  .manifest .body-text p + p{margin-top:20px}
 
   .manifest .closing{
     margin-top:36px;
@@ -360,26 +379,22 @@
 
   .contact .contacts a:hover{border-color:var(--limo-ink)}
 
-  /* кнопка — чёрная с терракотовым текстом */
+  /* кнопка — вся терракотовая, текст чёрный */
   .contact .btn{
     display:inline-block;
     margin-top:44px;
     font-family:var(--sans);
     font-size:clamp(1rem,1.5vw,1.15rem);
     letter-spacing:0.04em;
-    color:var(--terracotta);
-    background:#0b0a09;
-    border:1px solid rgba(176,89,58,.55);
+    color:var(--ink);
+    background:var(--terracotta);
+    border:none;
     padding:22px 64px;
     text-decoration:none;
-    transition:background .25s ease, color .25s ease, border-color .25s ease;
+    transition:background .25s ease;
   }
 
-  .contact .btn:hover{
-    background:var(--terracotta);
-    color:var(--ink);
-    border-color:var(--terracotta);
-  }
+  .contact .btn:hover{background:var(--terracotta-dark);color:var(--ink)}
 
   /* ---------- АДАПТИВ ---------- */
   @media (max-width:900px){
@@ -404,9 +419,9 @@
     .gap p{font-size:clamp(1.15rem,5vw,1.5rem)}
 
     .eyebrow{margin-bottom:40px}
+    .situations .grid{gap:36px}
 
-    .situations .grid{gap:40px}
-
+    .cases-lead{font-size:clamp(1.1rem,5vw,1.4rem);margin-bottom:40px}
     .cases-head{flex-direction:column;align-items:center;gap:10px;margin-bottom:32px}
 
     .rail{gap:16px}
@@ -445,18 +460,23 @@
   <div class="grid">
     <div class="situation">
       <p class="num">01</p>
-      <p class="quote">«У отеля был шаблонный сайт — и сразу форма бронирования. Всё. Больше ничего».</p>
-      <p class="answer">Мы сделали сайт, который передаёт атмосферу места, а не просто «забронируй».</p>
+      <p class="quote">«Мы хорошо знаем, что делаем, но сложно объяснить, почему клиенту стоит выбрать именно нас».</p>
+      <p class="answer"><b>Стратегия и смыслы</b> → находим то, что делает бизнес особенным, и формулируем это так, чтобы клиент понял и выбрал.</p>
     </div>
     <div class="situation">
       <p class="num">02</p>
-      <p class="quote">«Бизнес вырос — а сайт, меню, вывеска остались прежними. Снаружи не читается то, чем вы стали».</p>
-      <p class="answer">Находим смысл — и переводим в форму: логотип, текст, носители.</p>
+      <p class="quote">«Мы выросли, изменились, а наш образ будто остался в прошлом».</p>
+      <p class="answer"><b>Образ бренда</b> → помогаем выразить характер и уровень бизнеса через логотип и визуальный стиль.</p>
     </div>
     <div class="situation">
       <p class="num">03</p>
-      <p class="quote">«Есть история и характер — но они не стали частью бренда. Визуал живёт отдельно от смысла».</p>
-      <p class="answer">Собираем систему, чтобы всё звучало одинаково.</p>
+      <p class="quote">«Сайт есть, но он не продаёт. Люди заходят — и уходят».</p>
+      <p class="answer"><b>Сайты</b> → создаём сайты, которые раскрывают бизнес, его особенности и ценность для клиента.</p>
+    </div>
+    <div class="situation">
+      <p class="num">04</p>
+      <p class="quote">«Отправляем презентацию — и тишина. Клиент не понимает, за что платить».</p>
+      <p class="answer"><b>Презентации</b> → разрабатываем структуру, смыслы и тексты, которые помогают ясно представить компанию и её предложение.</p>
     </div>
   </div>
 </section>
@@ -464,6 +484,7 @@
 <!-- ЭКРАН 4 -->
 <section class="cases">
   <div class="wrap">
+    <p class="cases-lead">Мышление, которому мы придаём форму</p>
     <div class="cases-head">
       <p class="eyebrow" style="margin-bottom:0">Кейсы</p>
       <p class="hint">листайте →</p>
@@ -475,16 +496,69 @@
       <article class="card">
         <div class="img">Le Centre</div>
         <div class="body">
-          <p class="name">Le Centre</p>
-          <p class="desc">Шале XVIII века. Нашли балкон, с которого объявляли новости деревни. Теперь это логотип, меню, униформа — всё в одной системе.</p>
+          <p class="name">Le Centre Champéry</p>
+          <p class="tag">Ресторан в Альпах</p>
+
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Снова стать местом, куда хочется приходить за впечатлениями — гастрономическими и визуальными.</p>
+          </div>
+
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Символ, который уже был в самом месте — балкон, с которого когда-то объявляли новости деревни. Тогда он объединял людей. И сейчас заведение снова объединяет их вокруг себя.</p>
+          </div>
+
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Логотип, который работает как настоящий брендинг — на сайте, на меню, униформе. Теперь визуал работает на первое впечатление. Место запоминается и его узнают.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img">Marco Corniola</div>
+        <div class="body">
+          <p class="name">Marco Corniola</p>
+          <p class="tag">Нейрохирург в Швейцарии</p>
+
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Врачу нужен был знак, который подтверждает, что ему можно доверить самое ценное. Чтобы выглядело профессионально, но по-человечески.</p>
+          </div>
+
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Идею точности без медицинских штампов. В основе знака — изгиб позвоночника и ритм ультразвуковых волн. А человечность передаётся через цвет: тёмно-синий — доверие, коралловый — забота.</p>
+          </div>
+
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Знак, который транслирует швейцарскую точность. Выверенная геометрия и точность каждой линии отражает такой же подход к работе.</p>
+          </div>
         </div>
       </article>
 
       <article class="card">
         <div class="img">ANEO</div>
         <div class="body">
-          <p class="name">ANEO</p>
-          <p class="desc">Название — одно из 52 слов, обозначающих снег. От льда к воде. Так родился знак.</p>
+          <p class="name">ANEO Cryo Lounge</p>
+          <p class="tag">Криотерапия и велнес</p>
+
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Владелец хотел знак, который в первую очередь отражает заботу и восстановление. Но при этом аутентичен — напрямую связан с криотерапией. И одинаково уместен для трёх направлений: велнеса, здоровья и спорта.</p>
+          </div>
+
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Мы перебирали название, смотрели, как всё устроено. И нашли идею «от льда к воде». В знаке острые пики айсберга переходят в плавную каплю. Это не просто «холод». Это про восстановление: лёд тает — и становится водой.</p>
+          </div>
+
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Знак, который органично смотрится везде: на униформе, на льду, на сайте, оставаясь узнаваемым в разных контекстах.</p>
+          </div>
         </div>
       </article>
 
@@ -492,15 +566,17 @@
         <div class="img">MsFid</div>
         <div class="body">
           <p class="name">MsFid</p>
-          <p class="desc">Была не проблема логотипа, а отсутствие системы. Собрали её — и документы, приложение, сайт заговорили одинаково.</p>
-        </div>
-      </article>
+          <p class="tag">Система бренда</p>
 
-      <article class="card">
-        <div class="img">Презентация</div>
-        <div class="body">
-          <p class="name">Наша презентация</p>
-          <p class="desc">У нас не было презентации. Мы продавали в тексте — и давали общую ссылку на сайт. Но поняли: этому направлению нужна презентация. И решили сначала выстроить логику. Подумали, что человек должен понять из неё. Добавили своё рассуждение. Прописали, что за чем идёт. Обсудили и согласовали. Всё это время опирались на ценности студии — у нас есть своя карта смыслов. И только после этого шеф-дизайнер сделал дизайн.</p>
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Была не проблема логотипа, а отсутствие системы.</p>
+          </div>
+
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Собрали её — и документы, приложение, сайт заговорили одинаково.</p>
+          </div>
         </div>
       </article>
 
@@ -515,7 +591,7 @@
     <p class="lead">Тот, что уже есть внутри. Просто его пока не видно снаружи.</p>
 
     <div class="body-text">
-      <p>Мы не придумываем новое. Мы находим то, что уже работает в бизнесе — в истории, в людях, в том, как вы принимаете решения. И переводим это в форму.</p>
+      <p>Мы не придумываем новое. Мы находим то, что уже работает в бизнесе — в истории, в людях, в том, как вы принимаете решения. И соединяем это в форму.</p>
     </div>
 
     <p class="closing">Не меняем вас ради перемен. Делаем видимым то, чем вы уже стали.</p>
