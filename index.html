@@ -31,10 +31,11 @@
     overflow-x:hidden;
   }
 
+  /* -------- Воздух по краям: на мобильных 32px -------- */
   .wrap{
     max-width:1200px;
     margin:0 auto;
-    padding:0 24px;
+    padding:0 32px;
   }
 
   /* ---------- ЭКРАН 1 ---------- */
@@ -201,12 +202,13 @@
 
   .case .media img{width:100%;height:100%;object-fit:cover;display:block}
 
-  /* текст-подпись под фото — мелкий, сдвинут вправо */
+  /* подпись под фото — сдвинута вправо, но с воздухом справа */
   .case .text{
     max-width:100%;
     overflow-wrap:break-word;
-    width:88%;
-    margin-left:auto;      /* сдвиг вправо */
+    width:86%;
+    margin-left:auto;   /* сдвиг вправо */
+    padding-right:8px;  /* воздух справа, чтобы не упиралось в край */
     padding-top:2px;
   }
 
@@ -423,7 +425,7 @@
 
   /* ---------- Планшет и десктоп ---------- */
   @media (min-width:760px){
-    .wrap{padding:0 40px}
+    .wrap{padding:0 48px}
     .section{padding:100px 0}
     .hero{padding:110px 0 72px}
     .hero h1{font-size:clamp(2.8rem,7vw,6rem)}
@@ -441,8 +443,7 @@
     .cases{padding:72px 0 100px}
     .case{grid-template-columns:2fr 1fr;gap:40px;padding:56px 0}
 
-    /* на десктопе подпись возвращается на своё место */
-    .case .text{width:100%;margin-left:0;padding-top:8px}
+    .case .text{width:100%;margin-left:0;padding-top:8px;padding-right:0}
     .case .media{aspect-ratio:16/10}
     .case .name{font-size:1.5rem;margin-bottom:6px}
     .case .tag{font-size:0.72rem;margin-bottom:28px}
