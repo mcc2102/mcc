@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCC — смыслы и визуальный брендинг</title>
+<title>MCC — бутик-студия упаковки бизнеса смыслов</title>
 <style>
   :root{
-    --bg:#f7f5f1;
+    --bg:#f8f6f2;
     --ink:#1b1a18;
     --muted:#8b867e;
-    --line:#e2ddd5;
+    --line:#e6e1d8;
+
     --terracotta:#b0593a;
     --terracotta-dark:#9c4a2f;
-    --limo:#141311;
-    --limo-ink:#eae5db;
+    --forest:#1f3a2c;
+    --forest-ink:#eae5db;
+    --gold:#b08d57;
 
     --serif:"Georgia","Times New Roman",serif;
     --sans:"Helvetica Neue",Arial,sans-serif;
@@ -31,20 +33,20 @@
     overflow-x:hidden;
   }
 
-  /* -------- Воздух по краям: на мобильных 36px -------- */
+  /* -------- Воздух по краям: на мобильных 28px -------- */
   .wrap{
     max-width:1200px;
     margin:0 auto;
-    padding:0 36px;
+    padding:0 28px;
   }
 
-  /* ---------- Шапка-логотип ---------- */
+  /* ---------- Шапка с логотипом ---------- */
   .topbar{
     position:absolute;
-    top:28px;
+    top:24px;
     left:0;
     right:0;
-    z-index:2;
+    z-index:5;
   }
   .topbar .inner{
     display:flex;
@@ -55,35 +57,35 @@
   .brand{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
     text-decoration:none;
     color:var(--ink);
   }
   .brand-mark{
-    width:34px;
-    height:34px;
+    width:32px;
+    height:32px;
     border-radius:50%;
     background:conic-gradient(
       var(--terracotta) 0 33.3%,
       #efece6 33.3% 66.6%,
       #1b1a18 66.6% 100%
     );
-    border:1px solid rgba(27,26,24,.15);
+    border:1px solid rgba(27,26,24,.12);
     flex:0 0 auto;
   }
   .brand-name{
     font-family:var(--serif);
-    font-size:1.05rem;
-    letter-spacing:0.04em;
+    font-size:1rem;
+    letter-spacing:0.05em;
     text-transform:uppercase;
     line-height:1;
   }
   .brand-tag{
-    font-size:0.58rem;
+    font-size:0.55rem;
     letter-spacing:0.12em;
     text-transform:uppercase;
     color:var(--muted);
-    line-height:1.3;
+    line-height:1.25;
   }
 
   /* ---------- ЭКРАН 1 ---------- */
@@ -96,14 +98,14 @@
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:120px 0 64px;
+    padding:110px 0 56px;
   }
 
   .hero h1{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2.6rem,11vw,3.6rem);
-    line-height:1.03;
+    font-size:clamp(2.4rem,10.5vw,3.4rem);
+    line-height:1.04;
     letter-spacing:-0.02em;
     text-transform:uppercase;
     max-width:100%;
@@ -116,40 +118,44 @@
   .hero h1 .small{
     font-size:0.36em;
     line-height:1.1;
-    margin-top:0.65em;
+    margin-top:0.7em;
     letter-spacing:0.02em;
+    color:var(--gold);
+  }
+
+  .hero .note{
+    margin-top:36px;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    max-width:32ch;
   }
 
   /* ---------- Секции ---------- */
   .section{
-    padding:64px 0;
+    padding:56px 0;
     border-top:1px solid var(--line);
   }
 
-  .divider{
-    height:1px;
-    background:var(--line);
-    margin:0 36px;
-  }
-
   .eyebrow{
-    font-size:0.72rem;
-    letter-spacing:0.18em;
+    font-size:0.68rem;
+    letter-spacing:0.2em;
     text-transform:uppercase;
-    color:var(--muted);
-    margin-bottom:32px;
+    color:var(--gold);
+    margin-bottom:28px;
     overflow-wrap:break-word;
   }
 
   .editorial{
     display:grid;
     grid-template-columns:1fr;
-    gap:24px;
+    gap:22px;
   }
 
   .editorial .side{
     font-family:var(--serif);
-    font-size:1.3rem;
+    font-size:1.25rem;
     line-height:1.3;
     max-width:100%;
     overflow-wrap:break-word;
@@ -157,13 +163,13 @@
 
   .editorial .main p{
     font-family:var(--serif);
-    font-size:0.98rem;
-    line-height:1.65;
+    font-size:0.96rem;
+    line-height:1.7;
     max-width:100%;
     overflow-wrap:break-word;
   }
 
-  .editorial .main p + p{margin-top:16px}
+  .editorial .main p + p{margin-top:14px}
   .editorial .main .accent{color:var(--muted)}
 
   /* ---------- «С чем приходят» ---------- */
@@ -174,30 +180,32 @@
   }
 
   .situation{
-    padding:28px 0;
+    padding:24px 0;
     border-top:1px solid var(--line);
   }
 
+  .situation:first-child{border-top:none;padding-top:0}
+
   .situation .num{
     font-family:var(--serif);
-    font-size:0.85rem;
+    font-size:0.8rem;
     color:var(--terracotta);
     letter-spacing:0.1em;
-    margin-bottom:12px;
+    margin-bottom:10px;
   }
 
   .situation .quote{
     font-family:var(--serif);
-    font-size:1.05rem;
-    line-height:1.45;
-    margin-bottom:12px;
+    font-size:1rem;
+    line-height:1.5;
+    margin-bottom:10px;
     max-width:100%;
     overflow-wrap:break-word;
   }
 
   .situation .answer{
     color:var(--muted);
-    font-size:0.92rem;
+    font-size:0.9rem;
     font-weight:300;
     line-height:1.6;
     max-width:100%;
@@ -208,16 +216,16 @@
 
   /* ---------- Заголовок к кейсам ---------- */
   .cases-title{
-    padding:56px 0 0;
+    padding:48px 0 0;
     text-align:center;
   }
 
   .cases-title h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:1.25rem;
-    line-height:1.25;
-    letter-spacing:0;
+    font-size:1.15rem;
+    line-height:1.3;
+    letter-spacing:0.02em;
     text-transform:uppercase;
     max-width:100%;
     overflow-wrap:break-word;
@@ -226,14 +234,22 @@
 
   .cases-title h2 span{display:block}
 
+  .cases-title .sub{
+    margin-top:12px;
+    font-size:0.65rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
   /* ---------- Кейсы ---------- */
-  .cases{padding:40px 0 56px}
+  .cases{padding:32px 0 48px}
 
   .case{
     display:grid;
     grid-template-columns:1fr;
-    gap:14px;
-    padding:36px 0;
+    gap:12px;
+    padding:32px 0;
     border-top:1px solid var(--line);
   }
 
@@ -246,7 +262,7 @@
     align-items:center;
     justify-content:center;
     font-family:var(--serif);
-    font-size:1.1rem;
+    font-size:1rem;
     letter-spacing:0.08em;
     text-transform:uppercase;
     color:var(--muted);
@@ -257,20 +273,18 @@
 
   .case .media img{width:100%;height:100%;object-fit:cover;display:block}
 
-  /* подпись под фото — мелкая, сдвинута вправо */
   .case .text{
     max-width:100%;
     overflow-wrap:break-word;
     width:calc(100% - 16px);
     margin-left:16px;
-    padding-right:0;
     padding-top:2px;
   }
 
   .case .name{
     font-family:var(--serif);
     font-weight:400;
-    font-size:1rem;
+    font-size:0.98rem;
     line-height:1.2;
     margin-bottom:2px;
     max-width:100%;
@@ -278,7 +292,7 @@
   }
 
   .case .tag{
-    font-size:0.6rem;
+    font-size:0.58rem;
     letter-spacing:0.14em;
     text-transform:uppercase;
     color:var(--muted);
@@ -287,10 +301,10 @@
     overflow-wrap:break-word;
   }
 
-  .case .part{margin-top:10px}
+  .case .part{margin-top:9px}
 
   .case .part .label{
-    font-size:0.58rem;
+    font-size:0.56rem;
     letter-spacing:0.16em;
     text-transform:uppercase;
     color:var(--terracotta);
@@ -299,7 +313,7 @@
 
   .case .part p{
     font-family:var(--serif);
-    font-size:0.8rem;
+    font-size:0.78rem;
     line-height:1.55;
     color:var(--muted);
     max-width:100%;
@@ -309,72 +323,77 @@
   .cases-grid{
     display:grid;
     grid-template-columns:1fr;
-    gap:32px;
-    padding-top:32px;
+    gap:28px;
+    padding-top:28px;
     border-top:1px solid var(--line);
   }
 
-  .cases-grid .case{padding:0;border:none;gap:10px}
+  .cases-grid .case{padding:0;border:none;gap:8px}
   .cases-grid .case .media{aspect-ratio:4/3;margin-bottom:0}
   .cases-grid .case .text{width:calc(100% - 16px);margin-left:16px}
 
-  /* ---------- Манифест ---------- */
+  /* ---------- Манифест (тёмно-зелёный) ---------- */
   .manifest{
-    padding:72px 0;
-    background:var(--terracotta);
-    color:var(--ink);
+    padding:64px 0;
+    background:var(--forest);
+    color:var(--forest-ink);
     text-align:center;
   }
+
+  .manifest .eyebrow{color:var(--gold)}
 
   .manifest h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.5rem,6.5vw,3.6rem);
-    line-height:1.1;
+    font-size:clamp(1.4rem,6vw,3.2rem);
+    line-height:1.12;
     letter-spacing:-0.01em;
     text-transform:uppercase;
     max-width:100%;
     overflow-wrap:break-word;
     word-break:break-word;
+    color:var(--forest-ink);
   }
 
   .manifest .lead{
-    margin-top:20px;
-    font-size:0.95rem;
-    color:rgba(27,26,24,.8);
+    margin-top:18px;
+    font-size:0.92rem;
+    color:rgba(234,229,219,.75);
     max-width:100%;
-    line-height:1.55;
+    line-height:1.6;
     overflow-wrap:break-word;
   }
 
   .manifest .body-text{
-    margin-top:28px;
+    margin-top:24px;
     font-family:var(--serif);
-    font-size:0.92rem;
-    line-height:1.65;
+    font-size:0.9rem;
+    line-height:1.7;
     max-width:100%;
     overflow-wrap:break-word;
+    color:rgba(234,229,219,.9);
   }
 
   .manifest .closing{
-    margin-top:24px;
+    margin-top:22px;
     font-family:var(--serif);
-    font-size:1.05rem;
-    line-height:1.4;
+    font-size:1rem;
+    line-height:1.45;
     max-width:100%;
     overflow-wrap:break-word;
+    color:var(--forest-ink);
   }
 
   /* ---------- Основатель ---------- */
   .founder{
-    padding:64px 0;
+    padding:56px 0;
     border-top:1px solid var(--line);
   }
 
   .founder .inner{
     display:grid;
     grid-template-columns:1fr;
-    gap:28px;
+    gap:24px;
     text-align:center;
   }
 
@@ -382,7 +401,7 @@
     aspect-ratio:4/5;
     background:var(--line);
     overflow:hidden;
-    max-width:260px;
+    max-width:220px;
     margin:0 auto;
     width:100%;
   }
@@ -391,15 +410,15 @@
 
   .founder blockquote{
     font-family:var(--serif);
-    font-size:1.1rem;
-    line-height:1.45;
+    font-size:1.02rem;
+    line-height:1.5;
     max-width:100%;
     overflow-wrap:break-word;
   }
 
   .founder .sign{
-    margin-top:24px;
-    font-size:0.72rem;
+    margin-top:20px;
+    font-size:0.68rem;
     letter-spacing:0.14em;
     text-transform:uppercase;
     color:var(--muted);
@@ -407,28 +426,28 @@
 
   /* ---------- Подвал ---------- */
   .contact{
-    padding:72px 0 64px;
-    background:var(--limo);
-    color:var(--limo-ink);
+    padding:64px 0 56px;
+    background:#141311;
+    color:var(--forest-ink);
     text-align:center;
   }
 
   .contact h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.5rem,6vw,3rem);
-    line-height:1.12;
+    font-size:clamp(1.4rem,5.8vw,2.8rem);
+    line-height:1.14;
     text-transform:uppercase;
     letter-spacing:-0.01em;
-    color:var(--limo-ink);
+    color:var(--forest-ink);
     max-width:100%;
     overflow-wrap:break-word;
     word-break:break-word;
   }
 
   .contact .lead{
-    margin-top:24px;
-    font-size:0.95rem;
+    margin-top:20px;
+    font-size:0.92rem;
     line-height:1.65;
     color:rgba(234,229,219,.72);
     max-width:100%;
@@ -436,96 +455,97 @@
   }
 
   .contact .note{
-    margin-top:16px;
-    font-size:0.9rem;
+    margin-top:14px;
+    font-size:0.86rem;
     color:rgba(234,229,219,.55);
   }
 
   .contact .contacts{
-    margin-top:32px;
-    font-size:0.95rem;
+    margin-top:28px;
+    font-size:0.92rem;
     line-height:1.7;
-    color:var(--limo-ink);
+    color:var(--forest-ink);
     max-width:100%;
     overflow-wrap:break-word;
   }
 
   .contact .contacts a{
-    color:var(--limo-ink);
+    color:var(--forest-ink);
     text-decoration:none;
     border-bottom:1px solid rgba(234,229,219,.35);
     transition:border-color .25s ease;
     word-break:break-word;
   }
 
-  .contact .contacts a:hover{border-color:var(--limo-ink)}
+  .contact .contacts a:hover{border-color:var(--forest-ink)}
 
   .contact .btn{
     display:inline-block;
-    margin-top:32px;
+    margin-top:28px;
     font-family:var(--sans);
-    font-size:0.95rem;
-    letter-spacing:0.04em;
-    color:var(--ink);
-    background:var(--terracotta);
-    border:none;
+    font-size:0.9rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--forest-ink);
+    background:transparent;
+    border:1px solid var(--gold);
     padding:16px 24px;
     width:100%;
     max-width:320px;
     text-decoration:none;
-    transition:background .25s ease;
+    transition:background .25s ease, color .25s ease;
     text-align:center;
   }
 
-  .contact .btn:hover{background:var(--terracotta-dark);color:var(--ink)}
+  .contact .btn:hover{background:var(--gold);color:#141311}
 
   /* ---------- Планшет и десктоп ---------- */
   @media (min-width:760px){
     .wrap{padding:0 48px}
-    .divider{margin:0 48px}
-    .topbar{top:40px}
-    .brand-mark{width:40px;height:40px}
-    .brand-name{font-size:1.15rem}
-    .brand-tag{font-size:0.6rem}
+    .topbar{top:36px}
+    .brand-mark{width:38px;height:38px}
+    .brand-name{font-size:1.1rem}
+    .brand-tag{font-size:0.58rem}
 
-    .section{padding:100px 0}
-    .hero{padding:130px 0 72px}
-    .hero h1{font-size:clamp(2.8rem,7vw,6rem)}
+    .section{padding:96px 0}
+    .hero{padding:120px 0 72px}
+    .hero h1{font-size:clamp(3rem,7.5vw,6.2rem)}
     .hero h1 .small{font-size:0.3333em}
 
     .editorial{grid-template-columns:1fr 1.6fr;gap:56px}
     .editorial .side{font-size:clamp(1.6rem,3vw,2.6rem)}
-    .editorial .main p{font-size:clamp(1.05rem,1.4vw,1.25rem)}
+    .editorial .main p{font-size:clamp(1.05rem,1.4vw,1.22rem)}
 
     .situations .list{grid-template-columns:1fr 1fr}
     .situation{padding:32px 40px 32px 0}
+    .situation:first-child{padding-top:32px}
     .situation:nth-child(2n){padding-left:40px;padding-right:0;border-left:1px solid var(--line)}
 
     .cases-title{padding:80px 0 0}
     .cases-title h2{font-size:clamp(1.3rem,2vw,1.6rem)}
-    .cases{padding:56px 0 80px}
+    .cases{padding:56px 0 88px}
     .case{grid-template-columns:2fr 1fr;gap:40px;padding:48px 0}
 
-    .case .text{width:100%;margin-left:0;padding-top:8px;padding-right:0}
+    .case .text{width:100%;margin-left:0;padding-top:8px}
     .case .media{aspect-ratio:16/10}
-    .case .name{font-size:1.5rem;margin-bottom:6px}
-    .case .tag{font-size:0.72rem;margin-bottom:28px}
-    .case .part{margin-top:18px}
-    .case .part .label{font-size:0.72rem;margin-bottom:6px}
-    .case .part p{font-size:0.98rem;line-height:1.62;color:var(--ink)}
+    .case .name{font-size:1.45rem;margin-bottom:6px}
+    .case .tag{font-size:0.7rem;margin-bottom:26px}
+    .case .part{margin-top:16px}
+    .case .part .label{font-size:0.7rem;margin-bottom:6px}
+    .case .part p{font-size:0.96rem;line-height:1.62;color:var(--ink)}
 
     .cases-grid{grid-template-columns:1fr 1fr;gap:48px;padding-top:56px}
-    .cases-grid .case .name{font-size:1.3rem}
-    .cases-grid .case .part p{font-size:0.94rem}
+    .cases-grid .case .name{font-size:1.25rem}
+    .cases-grid .case .part p{font-size:0.92rem}
     .cases-grid .case .text{width:100%;margin-left:0}
 
-    .manifest{padding:120px 0}
+    .manifest{padding:130px 0}
     .manifest h2{font-size:clamp(2rem,5vw,4.4rem)}
     .manifest .lead{font-size:clamp(1.05rem,1.7vw,1.25rem);max-width:44ch;margin-left:auto;margin-right:auto}
-    .manifest .body-text{font-size:clamp(1rem,1.5vw,1.15rem);max-width:58ch;margin-left:auto;margin-right:auto;margin-top:36px}
-    .manifest .closing{font-size:clamp(1.2rem,2.1vw,1.5rem);max-width:38ch;margin-left:auto;margin-right:auto;margin-top:32px}
+    .manifest .body-text{font-size:clamp(1rem,1.5vw,1.15rem);max-width:58ch;margin-left:auto;margin-right:auto;margin-top:34px}
+    .manifest .closing{font-size:clamp(1.15rem,2.1vw,1.45rem);max-width:38ch;margin-left:auto;margin-right:auto;margin-top:30px}
 
-    .founder{padding:100px 0}
+    .founder{padding:96px 0}
     .founder .inner{grid-template-columns:1fr 1.4fr;gap:64px;text-align:left}
     .founder .photo{max-width:none;margin:0}
     .founder blockquote{font-size:clamp(1.4rem,2.6vw,2.1rem)}
@@ -534,7 +554,7 @@
     .contact h2{font-size:clamp(2rem,4.5vw,3.6rem)}
     .contact .lead{font-size:clamp(1.05rem,1.5vw,1.2rem);max-width:54ch;margin-left:auto;margin-right:auto}
     .contact .contacts{font-size:clamp(1rem,1.4vw,1.15rem)}
-    .contact .btn{width:auto;max-width:none;padding:22px 64px;font-size:clamp(1rem,1.4vw,1.12rem)}
+    .contact .btn{width:auto;max-width:none;padding:20px 56px;font-size:clamp(0.88rem,1.1vw,0.98rem)}
   }
 </style>
 </head>
@@ -562,11 +582,12 @@
     <span>Больше</span>
     <span class="small">Чем видно</span>
   </h1>
+  <p class="note">Смыслы и визуальный брендинг</p>
 </header>
 
 <!-- Редакционный блок -->
 <section class="section wrap">
-  <p class="eyebrow">Смыслы и визуальный брендинг</p>
+  <p class="eyebrow">О студии</p>
   <div class="editorial">
     <p class="side">Снаружи видно не всё.</p>
     <div class="main">
@@ -576,9 +597,6 @@
     </div>
   </div>
 </section>
-
-<!-- Разделитель-воздух -->
-<div class="divider" aria-hidden="true"></div>
 
 <!-- «С чем приходят» -->
 <section class="section situations wrap">
@@ -610,6 +628,7 @@
 <!-- Заголовок к кейсам -->
 <section class="cases-title wrap">
   <h2>Мышление,<span>которому мы придаём форму</span></h2>
+  <p class="sub">Избранные проекты</p>
 </section>
 
 <!-- Кейсы -->
@@ -768,6 +787,7 @@
 <!-- Манифест -->
 <section class="manifest">
   <div class="wrap">
+    <p class="eyebrow">Философия</p>
     <h2>Помогаем найти смысл</h2>
     <p class="lead">Тот, что уже есть внутри. Просто его пока не видно снаружи.</p>
     <div class="body-text">
