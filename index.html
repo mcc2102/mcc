@@ -2,585 +2,638 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MCC — смыслы и визуальный брендинг</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCC — Маркетинг. Стратегия. Смыслы.</title>
 <style>
 :root{
-  --bg:#f7f5f1;
-  --ink:#1b1a18;
-  --muted:#8b867e;
-  --line:#e2ddd5;
-  --terracotta:#b0593a;
-  --terracotta-dark:#9c4a2f;
-  --limo:#141311;
-  --limo-ink:#eae5db;
-  --serif:Georgia,"Times New Roman",serif;
+  --bg:#f5f2ec;
+  --paper:#ebe7df;
+  --ink:#201e1a;
+  --muted:#777168;
+  --line:#d8d2c8;
+  --terra:#a95136;
+  --dark:#191815;
+  --light:#eee9df;
+  --serif:"Georgia","Times New Roman",serif;
   --sans:"Helvetica Neue",Arial,sans-serif;
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  background:var(--bg);color:var(--ink);
-  font-family:var(--sans);line-height:1.5;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
   -webkit-font-smoothing:antialiased;
+  line-height:1.5;
   overflow-x:hidden;
 }
-.wrap{width:min(100% - 64px,1160px);margin:auto}
-img{display:block;width:100%;height:100%;object-fit:cover}
-
-/* ШАПКА */
-.topbar{position:absolute;top:0;left:0;right:0;padding-top:27px;z-index:2}
-.topbar .inner{display:flex;align-items:center}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
-.brand-mark{
-  width:34px;height:34px;border-radius:50%;flex:none;
-  background:conic-gradient(var(--terracotta) 0 33.3%,#efece6 33.3% 66.6%,#1b1a18 66.6% 100%);
-  border:1px solid rgba(27,26,24,.15)
+a{color:inherit}
+.wrap{width:min(1440px,100%);margin:auto;padding-inline:6vw}
+.topbar{
+  position:absolute;top:0;left:0;width:100%;z-index:5;
+  padding:30px 0;
 }
-.brand-name{font:17px var(--serif);letter-spacing:.08em;line-height:1}
-.brand-tag{display:block;margin-top:5px;font-size:8px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.topbar .inner{display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none}
+.brand-mark{
+  width:36px;height:36px;border-radius:50%;
+  background:conic-gradient(var(--terra) 0 33.3%,#e9e4da 33.3% 66.6%,#24221e 66.6%);
+  border:1px solid #c9c1b5;
+}
+.brand-name{
+  display:block;font:18px var(--serif);letter-spacing:.12em;
+}
+.brand-tag{
+  display:block;margin-top:4px;font-size:8px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+}
+.top-index{
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)
+}
 
-/* ПЕРВЫЙ ЭКРАН */
+/* HERO */
 .hero{
-  min-height:88svh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:100px 0 65px
+  min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;padding-top:130px;padding-bottom:80px;
+}
+.hero-kicker{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:34px;
 }
 .hero h1{
-  font:400 clamp(48px,7.8vw,100px)/.98 var(--serif);
-  letter-spacing:-.045em;text-transform:uppercase
+  font:400 clamp(76px,12.2vw,178px)/.82 var(--serif);
+  letter-spacing:-.075em;text-transform:uppercase;
+  max-width:1200px;
 }
 .hero h1 span{display:block}
-.hero h1 .small{
-  margin-top:17px;font-size:.36em;line-height:1.1;
-  letter-spacing:.06em
+.hero h1 .last{
+  color:var(--terra);font-size:.47em;letter-spacing:-.035em;
+  line-height:1.1;margin-top:28px;
+}
+.hero-bottom{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:40px;margin-top:clamp(55px,9vh,110px);
+}
+.hero-description{
+  max-width:370px;font:18px/1.5 var(--serif);
+}
+.hero-meta{
+  font-size:10px;line-height:1.7;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);text-align:right;
+}
+.scroll-mark{
+  position:absolute;bottom:28px;left:6vw;
+  font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
 }
 
-/* ОБЩИЕ СЕКЦИИ */
-.section{padding:65px 0;border-top:1px solid var(--line)}
+/* INTRO */
+.section{padding:130px 0;border-top:1px solid var(--line)}
 .eyebrow{
-  margin-bottom:24px;font-size:10px;
-  letter-spacing:.17em;text-transform:uppercase;color:var(--muted)
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:48px;
 }
-
-/* ВВОДНЫЙ БЛОК */
-.intro{
-  display:grid;grid-template-columns:.8fr 1.2fr;
-  gap:8%;align-items:start
+.intro-grid{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:10vw;
 }
 .intro-title{
-  font:400 clamp(28px,3.2vw,43px)/1.15 var(--serif);
-  letter-spacing:-.025em
+  font:400 clamp(38px,5vw,70px)/1.02 var(--serif);
+  letter-spacing:-.045em;max-width:480px;
 }
-.intro-copy{max-width:570px}
+.intro-copy{max-width:560px;padding-top:8px}
 .intro-copy p{
-  font:400 clamp(16px,1.5vw,19px)/1.65 var(--serif)
+  font:21px/1.55 var(--serif);margin-bottom:22px;
 }
-.intro-copy p+p{margin-top:12px}
-.intro-copy .accent{color:var(--muted)}
+.intro-copy p:last-child{margin-bottom:0}
+.intro-copy .muted{color:var(--muted)}
 
-/* С ЧЕМ ПРИХОДЯТ */
+/* SITUATIONS */
 .situations{
-  margin-top:25px;padding:65px 0 75px;
-  background:#f0ede7
+  background:var(--paper);padding:110px 0 125px;
 }
-.situations-inner{width:min(100% - 64px,1160px);margin:auto}
-.situations .eyebrow{margin-bottom:30px}
-.situations-list{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  column-gap:9%
+.situations-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:40px;margin-bottom:58px;
+}
+.situations-head h2{
+  font:400 clamp(40px,6vw,76px)/.98 var(--serif);
+  letter-spacing:-.055em;
+}
+.situations-head p{
+  max-width:240px;font-size:12px;line-height:1.6;color:var(--muted);
+}
+.situation-list{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line);
 }
 .situation{
-  padding:25px 0 28px;border-top:1px solid #d9d3ca
+  padding:34px 8% 38px 0;border-bottom:1px solid var(--line);
 }
-.situation .num{
-  margin-bottom:16px;color:var(--terracotta);
-  font:14px var(--serif);letter-spacing:.08em
+.situation:nth-child(even){
+  padding-left:8%;padding-right:0;border-left:1px solid var(--line);
 }
-.situation .quote{
-  max-width:470px;margin-bottom:13px;
-  font:400 clamp(18px,1.8vw,23px)/1.4 var(--serif)
+.num{font:15px var(--serif);color:var(--terra);margin-bottom:24px}
+.question{
+  font:400 clamp(21px,2.1vw,29px)/1.25 var(--serif);
+  max-width:500px;margin-bottom:22px;
 }
-.situation .answer{
-  max-width:440px;color:var(--muted);
-  font-size:13px;line-height:1.65
+.answer{
+  font-size:13px;line-height:1.7;color:var(--muted);max-width:460px;
 }
-.situation .answer b{color:var(--ink);font-weight:600}
+.answer b{color:var(--ink);font-weight:600}
 
-/* ЗАГОЛОВОК КЕЙСОВ */
-.cases-title{
-  padding:78px 0 36px;text-align:center
+/* CASES */
+.cases-intro{padding:125px 0 65px}
+.cases-intro .eyebrow{margin-bottom:25px}
+.cases-intro h2{
+  font:400 clamp(43px,7vw,92px)/.98 var(--serif);
+  letter-spacing:-.06em;max-width:900px;
 }
-.cases-title h2{
-  font:400 clamp(25px,3vw,36px)/1.2 var(--serif);
-  letter-spacing:-.02em
+.cases-intro h2 em{color:var(--terra);font-weight:400}
+.cases{padding-bottom:130px}
+.case-feature{
+  display:grid;grid-template-columns:1.55fr .65fr;
+  gap:7%;align-items:end;margin-bottom:110px;
 }
-.cases-title h2 span{display:block}
-
-/* КЕЙСЫ */
-.cases{padding-bottom:75px}
-.cases-grid{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  column-gap:38px;row-gap:48px
-}
-.case{min-width:0}
-.case .media{
-  width:100%;aspect-ratio:4/3;
-  background:#e8e3db;overflow:hidden;
+.case-feature.reverse{grid-template-columns:.65fr 1.55fr}
+.case-feature.reverse .media{order:2}
+.case-feature.reverse .case-info{order:1}
+.media{
+  position:relative;background:#d9d3c9;overflow:hidden;
+  min-height:300px;aspect-ratio:1.42;
   display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font:17px var(--serif);
-  letter-spacing:.08em;text-transform:uppercase
 }
-.case .media img{transition:transform .6s ease}
-.case:hover .media img{transform:scale(1.025)}
-.case .text{
-  width:88%;margin:16px 0 0 auto;
-  text-align:right
+.media:after{
+  content:"";position:absolute;inset:0;
+  border:1px solid rgba(32,30,26,.08);pointer-events:none;
 }
-.case .name{
-  font:400 22px/1.2 var(--serif);
-  margin-bottom:4px
+.media span{
+  font:italic 30px var(--serif);color:rgba(32,30,26,.45);
 }
-.case .tag{
-  color:var(--muted);font-size:9px;
-  letter-spacing:.12em;text-transform:uppercase;
-  margin-bottom:14px
+.media.dark{background:#292722}
+.media.dark span{color:rgba(238,233,223,.5)}
+.media.terra{background:#a95136}
+.media.terra span{color:rgba(32,30,26,.55)}
+.case-info{padding:0 0 8px}
+.case-number{
+  font-size:10px;letter-spacing:.17em;color:var(--terra);margin-bottom:22px;
 }
-.case .part{margin-top:10px}
-.case .part .label{
-  display:inline-block;margin-bottom:3px;
-  color:var(--terracotta);font-size:8px;
-  letter-spacing:.14em;text-transform:uppercase
+.case-name{
+  font:400 clamp(30px,3.3vw,47px)/1 var(--serif);
+  letter-spacing:-.04em;margin-bottom:8px;
 }
-.case .part p{
-  color:#777168;font:12px/1.5 var(--serif)
+.case-tag{
+  font-size:9px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:35px;
 }
+.case-part{margin-top:23px}
+.case-label{
+  font-size:9px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:7px;
+}
+.case-part p{
+  font:15px/1.55 var(--serif);color:#625d55;max-width:390px;
+}
+.case-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:90px 5%;
+}
+.case-grid .case-card:nth-child(even){padding-top:120px}
+.case-card .media{aspect-ratio:1.2;margin-bottom:25px}
+.case-card .case-name{font-size:34px}
+.case-card .case-tag{margin-bottom:25px}
+.case-card .case-part p{font-size:14px}
+.case-card .case-part{margin-top:17px}
 
-/* ПЕРВЫЕ ДВА КЕЙСА */
-.featured-cases{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:38px;margin-bottom:52px
-}
-.featured-cases .case .media{aspect-ratio:5/4}
-.featured-cases .case .name{font-size:25px}
-
-/* МАНИФЕСТ */
+/* MANIFEST */
 .manifest{
-  padding:66px 0;background:var(--terracotta);
-  color:var(--ink);text-align:center
+  background:var(--terra);padding:125px 0 135px;
 }
+.manifest-inner{max-width:1100px}
+.manifest .eyebrow{color:rgba(32,30,26,.65)}
 .manifest h2{
-  font:400 clamp(29px,4vw,48px)/1.1 var(--serif);
-  letter-spacing:-.025em;text-transform:uppercase
+  font:400 clamp(55px,9vw,120px)/.9 var(--serif);
+  letter-spacing:-.07em;max-width:1000px;
 }
-.manifest .lead{
-  max-width:470px;margin:16px auto 0;
-  color:rgba(27,26,24,.8);font-size:14px;line-height:1.55
+.manifest-copy{
+  display:grid;grid-template-columns:1fr 1fr;gap:8%;
+  margin-top:65px;padding-top:28px;border-top:1px solid rgba(32,30,26,.25);
 }
-.manifest .body-text{
-  max-width:590px;margin:30px auto 0;
-  font:16px/1.65 var(--serif)
-}
-.manifest .closing{
-  max-width:480px;margin:20px auto 0;
-  font:19px/1.4 var(--serif)
-}
+.manifest-copy p{font:18px/1.55 var(--serif);max-width:440px}
+.manifest-copy .closing{font-size:25px}
 
-/* ОСНОВАТЕЛЬ */
-.founder{padding:65px 0;border-top:1px solid var(--line)}
-.founder .inner{
-  display:grid;grid-template-columns:.65fr 1.35fr;
-  gap:9%;align-items:center
+/* FOUNDER */
+.founder{padding:120px 0}
+.founder-grid{
+  display:grid;grid-template-columns:.7fr 1.3fr;gap:10%;align-items:center;
 }
-.founder .photo{
-  width:100%;max-width:290px;aspect-ratio:4/5;
-  background:#e8e3db;overflow:hidden
+.founder-photo{
+  aspect-ratio:4/5;background:#ded8ce;overflow:hidden;
+}
+.founder-photo img{width:100%;height:100%;object-fit:cover}
+.founder-note{
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:35px;
 }
 .founder blockquote{
-  max-width:620px;font:400 clamp(22px,2.7vw,34px)/1.35 var(--serif)
+  font:400 clamp(25px,3.3vw,43px)/1.22 var(--serif);
+  letter-spacing:-.025em;max-width:720px;
 }
-.founder .sign{
-  margin-top:20px;color:var(--muted);
-  font-size:9px;letter-spacing:.14em;text-transform:uppercase
+.founder-sign{
+  margin-top:35px;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);
 }
 
-/* КОНТАКТЫ */
-.contact{
-  padding:65px 0 55px;background:var(--limo);
-  color:var(--limo-ink);text-align:center
+/* CONTACT */
+.contact{background:var(--dark);color:var(--light);padding:120px 0 65px}
+.contact-top{
+  display:grid;grid-template-columns:1.2fr .8fr;gap:8%;
+  padding-bottom:95px;
 }
 .contact h2{
-  font:400 clamp(29px,4vw,43px)/1.12 var(--serif);
-  letter-spacing:-.025em;text-transform:uppercase
+  font:400 clamp(55px,8vw,105px)/.92 var(--serif);
+  letter-spacing:-.06em;max-width:800px;
 }
-.contact .lead{
-  max-width:490px;margin:19px auto 0;
-  color:rgba(234,229,219,.72);font-size:13px;line-height:1.65
+.contact-copy{padding-top:12px;max-width:400px}
+.contact-copy p{font:18px/1.55 var(--serif);color:#c6c0b5}
+.contact-copy .note{
+  font:12px/1.6 var(--sans);color:#918b81;margin-top:20px;
 }
-.contact .note{
-  margin-top:10px;color:rgba(234,229,219,.5);font-size:12px
+.contact-bottom{
+  border-top:1px solid #48443d;padding-top:30px;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:30px;
 }
-.contact .contacts{
-  margin-top:25px;font-size:13px;line-height:1.8
+.contacts{font-size:13px;line-height:2;color:#c6c0b5}
+.contacts a{
+  color:var(--light);text-decoration:none;
+  border-bottom:1px solid #625d54;
 }
-.contact .contacts a{
-  color:var(--limo-ink);text-decoration:none;
-  border-bottom:1px solid rgba(234,229,219,.35)
+.contact-brand{font:20px var(--serif);letter-spacing:.1em}
+.contact-btn{
+  display:inline-block;margin-top:30px;padding:17px 30px;
+  background:var(--terra);color:var(--dark);
+  text-decoration:none;font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;transition:background .2s;
 }
-.contact .btn{
-  display:inline-block;margin-top:25px;padding:14px 38px;
-  background:var(--terracotta);color:var(--ink);
-  text-decoration:none;font-size:12px;letter-spacing:.04em;
-  transition:background .2s ease
-}
-.contact .btn:hover{background:var(--terracotta-dark)}
+.contact-btn:hover{background:#c17a5e}
 
-/* ПЛАНШЕТ */
-@media(max-width:760px){
-  .wrap,.situations-inner{width:calc(100% - 48px)}
-  .intro{grid-template-columns:.8fr 1.2fr;gap:28px}
-  .featured-cases{gap:24px}
-  .cases-grid{gap:35px 24px}
+/* TABLET */
+@media(max-width:900px){
+  .wrap{padding-inline:5vw}
+  .hero h1{font-size:clamp(76px,13vw,125px)}
+  .intro-grid{gap:6vw}
+  .case-feature,.case-feature.reverse{grid-template-columns:1.2fr .8fr;gap:5%}
+  .case-grid{gap:65px 5%}
+  .case-grid .case-card:nth-child(even){padding-top:80px}
 }
 
-/* МОБИЛЬНАЯ ВЕРСИЯ */
-@media(max-width:600px){
-  .wrap,.situations-inner{width:calc(100% - 40px)}
-  .topbar{padding-top:19px}
-  .brand-mark{width:29px;height:29px}
-  .brand-name{font-size:15px}
+/* MOBILE */
+@media(max-width:640px){
+  .wrap{padding-inline:23px}
+  .topbar{padding:22px 0}
+  .brand-mark{width:31px;height:31px}
+  .brand-name{font-size:16px}
   .brand-tag{font-size:7px}
-
-  .hero{min-height:76svh;padding:90px 0 50px}
-  .hero h1{font-size:clamp(47px,12.5vw,67px);line-height:1}
-  .hero h1 .small{margin-top:14px;font-size:.34em}
-
-  .section{padding:48px 0}
-  .eyebrow{font-size:9px;margin-bottom:19px}
-
-  .intro{display:block}
-  .intro-title{font-size:31px;margin-bottom:20px}
-  .intro-copy p{font-size:16px;line-height:1.6}
-  .intro-copy p+p{margin-top:10px}
-
-  .situations{
-    margin-top:18px;padding:48px 0 52px
+  .top-index{display:none}
+  .hero{
+    min-height:100svh;padding-top:130px;padding-bottom:90px;
+    align-items:flex-start;
   }
-  .situations .eyebrow{margin-bottom:22px}
-  .situations-list{grid-template-columns:1fr}
-  .situation{padding:20px 0 23px}
-  .situation .num{margin-bottom:12px;font-size:12px}
-  .situation .quote{font-size:20px;line-height:1.38}
-  .situation .answer{font-size:12px;line-height:1.6}
-
-  .cases-title{padding:55px 0 26px}
-  .cases-title h2{font-size:25px}
-  .cases{padding-bottom:52px}
-  .featured-cases{
-    grid-template-columns:1fr;gap:36px;margin-bottom:38px
+  .hero-kicker{font-size:8px;margin-bottom:35px}
+  .hero h1{font-size:clamp(67px,16vw,104px);line-height:.86}
+  .hero h1 .last{font-size:.48em;margin-top:22px}
+  .hero-bottom{display:block;margin-top:65px}
+  .hero-description{font-size:17px;max-width:310px}
+  .hero-meta{display:none}
+  .scroll-mark{left:23px;bottom:25px}
+  .section{padding:78px 0}
+  .eyebrow{font-size:9px;margin-bottom:30px}
+  .intro-grid{grid-template-columns:1fr;gap:28px}
+  .intro-title{font-size:47px;max-width:360px}
+  .intro-copy p{font-size:18px}
+  .situations{padding:78px 0 85px}
+  .situations-head{display:block;margin-bottom:35px}
+  .situations-head h2{font-size:52px}
+  .situations-head p{margin-top:18px}
+  .situation-list{grid-template-columns:1fr}
+  .situation,.situation:nth-child(even){
+    padding:27px 0 30px;border-left:0;
   }
-  .featured-cases .case .media{aspect-ratio:4/3}
-  .cases-grid{grid-template-columns:1fr;gap:36px}
-  .case .media{aspect-ratio:4/3}
-  .case .text{
-    width:84%;margin:12px 0 0 auto;text-align:right
+  .num{margin-bottom:16px}
+  .question{font-size:24px;margin-bottom:15px}
+  .answer{font-size:12px}
+  .cases-intro{padding:85px 0 40px}
+  .cases-intro h2{font-size:52px}
+  .cases{padding-bottom:80px}
+  .case-feature,.case-feature.reverse{
+    display:flex;flex-direction:column;gap:23px;margin-bottom:70px;
   }
-  .case .name{font-size:20px}
-  .case .tag{font-size:8px;margin-bottom:10px}
-  .case .part{margin-top:7px}
-  .case .part .label{font-size:7px}
-  .case .part p{font-size:11px;line-height:1.45}
-
-  .manifest{padding:48px 0}
-  .manifest h2{font-size:31px}
-  .manifest .lead{margin-top:12px;font-size:12px}
-  .manifest .body-text{margin-top:22px;font-size:14px;line-height:1.6}
-  .manifest .closing{margin-top:15px;font-size:16px}
-
-  .founder{padding:48px 0}
-  .founder .inner{grid-template-columns:1fr;gap:22px}
-  .founder .photo{max-width:190px;margin:auto}
-  .founder blockquote{font-size:23px;line-height:1.35}
-  .founder .sign{margin-top:15px}
-
-  .contact{padding:48px 0 42px}
-  .contact h2{font-size:30px}
-  .contact .lead{margin-top:15px;font-size:12px}
-  .contact .note{font-size:11px}
-  .contact .contacts{margin-top:20px;font-size:12px}
-  .contact .btn{margin-top:20px;padding:13px 34px}
-}
-
-@media(max-width:360px){
-  .wrap,.situations-inner{width:calc(100% - 32px)}
-  .hero h1{font-size:44px}
-  .intro-title{font-size:28px}
-  .situation .quote{font-size:18px}
+  .case-feature.reverse .media,.case-feature.reverse .case-info{order:initial}
+  .media{width:100%;aspect-ratio:1.12;min-height:0}
+  .media span{font-size:24px}
+  .case-info{width:100%}
+  .case-number{margin-bottom:14px}
+  .case-name{font-size:34px}
+  .case-tag{margin-bottom:23px}
+  .case-part{margin-top:17px}
+  .case-part p{font-size:14px;max-width:100%}
+  .case-grid{grid-template-columns:1fr;gap:65px}
+  .case-grid .case-card:nth-child(even){padding-top:0}
+  .case-card .media{aspect-ratio:1.15;margin-bottom:20px}
+  .case-card .case-name{font-size:32px}
+  .manifest{padding:85px 0 90px}
+  .manifest h2{font-size:65px}
+  .manifest-copy{grid-template-columns:1fr;gap:25px;margin-top:38px}
+  .manifest-copy p{font-size:17px}
+  .manifest-copy .closing{font-size:21px}
+  .founder{padding:80px 0}
+  .founder-grid{grid-template-columns:1fr;gap:30px}
+  .founder-photo{width:72%;max-width:300px;aspect-ratio:4/5}
+  .founder-note{margin-bottom:22px}
+  .founder blockquote{font-size:28px;max-width:100%}
+  .founder-sign{margin-top:22px}
+  .contact{padding:85px 0 35px}
+  .contact-top{grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+  .contact h2{font-size:65px}
+  .contact-copy p{font-size:17px}
+  .contact-bottom{display:block}
+  .contact-brand{margin-top:35px}
+  .contact-btn{width:100%;text-align:center}
 }
 </style>
 </head>
-
 <body>
 
-<div class="topbar">
-  <div class="wrap">
-    <div class="inner">
-      <a class="brand" href="#">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>
-          <span class="brand-name">MCC</span>
-          <span class="brand-tag">Бутик-студия упаковки бизнеса смыслов</span>
-        </span>
-      </a>
-    </div>
+<header class="topbar">
+  <div class="wrap inner">
+    <a class="brand" href="#">
+      <span class="brand-mark"></span>
+      <span>
+        <span class="brand-name">MCC</span>
+        <span class="brand-tag">Маркетинг. Стратегия. Смыслы.</span>
+      </span>
+    </a>
+    <span class="top-index">Independent brand studio</span>
   </div>
-</div>
-
-<header class="hero wrap">
-  <h1>
-    <span>Ваш бренд</span>
-    <span>Больше</span>
-    <span class="small">Чем видно</span>
-  </h1>
 </header>
 
-<section class="section wrap">
-  <p class="eyebrow">Смыслы и визуальный брендинг</p>
-  <div class="intro">
-    <p class="intro-title">Снаружи видно не всё.</p>
-    <div class="intro-copy">
-      <p>Бывает, бизнес вырос — а сайт, меню, вывеска остались прежними.</p>
-      <p class="accent">Не потому, что плохо сделаны. А потому, что форма не успела за смыслом.</p>
-      <p>Мы сокращаем это расстояние. Находим то, что уже есть, — и придаём этому форму.</p>
+<main>
+  <section class="hero wrap">
+    <p class="hero-kicker">Стратегия и визуальный брендинг</p>
+    <h1>
+      <span>Ваш бренд</span>
+      <span>больше</span>
+      <span class="last">чем видно</span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-description">
+        Помогаем бизнесу выразить то, чем он действительно является.
+        Сначала понимаем. Затем создаём.
+      </p>
+      <p class="hero-meta">Смыслы<br>Стратегия<br>Визуальная форма</p>
     </div>
-  </div>
-</section>
+    <span class="scroll-mark">Листайте вниз ↓</span>
+  </section>
 
-<section class="situations">
-  <div class="situations-inner">
-    <p class="eyebrow">С чем к нам приходят</p>
-    <div class="situations-list">
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">01 / Наш подход</p>
+      <div class="intro-grid">
+        <h2 class="intro-title">Снаружи видно не всё.</h2>
+        <div class="intro-copy">
+          <p>Бывает, бизнес вырос — а его образ остался прежним.</p>
+          <p class="muted">Не потому, что с ним что-то не так. Просто форма не всегда успевает за тем, каким он стал.</p>
+          <p>Мы помогаем сократить это расстояние — находим главное внутри бизнеса и делаем его видимым снаружи.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="situation">
-        <p class="num">01</p>
-        <p class="quote">«Мы хорошо знаем, что делаем, но сложно объяснить, почему клиенту стоит выбрать именно нас».</p>
-        <p class="answer"><b>Стратегия и смыслы</b> → находим то, что делает бизнес особенным, и формулируем это так, чтобы клиент понял и выбрал.</p>
+  <section class="situations">
+    <div class="wrap">
+      <div class="situations-head">
+        <div>
+          <p class="eyebrow">02 / С чем к нам приходят</p>
+          <h2>Когда бизнес<br>стал больше.</h2>
+        </div>
+        <p>Разные ситуации. Один общий вопрос — как выразить настоящую ценность бизнеса?</p>
       </div>
 
-      <div class="situation">
-        <p class="num">02</p>
-        <p class="quote">«Мы выросли, изменились, а наш образ будто остался в прошлом».</p>
-        <p class="answer"><b>Образ бренда</b> → помогаем выразить характер и уровень бизнеса через логотип и визуальный стиль.</p>
+      <div class="situation-list">
+        <article class="situation">
+          <p class="num">01</p>
+          <h3 class="question">«Мы хорошо знаем, что делаем, но сложно объяснить, почему клиенту стоит выбрать именно нас».</h3>
+          <p class="answer"><b>Стратегия и смыслы</b> — находим то, что делает бизнес особенным, и формулируем это так, чтобы клиент понял его ценность.</p>
+        </article>
+        <article class="situation">
+          <p class="num">02</p>
+          <h3 class="question">«Мы выросли, изменились, а наш образ будто остался в прошлом».</h3>
+          <p class="answer"><b>Образ бренда</b> — помогаем выразить характер и уровень бизнеса через логотип и визуальный стиль.</p>
+        </article>
+        <article class="situation">
+          <p class="num">03</p>
+          <h3 class="question">«Сайт есть, но он не помогает понять, чем мы отличаемся и почему стоит выбрать нас».</h3>
+          <p class="answer"><b>Сайты</b> — создаём сайты, которые раскрывают бизнес, его особенности и ценность для клиента.</p>
+        </article>
+        <article class="situation">
+          <p class="num">04</p>
+          <h3 class="question">«Отправляем презентацию, но клиенту всё равно сложно понять, что именно мы предлагаем и почему это стоит своих денег».</h3>
+          <p class="answer"><b>Презентации</b> — разрабатываем структуру, смыслы и тексты, которые помогают ясно представить компанию и её предложение.</p>
+        </article>
       </div>
+    </div>
+  </section>
 
-      <div class="situation">
-        <p class="num">03</p>
-        <p class="quote">«Сайт есть, но он не продаёт. Люди заходят — и уходят».</p>
-        <p class="answer"><b>Сайты</b> → создаём сайты, которые раскрывают бизнес, его особенности и ценность для клиента.</p>
+  <section class="cases-intro wrap">
+    <p class="eyebrow">03 / Избранные проекты</p>
+    <h2>Мышление,<br>которому мы <em>придаём форму.</em></h2>
+  </section>
+
+  <section class="cases wrap">
+
+    <article class="case-feature">
+      <div class="media dark"><span>MCC</span></div>
+      <div class="case-info">
+        <p class="case-number">01 / 07</p>
+        <h3 class="case-name">MCC</h3>
+        <p class="case-tag">Брендинг студии</p>
+        <div class="case-part">
+          <p class="case-label">Задача</p>
+          <p>Собрать воедино смыслы студии и показать их так, чтобы клиент с первого взгляда понимал, с кем имеет дело.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Что нашли</p>
+          <p>Собственную карту смыслов — то, как студия думает, принимает решения и строит работу. Это и стало основой бренда.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Форма</p>
+          <p>Логотип, типографика, палитра и носители, которые звучат одинаково — от сайта до презентации.</p>
+        </div>
       </div>
+    </article>
 
-      <div class="situation">
-        <p class="num">04</p>
-        <p class="quote">«Отправляем презентацию — и тишина. Клиент не понимает, за что платить».</p>
-        <p class="answer"><b>Презентации</b> → разрабатываем структуру, смыслы и тексты, которые помогают ясно представить компанию и её предложение.</p>
+    <article class="case-feature reverse">
+      <div class="media"><span>Le Centre</span></div>
+      <div class="case-info">
+        <p class="case-number">02 / 07</p>
+        <h3 class="case-name">Le Centre Champéry</h3>
+        <p class="case-tag">Ресторан · Швейцарские Альпы</p>
+        <div class="case-part">
+          <p class="case-label">Задача</p>
+          <p>Снова стать местом, куда хочется приходить за впечатлениями — гастрономическими и визуальными.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Что нашли</p>
+          <p>Балкон, с которого когда-то объявляли новости деревни. Эта деталь истории места стала основой концепции.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Форма</p>
+          <p>Балкон стал основой логотипа. Его образ перешёл в меню, униформу и другие элементы бренда.</p>
+        </div>
       </div>
+    </article>
 
+    <div class="case-grid">
+      <article class="case-card">
+        <div class="media terra"><span>Marco Corniola</span></div>
+        <p class="case-number">03 / 07</p>
+        <h3 class="case-name">Marco Corniola</h3>
+        <p class="case-tag">Сайт · нейрохирург</p>
+        <div class="case-part">
+          <p class="case-label">Задача</p>
+          <p>Сайт, который подтверждает доверие к врачу и выглядит профессионально, но по-человечески.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Что нашли</p>
+          <p>Точность без медицинских штампов. В основе — изгиб позвоночника и ритм ультразвуковых волн.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Форма</p>
+          <p>Структура, тексты и визуал, которые говорят о высоком профессиональном уровне специалиста.</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="media dark"><span>ANEO</span></div>
+        <p class="case-number">04 / 07</p>
+        <h3 class="case-name">ANEO Cryo Lounge</h3>
+        <p class="case-tag">Криотерапия · велнес</p>
+        <div class="case-part">
+          <p class="case-label">Задача</p>
+          <p>Сайт, который передаёт заботу и восстановление, оставаясь аутентичным для криотерапии.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Что нашли</p>
+          <p>Идею «от льда к воде»: острые пики айсберга переходят в плавную каплю.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Форма</p>
+          <p>Сайт и знак, которые одинаково уместны в велнесе, медицине и спорте — и остаются узнаваемыми.</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="media"><span>MsFid</span></div>
+        <p class="case-number">05 / 07</p>
+        <h3 class="case-name">MsFid</h3>
+        <p class="case-tag">Система бренда</p>
+        <div class="case-part">
+          <p class="case-label">Задача</p>
+          <p>Была не проблема логотипа, а отсутствие единой системы.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Что нашли</p>
+          <p>Необходимость объединить разные элементы бренда общей логикой и визуальным языком.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Форма</p>
+          <p>Документы, приложение и сайт стали частями одной системы.</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="media terra"><span>Marie Zesiger</span></div>
+        <p class="case-number">06 / 07</p>
+        <h3 class="case-name">Marie Zesiger</h3>
+        <p class="case-tag">Натуропатия · Женева</p>
+        <div class="case-part">
+          <p class="case-label">Задача</p>
+          <p>Профессиональный знак, объединяющий заботу о теле и разуме — без шаблонных велнес-символов.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Что нашли</p>
+          <p>Росток и лучезарное солнце в точной геометрии. Тёплая палитра передаёт связь с природой.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Форма</p>
+          <p>Логотип и айдентика, построенные на спокойной геометрии и природных оттенках.</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="media dark"><span>Time Immo</span></div>
+        <p class="case-number">07 / 07</p>
+        <h3 class="case-name">Time Immo</h3>
+        <p class="case-tag">Недвижимость · Швейцария</p>
+        <div class="case-part">
+          <p class="case-label">Задача</p>
+          <p>Отразить ценность времени и связь компании с недвижимостью в одном узнаваемом знаке.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Что нашли</p>
+          <p>Архитектурные формы и дуга солнечных часов: время, стабильность и поддержка клиента.</p>
+        </div>
+        <div class="case-part">
+          <p class="case-label">Форма</p>
+          <p>Знак и песочная палитра, которые говорят о надёжности без лишних слов.</p>
+        </div>
+      </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="cases-title wrap">
-  <h2>Мышление,<span>которому мы придаём форму</span></h2>
-</section>
-
-<section class="cases">
-  <div class="wrap">
-
-    <div class="featured-cases">
-
-      <article class="case">
-        <div class="media">MCC</div>
-        <div class="text">
-          <p class="name">MCC</p>
-          <p class="tag">Брендинг студии</p>
-          <div class="part">
-            <p class="label">Задача</p>
-            <p>Собрать воедино смыслы студии и показать их так, чтобы клиент с первого взгляда понимал, с кем имеет дело.</p>
-          </div>
-          <div class="part">
-            <p class="label">Что нашли</p>
-            <p>Собственную карту смыслов — то, как студия думает, принимает решения и строит работу. Это и стало основой бренда.</p>
-          </div>
-          <div class="part">
-            <p class="label">Форма</p>
-            <p>Логотип, типографика, палитра и носители, которые звучат одинаково — от сайта до презентации.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="media">Le Centre</div>
-        <div class="text">
-          <p class="name">Le Centre Champéry</p>
-          <p class="tag">Ресторан в Альпах</p>
-          <div class="part">
-            <p class="label">Задача</p>
-            <p>Снова стать местом, куда хочется приходить за впечатлениями — гастрономическими и визуальными.</p>
-          </div>
-          <div class="part">
-            <p class="label">Что нашли</p>
-            <p>Символ, который уже был в самом месте — балкон, с которого когда-то объявляли новости деревни. Тогда он объединял людей. И сейчас заведение снова объединяет их вокруг себя.</p>
-          </div>
-          <div class="part">
-            <p class="label">Форма</p>
-            <p>Логотип, который работает как настоящий брендинг — на сайте, на меню, униформе. Теперь визуал работает на первое впечатление.</p>
-          </div>
-        </div>
-      </article>
-
+  <section class="manifest">
+    <div class="wrap manifest-inner">
+      <p class="eyebrow">04 / Как мы работаем</p>
+      <h2>Помогаем найти то, что уже делает ваш бизнес особенным.</h2>
+      <div class="manifest-copy">
+        <p>Мы изучаем историю, характер и особенности бизнеса. Смотрим на то, что уже создано, как вы работаете и что отличает вас от других.</p>
+        <p class="closing">Не меняем вас ради перемен. Помогаем выразить то, чем вы уже стали.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="cases-grid">
-
-      <article class="case">
-        <div class="media">Marco Corniola</div>
-        <div class="text">
-          <p class="name">Marco Corniola</p>
-          <p class="tag">Сайт · нейрохирург</p>
-          <div class="part">
-            <p class="label">Задача</p>
-            <p>Сайт, который подтверждает доверие к врачу и выглядит профессионально, но по-человечески.</p>
-          </div>
-          <div class="part">
-            <p class="label">Что нашли</p>
-            <p>Точность без медицинских штампов. В основе — изгиб позвоночника и ритм ультразвуковых волн.</p>
-          </div>
-          <div class="part">
-            <p class="label">Форма</p>
-            <p>Структура, тексты и визуал, которые говорят: здесь работает высококлассный специалист.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="media">ANEO</div>
-        <div class="text">
-          <p class="name">ANEO Cryo Lounge</p>
-          <p class="tag">Сайт · криотерапия и велнес</p>
-          <div class="part">
-            <p class="label">Задача</p>
-            <p>Сайт, который передаёт заботу и восстановление, оставаясь аутентичным для криотерапии.</p>
-          </div>
-          <div class="part">
-            <p class="label">Что нашли</p>
-            <p>Идею «от льда к воде»: острые пики айсберга переходят в плавную каплю.</p>
-          </div>
-          <div class="part">
-            <p class="label">Форма</p>
-            <p>Сайт, который одинаково уместен в велнесе, медицине и спорте — и остаётся узнаваемым.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="media">MsFid</div>
-        <div class="text">
-          <p class="name">MsFid</p>
-          <p class="tag">Система бренда</p>
-          <div class="part">
-            <p class="label">Задача</p>
-            <p>Была не проблема логотипа, а отсутствие системы.</p>
-          </div>
-          <div class="part">
-            <p class="label">Что нашли</p>
-            <p>Собрали её — и документы, приложение, сайт заговорили одинаково.</p>
-          </div>
-          <div class="part">
-            <p class="label">Форма</p>
-            <p>Единая визуальная и смысловая система для всех носителей.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="media">Marie Zesiger</div>
-        <div class="text">
-          <p class="name">Marie Zesiger</p>
-          <p class="tag">Натуропатия · Женева</p>
-          <div class="part">
-            <p class="label">Задача</p>
-            <p>Профессиональный знак, объединяющий заботу о теле и разуме — без шаблонных велнес-символов.</p>
-          </div>
-          <div class="part">
-            <p class="label">Что нашли</p>
-            <p>Росток и лучезарное солнце в точной геометрии. Тёплая палитра передаёт связь с природой.</p>
-          </div>
-          <div class="part">
-            <p class="label">Форма</p>
-            <p>Логотип и айдентика, которые выглядят спокойно и дорого.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="media">Time Immo</div>
-        <div class="text">
-          <p class="name">Time Immo</p>
-          <p class="tag">Недвижимость · Швейцария</p>
-          <div class="part">
-            <p class="label">Задача</p>
-            <p>Отразить ценность времени и связь компании с недвижимостью в одном узнаваемом знаке.</p>
-          </div>
-          <div class="part">
-            <p class="label">Что нашли</p>
-            <p>Архитектурные формы и дуга солнечных часов: время, стабильность и поддержка клиента.</p>
-          </div>
-          <div class="part">
-            <p class="label">Форма</p>
-            <p>Знак и песочная палитра, которые говорят о надёжности без лишних слов.</p>
-          </div>
-        </div>
-      </article>
-
+  <section class="founder wrap">
+    <div class="founder-grid">
+      <div class="founder-photo">
+        <img src="" alt="Основатель студии MCC">
+      </div>
+      <div>
+        <p class="founder-note">05 / Основатель студии</p>
+        <blockquote>«Мне важно, чтобы бизнес выглядел так, как он на самом деле звучит внутри. Не громче. Не тише. Точнее».</blockquote>
+        <p class="founder-sign">Юлия · Основатель MCC</p>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="manifest">
-  <div class="wrap">
-    <h2>Помогаем найти смысл</h2>
-    <p class="lead">Тот, что уже есть внутри. Просто его пока не видно снаружи.</p>
-    <div class="body-text">
-      <p>Мы не придумываем новое. Мы находим то, что уже работает в бизнесе — в истории, в людях, в том, как вы принимаете решения. И соединяем это в форму.</p>
-    </div>
-    <p class="closing">Не меняем вас ради перемен. Делаем видимым то, чем вы уже стали.</p>
-  </div>
-</section>
-
-<section class="founder wrap">
-  <div class="inner">
-    <div class="photo">
-      <img src="" alt="Основатель студии MCC">
-    </div>
-    <div>
-      <blockquote>«Мне важно, чтобы бизнес выглядел так, как он на самом деле звучит внутри. Не громче. Не тише. Точнее».</blockquote>
-      <p class="sign">Основатель студии MCC</p>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer class="contact" id="contact">
   <div class="wrap">
-    <h2>Обсудим ваш проект?</h2>
-    <p class="lead">Напишите, что сейчас важно для вашего бизнеса. Что хотелось бы изменить или усилить. Можно просто в двух словах — я отвечу и предложу, с чего начать.</p>
-    <p class="note">Не обязательно брать всё сразу. Можно начать с одной задачи.</p>
-    <p class="contacts">
-      Телефон / WhatsApp / Telegram:<br>
-      <a href="tel:+79235703335">8 923 570-33-35</a><br>
-      Юлия, основатель студии MCC
-    </p>
-    <a class="btn" href="https://wa.me/79235703335" target="_blank" rel="noopener">Написать</a>
+    <div class="contact-top">
+      <h2>Обсудим<br>ваш проект?</h2>
+      <div class="contact-copy">
+        <p>Напишите, что сейчас важно для вашего бизнеса. Что хотелось бы изменить или усилить. Можно просто в двух словах — я отвечу и предложу, с чего начать.</p>
+        <p class="note">Не обязательно брать всё сразу. Можно начать с одного направления.</p>
+        <a class="contact-btn" href="https://wa.me/79235703335" target="_blank" rel="noopener">Написать</a>
+      </div>
+    </div>
+    <div class="contact-bottom">
+      <div class="contacts">
+        Телефон / WhatsApp / Telegram<br>
+        <a href="tel:+79235703335">8 923 570-33-35</a><br>
+        Юлия, основатель студии MCC
+      </div>
+      <div class="contact-brand">MCC</div>
+    </div>
   </div>
 </footer>
-
 </body>
 </html>
