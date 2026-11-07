@@ -146,11 +146,16 @@
 
   .cases-lead{
     font-family:var(--serif);
-    font-size:clamp(1.2rem,2.2vw,1.6rem);
-    line-height:1.4;
-    color:var(--muted);
-    margin-bottom:64px;
+    font-weight:400;
+    font-size:clamp(2rem,6vw,5rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin-bottom:72px;
   }
+
+  .cases-lead span{display:block}
 
   .cases-head{
     display:flex;
@@ -255,7 +260,7 @@
   .manifest h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2rem,6vw,5rem);
+    font-size:clamp(1.7rem,4.6vw,4.2rem);
     line-height:1.05;
     letter-spacing:-0.01em;
     text-transform:uppercase;
@@ -406,32 +411,73 @@
   }
 
   @media (max-width:640px){
-    .wrap{padding:0 20px}
+    /* больше воздуха по краям */
+    .wrap{padding:0 28px}
 
-    .hero{padding:72px 0 48px}
-    .hero h1{font-size:clamp(2.4rem,12vw,3.6rem)}
+    .hero{padding:80px 0 56px}
+    .hero h1{font-size:clamp(2.2rem,11vw,3.2rem)}
     .hero h1 .small{margin-top:0.6em}
 
-    .gap,.situations,.cases,.founder{padding:80px 0}
+    .gap,.situations,.cases,.founder{padding:88px 0}
     .manifest{padding:96px 0}
     .contact{padding:96px 0 88px}
 
-    .gap p{font-size:clamp(1.15rem,5vw,1.5rem)}
+    /* тексты — уже по ширине, с воздухом и по центру */
+    .gap p{
+      font-size:clamp(1.12rem,4.6vw,1.4rem);
+      max-width:30ch;
+      line-height:1.5;
+    }
+    .gap p + p{margin-top:28px}
 
-    .eyebrow{margin-bottom:40px}
-    .situations .grid{gap:36px}
+    .situations .grid{gap:44px;text-align:center}
+    .situation{
+      max-width:32ch;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .situation .quote{font-size:1.1rem;margin-bottom:16px}
+    .situation .answer{font-size:0.95rem}
 
-    .cases-lead{font-size:clamp(1.1rem,5vw,1.4rem);margin-bottom:40px}
-    .cases-head{flex-direction:column;align-items:center;gap:10px;margin-bottom:32px}
+    /* заголовок «Мышление…» — две строки, по центру */
+    .cases-lead{
+      font-size:clamp(1.7rem,7.6vw,2.4rem);
+      line-height:1.08;
+      margin-bottom:48px;
+      max-width:16ch;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .cases-head{flex-direction:column;align-items:center;gap:10px;margin-bottom:36px}
 
     .rail{gap:16px}
-    .card{flex:0 0 84vw;text-align:left}
-    .card .body{padding:20px 20px 28px}
+    .card{flex:0 0 82vw;text-align:left}
+    .card .body{padding:22px 22px 30px}
+    .card .part p{font-size:0.94rem;line-height:1.65}
 
-    .manifest h2{font-size:clamp(1.9rem,9vw,3rem)}
+    /* манифест — заголовок меньше, текст с воздухом */
+    .manifest h2{font-size:clamp(1.6rem,7vw,2.4rem)}
+    .manifest .lead{
+      font-size:clamp(1rem,4.4vw,1.15rem);
+      max-width:30ch;
+      margin-top:24px;
+    }
+    .manifest .body-text{
+      font-size:clamp(1rem,4.2vw,1.1rem);
+      max-width:30ch;
+      margin-top:32px;
+    }
+    .manifest .closing{
+      font-size:clamp(1.1rem,4.6vw,1.3rem);
+      max-width:28ch;
+      margin-top:32px;
+    }
 
-    .founder blockquote{font-size:clamp(1.2rem,5.5vw,1.6rem)}
+    .founder blockquote{font-size:clamp(1.2rem,5.2vw,1.55rem);max-width:26ch;margin-left:auto;margin-right:auto}
 
+    .contact .lead{max-width:30ch}
+    .contact .note{max-width:28ch;margin-left:auto;margin-right:auto}
     .contact .btn{width:100%;padding:20px 24px;font-size:1.05rem}
   }
 </style>
@@ -484,7 +530,7 @@
 <!-- ЭКРАН 4 -->
 <section class="cases">
   <div class="wrap">
-    <p class="cases-lead">Мышление, которому мы придаём форму</p>
+    <p class="cases-lead">Мышление,<span>которому мы придаём форму</span></p>
     <div class="cases-head">
       <p class="eyebrow" style="margin-bottom:0">Кейсы</p>
       <p class="hint">листайте →</p>
