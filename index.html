@@ -31,7 +31,6 @@
     overflow-x:hidden;
   }
 
-  /* -------- Воздух по краям: 32px -------- */
   .wrap{
     max-width:1200px;
     margin:0 auto;
@@ -122,8 +121,15 @@
 
   /* ---------- Секции ---------- */
   .section{
-    padding:56px 0;
+    padding:64px 0;
     border-top:1px solid var(--line);
+  }
+
+  /* Усиленный разделитель между блоками */
+  .section-sep{
+    border-top:1px solid var(--line);
+    margin-top:24px; 
+    padding-top:64px;
   }
 
   .eyebrow{
@@ -135,18 +141,24 @@
     overflow-wrap:break-word;
   }
 
+  /* Ограничение ширины для редакционного текста */
   .editorial{
     display:grid;
     grid-template-columns:1fr;
     gap:22px;
+    max-width: 100%;
   }
 
   .editorial .side{
     font-family:var(--serif);
     font-size:1.25rem;
     line-height:1.3;
-    max-width:100%;
+    max-width: 100%;
     overflow-wrap:break-word;
+  }
+
+  .editorial .main {
+    max-width: 42ch; /* <--- Вот здесь ограничение ширины текста */
   }
 
   .editorial .main p{
@@ -168,7 +180,7 @@
   }
 
   .situation{
-    padding:24px 0;
+    padding:32px 0; /* Чуть больше воздуха между ситуациями */
     border-top:1px solid var(--line);
   }
 
@@ -182,12 +194,13 @@
     margin-bottom:10px;
   }
 
+  /* Ограничение ширины цитаты и ответа */
   .situation .quote{
     font-family:var(--serif);
     font-size:1rem;
     line-height:1.5;
     margin-bottom:10px;
-    max-width:100%;
+    max-width: 38ch; /* Читабельная ширина */
     overflow-wrap:break-word;
   }
 
@@ -196,7 +209,7 @@
     font-size:0.9rem;
     font-weight:300;
     line-height:1.6;
-    max-width:100%;
+    max-width: 40ch;
     overflow-wrap:break-word;
   }
 
@@ -204,7 +217,7 @@
 
   /* ---------- Заголовок к кейсам ---------- */
   .cases-title{
-    padding:48px 0 0;
+    padding:56px 0 0;
     text-align:center;
   }
 
@@ -336,7 +349,9 @@
     margin-top:18px;
     font-size:0.92rem;
     color:rgba(27,26,24,.8);
-    max-width:100%;
+    max-width: 32ch; /* Ограничил ширину */
+    margin-left:auto;
+    margin-right:auto;
     line-height:1.6;
     overflow-wrap:break-word;
   }
@@ -346,7 +361,9 @@
     font-family:var(--serif);
     font-size:0.9rem;
     line-height:1.7;
-    max-width:100%;
+    max-width: 40ch;
+    margin-left:auto;
+    margin-right:auto;
     overflow-wrap:break-word;
     color:rgba(27,26,24,.9);
   }
@@ -356,7 +373,9 @@
     font-family:var(--serif);
     font-size:1rem;
     line-height:1.45;
-    max-width:100%;
+    max-width: 34ch;
+    margin-left:auto;
+    margin-right:auto;
     overflow-wrap:break-word;
     color:var(--ink);
   }
@@ -389,7 +408,9 @@
     font-family:var(--serif);
     font-size:1.02rem;
     line-height:1.5;
-    max-width:100%;
+    max-width: 36ch;
+    margin-left:auto;
+    margin-right:auto;
     overflow-wrap:break-word;
   }
 
@@ -427,7 +448,9 @@
     font-size:0.92rem;
     line-height:1.65;
     color:rgba(234,229,219,.72);
-    max-width:100%;
+    max-width: 38ch;
+    margin-left:auto;
+    margin-right:auto;
     overflow-wrap:break-word;
   }
 
@@ -485,11 +508,14 @@
     .brand-tag{font-size:0.58rem}
 
     .section{padding:96px 0}
+    .section-sep{padding-top:96px; margin-top:0;}
     .hero{padding:120px 0 72px}
     .hero h1{font-size:clamp(3rem,7.5vw,6.2rem)}
     .hero h1 .small{font-size:0.3333em}
 
-    .editorial{grid-template-columns:1fr 1.6fr;gap:56px}
+    /* На десктопе текст растягивается шире, но всё еще в рамках колонки */
+    .editorial{grid-template-columns:1fr 1.6fr;gap:56px;}
+    .editorial .main { max-width: 60ch; } /* На широком экране можно чуть шире */
     .editorial .side{font-size:clamp(1.6rem,3vw,2.6rem)}
     .editorial .main p{font-size:clamp(1.05rem,1.4vw,1.22rem)}
 
@@ -497,6 +523,9 @@
     .situation{padding:32px 40px 32px 0}
     .situation:first-child{padding-top:32px}
     .situation:nth-child(2n){padding-left:40px;padding-right:0;border-left:1px solid var(--line)}
+    
+    /* На десктопе снимаем ограничение ширины для цитат, т.к. сетка сама держит */
+    .situation .quote, .situation .answer { max-width: 100%; }
 
     .cases-title{padding:80px 0 0}
     .cases-title h2{font-size:clamp(1.3rem,2vw,1.6rem)}
@@ -525,7 +554,7 @@
     .founder{padding:96px 0}
     .founder .inner{grid-template-columns:1fr 1.4fr;gap:64px;text-align:left}
     .founder .photo{max-width:none;margin:0}
-    .founder blockquote{font-size:clamp(1.4rem,2.6vw,2.1rem)}
+    .founder blockquote{font-size:clamp(1.4rem,2.6vw,2.1rem);max-width: 100%; margin-left: 0;}
 
     .contact{padding:120px 0 100px}
     .contact h2{font-size:clamp(2rem,4.5vw,3.6rem)}
@@ -574,8 +603,8 @@
   </div>
 </section>
 
-<!-- «С чем приходят» -->
-<section class="section situations wrap">
+<!-- «С чем приходят» (добавлен класс section-sep для визуального разделения) -->
+<section class="section section-sep situations wrap">
   <p class="eyebrow">С чем к нам приходят</p>
   <div class="list">
     <div class="situation">
