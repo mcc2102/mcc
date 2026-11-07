@@ -68,7 +68,7 @@
 
   /* ---------- ЭКРАН 2 ---------- */
   .situations{
-    padding:160px 0;
+    padding:120px 0;
     border-top:1px solid var(--line);
   }
 
@@ -77,39 +77,40 @@
     letter-spacing:0.22em;
     text-transform:uppercase;
     color:var(--muted);
-    margin-bottom:72px;
+    margin-bottom:56px;
     text-align:center;
   }
 
   .situations .grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:80px 96px;
+    gap:56px 80px;
   }
 
   .situation{
     display:grid;
-    grid-template-columns:60px 1fr;
-    gap:24px;
+    grid-template-columns:52px 1fr;
+    gap:20px;
   }
 
   .situation .num{
     font-family:var(--serif);
-    font-size:1.7rem;
+    font-size:1.5rem;
     color:var(--terracotta);
     line-height:1.1;
   }
 
   .situation .quote{
     font-family:var(--serif);
-    font-size:1.4rem;
+    font-size:1.25rem;
     line-height:1.45;
-    margin-bottom:20px;
+    margin-bottom:14px;
   }
 
   .situation .answer{
     color:var(--muted);
-    font-size:1.08rem;
+    font-weight:300;
+    font-size:1rem;
     line-height:1.6;
   }
 
@@ -117,30 +118,32 @@
 
   /* ---------- ЭКРАН 3: заголовок к кейсам ---------- */
   .cases-title{
-    padding:160px 0 0;
+    padding:120px 0 0;
     text-align:center;
   }
 
   .cases-title h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2.2rem,6vw,5rem);
-    line-height:1.05;
+    font-size:clamp(2rem,5vw,4rem);
+    line-height:1.06;
     letter-spacing:-0.015em;
     text-transform:uppercase;
   }
 
   .cases-title h2 span{display:block}
 
-  /* ---------- ЭКРАН 4: кейс-разворот ---------- */
+  /* ---------- ЭКРАН 4: компактные кейсы ---------- */
+  .cases{
+    padding:72px 0 96px;
+  }
+
   .case{
-    padding:140px 0;
+    padding:48px 0;
     border-top:1px solid var(--line);
   }
 
-  .case:first-of-type{border-top:none}
-
-  /* фото на всю ширину */
+  /* фото сверху */
   .case .media{
     width:100%;
     aspect-ratio:16/9;
@@ -149,127 +152,107 @@
     align-items:center;
     justify-content:center;
     font-family:var(--serif);
-    font-size:clamp(1.4rem,3vw,2.4rem);
+    font-size:clamp(1.2rem,2.4vw,1.8rem);
     letter-spacing:0.1em;
     text-transform:uppercase;
     color:var(--muted);
     overflow:hidden;
-    margin-bottom:64px;
+    margin-bottom:24px;
   }
 
   .case .media img{
     width:100%;height:100%;object-fit:cover;display:block;
   }
 
-  /* под фото — три строки в аккуратной сетке */
-  .case .text{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:64px;
-    align-items:start;
+  /* подпись к фото — сдвинута вправо-вниз */
+  .case .caption{
+    margin-left:auto;
+    max-width:720px;
+    padding-right:8px;
   }
 
   .case .head{
-    grid-column:1 / -1;
     display:flex;
     align-items:baseline;
     justify-content:space-between;
-    gap:24px;
-    padding-bottom:28px;
-    margin-bottom:48px;
+    gap:20px;
+    padding-bottom:14px;
+    margin-bottom:20px;
     border-bottom:1px solid var(--line);
   }
 
   .case .name{
     font-family:var(--serif);
-    font-size:clamp(1.8rem,3.4vw,2.8rem);
-    line-height:1.12;
+    font-weight:400;
+    font-size:clamp(1.35rem,2.2vw,1.8rem);
+    line-height:1.15;
   }
 
   .case .tag{
-    font-size:0.8rem;
+    font-size:0.72rem;
     letter-spacing:0.16em;
     text-transform:uppercase;
     color:var(--muted);
     white-space:nowrap;
   }
 
+  /* три строки — мелкий тонкий serif */
+  .case .part{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:16px;
+    padding:10px 0;
+  }
+
+  .case .part + .part{border-top:1px solid var(--line)}
+
   .case .part .label{
-    font-size:0.76rem;
-    letter-spacing:0.18em;
+    font-family:var(--serif);
+    font-size:0.82rem;
+    letter-spacing:0.06em;
     text-transform:uppercase;
     color:var(--terracotta);
-    margin-bottom:12px;
+    line-height:1.5;
   }
 
   .case .part p{
-    font-size:1.08rem;
-    line-height:1.68;
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:0.95rem;
+    line-height:1.62;
+    color:var(--ink);
   }
 
-  /* два сайта — 2×1, каждый как отдельный разворот */
-  .cases-two .grid{
+  /* два сайта и остальные — компактная сетка 2×2 */
+  .cases-grid .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:64px;
+    gap:48px 48px;
+    margin-top:8px;
   }
 
-  .cases-two .case{
-    padding:0;
-    border:none;
+  .cases-grid .case{
+    padding:40px 0 0;
+    border-top:1px solid var(--line);
   }
 
-  .cases-two .case .media{
+  .cases-grid .case .media{
     aspect-ratio:4/3;
-    margin-bottom:40px;
+    margin-bottom:20px;
   }
 
-  .cases-two .case .text{
-    grid-template-columns:1fr;
-    gap:24px;
+  .cases-grid .case .caption{
+    max-width:none;
+    padding-right:0;
   }
 
-  .cases-two .case .head{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-    margin-bottom:32px;
-    padding-bottom:20px;
-  }
-
-  /* остальные — 2×2 */
-  .cases-four .grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:96px 64px;
-  }
-
-  .cases-four .case{
-    padding:0;
-    border:none;
-  }
-
-  .cases-four .case .media{
-    aspect-ratio:4/3;
-    margin-bottom:40px;
-  }
-
-  .cases-four .case .text{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-
-  .cases-four .case .head{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-    margin-bottom:32px;
-    padding-bottom:20px;
-  }
+  .cases-grid .case .name{font-size:1.3rem}
+  .cases-grid .case .part{grid-template-columns:100px 1fr;gap:12px;padding:8px 0}
+  .cases-grid .case .part p{font-size:0.92rem}
 
   /* ---------- ЭКРАН 5: манифест ---------- */
   .manifest{
-    padding:180px 0;
+    padding:140px 0;
     background:var(--terracotta);
     color:var(--ink);
     text-align:center;
@@ -278,15 +261,15 @@
   .manifest h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2rem,5.4vw,5rem);
+    font-size:clamp(1.9rem,5vw,4.4rem);
     line-height:1.05;
     letter-spacing:-0.015em;
     text-transform:uppercase;
   }
 
   .manifest .lead{
-    margin-top:36px;
-    font-size:clamp(1.15rem,1.9vw,1.4rem);
+    margin-top:28px;
+    font-size:clamp(1.05rem,1.7vw,1.25rem);
     color:rgba(27,26,24,.8);
     max-width:44ch;
     margin-left:auto;
@@ -295,18 +278,18 @@
   }
 
   .manifest .body-text{
-    margin-top:56px;
+    margin-top:40px;
     max-width:60ch;
     margin-left:auto;
     margin-right:auto;
-    font-size:clamp(1.15rem,1.8vw,1.3rem);
-    line-height:1.7;
+    font-size:clamp(1.05rem,1.6vw,1.18rem);
+    line-height:1.68;
   }
 
   .manifest .closing{
-    margin-top:48px;
+    margin-top:36px;
     font-family:var(--serif);
-    font-size:clamp(1.3rem,2.3vw,1.65rem);
+    font-size:clamp(1.2rem,2.1vw,1.5rem);
     line-height:1.42;
     max-width:38ch;
     margin-left:auto;
@@ -315,14 +298,14 @@
 
   /* ---------- ЭКРАН 6: основатель ---------- */
   .founder{
-    padding:160px 0;
+    padding:120px 0;
     border-top:1px solid var(--line);
   }
 
   .founder .inner{
     display:grid;
-    grid-template-columns:340px 1fr;
-    gap:96px;
+    grid-template-columns:300px 1fr;
+    gap:80px;
     align-items:center;
   }
 
@@ -336,13 +319,13 @@
 
   .founder blockquote{
     font-family:var(--serif);
-    font-size:clamp(1.5rem,2.8vw,2.3rem);
+    font-size:clamp(1.4rem,2.6vw,2.1rem);
     line-height:1.4;
   }
 
   .founder .sign{
-    margin-top:40px;
-    font-size:0.85rem;
+    margin-top:32px;
+    font-size:0.82rem;
     letter-spacing:0.16em;
     text-transform:uppercase;
     color:var(--muted);
@@ -350,7 +333,7 @@
 
   /* ---------- ЭКРАН 7: подвал ---------- */
   .contact{
-    padding:160px 0 140px;
+    padding:140px 0 120px;
     background:var(--limo);
     color:var(--limo-ink);
     text-align:center;
@@ -359,7 +342,7 @@
   .contact h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2rem,5vw,3.8rem);
+    font-size:clamp(1.9rem,4.6vw,3.6rem);
     line-height:1.1;
     text-transform:uppercase;
     letter-spacing:-0.015em;
@@ -367,24 +350,24 @@
   }
 
   .contact .lead{
-    margin-top:40px;
+    margin-top:36px;
     max-width:54ch;
     margin-left:auto;
     margin-right:auto;
-    font-size:clamp(1.15rem,1.8vw,1.35rem);
+    font-size:clamp(1.05rem,1.6vw,1.22rem);
     line-height:1.7;
     color:rgba(234,229,219,.72);
   }
 
   .contact .note{
-    margin-top:24px;
-    font-size:1.08rem;
+    margin-top:20px;
+    font-size:1rem;
     color:rgba(234,229,219,.55);
   }
 
   .contact .contacts{
-    margin-top:56px;
-    font-size:clamp(1.15rem,1.7vw,1.3rem);
+    margin-top:48px;
+    font-size:clamp(1.05rem,1.5vw,1.2rem);
     line-height:1.8;
     color:var(--limo-ink);
   }
@@ -400,14 +383,14 @@
 
   .contact .btn{
     display:inline-block;
-    margin-top:56px;
+    margin-top:48px;
     font-family:var(--sans);
-    font-size:clamp(1.05rem,1.6vw,1.2rem);
+    font-size:clamp(1rem,1.5vw,1.15rem);
     letter-spacing:0.04em;
     color:var(--ink);
     background:var(--terracotta);
     border:none;
-    padding:24px 72px;
+    padding:22px 64px;
     text-decoration:none;
     transition:background .25s ease;
   }
@@ -416,12 +399,8 @@
 
   /* ---------- АДАПТИВ ---------- */
   @media (max-width:1000px){
-    .case .text{grid-template-columns:1fr;gap:32px}
-    .case .head{margin-bottom:36px}
-    .case .media{margin-bottom:48px}
-
-    .founder .inner{grid-template-columns:1fr;gap:48px;text-align:center}
-    .founder .photo{max-width:300px;margin:0 auto}
+    .founder .inner{grid-template-columns:1fr;gap:40px;text-align:center}
+    .founder .photo{max-width:260px;margin:0 auto}
   }
 
   @media (max-width:760px){
@@ -431,45 +410,50 @@
     .hero h1{font-size:clamp(2.4rem,11vw,3.6rem)}
     .hero h1 .small{margin-top:0.65em}
 
-    .situations{padding:96px 0}
-    .cases-title{padding:96px 0 0}
-    .case{padding:88px 0}
-    .cases-two,.cases-four{padding:88px 0}
-    .manifest{padding:110px 0}
-    .founder{padding:96px 0}
-    .contact{padding:110px 0 100px}
+    .situations{padding:80px 0}
+    .cases-title{padding:80px 0 0}
+    .cases{padding:56px 0 72px}
+    .manifest{padding:96px 0}
+    .founder{padding:88px 0}
+    .contact{padding:100px 0 88px}
 
-    .eyebrow{margin-bottom:48px}
+    .eyebrow{margin-bottom:40px}
 
-    .situations .grid{grid-template-columns:1fr;gap:52px}
-    .situation{grid-template-columns:48px 1fr;gap:18px}
-    .situation .num{font-size:1.5rem}
-    .situation .quote{font-size:1.3rem}
-    .situation .answer{font-size:1.08rem}
+    .situations .grid{grid-template-columns:1fr;gap:40px}
+    .situation{grid-template-columns:44px 1fr;gap:16px}
+    .situation .num{font-size:1.35rem}
+    .situation .quote{font-size:1.2rem}
+    .situation .answer{font-size:1rem}
 
-    .cases-title h2{font-size:clamp(1.9rem,8.4vw,2.8rem)}
+    .cases-title h2{font-size:clamp(1.8rem,8vw,2.6rem)}
 
-    .case .media{aspect-ratio:4/3;margin-bottom:40px}
-    .case .name{font-size:1.8rem}
-    .case .tag{font-size:0.8rem}
-    .case .part p{font-size:1.08rem;line-height:1.68}
+    /* каждый кейс — минимум места, в одну колонку */
+    .case{padding:36px 0}
+    .case .media{aspect-ratio:4/3;margin-bottom:18px}
+    .case .caption{max-width:none;padding-right:0;margin-left:0}
+    .case .head{flex-direction:column;align-items:flex-start;gap:6px;padding-bottom:10px;margin-bottom:14px}
+    .case .name{font-size:1.3rem}
+    .case .tag{font-size:0.72rem}
+    .case .part{grid-template-columns:1fr;gap:4px;padding:8px 0}
+    .case .part .label{font-size:0.76rem}
+    .case .part p{font-size:0.95rem;line-height:1.58}
 
-    .cases-two .grid,
-    .cases-four .grid{grid-template-columns:1fr;gap:72px}
-    .cases-two .case .media,
-    .cases-four .case .media{margin-bottom:32px}
+    .cases-grid .grid{grid-template-columns:1fr;gap:36px}
+    .cases-grid .case{padding:32px 0 0}
+    .cases-grid .case .media{aspect-ratio:4/3;margin-bottom:18px}
+    .cases-grid .case .part{grid-template-columns:1fr;gap:4px}
 
-    .manifest h2{font-size:clamp(1.9rem,8vw,2.8rem)}
-    .manifest .lead{font-size:1.2rem;margin-top:28px}
-    .manifest .body-text{font-size:1.18rem;margin-top:40px}
-    .manifest .closing{font-size:1.35rem;margin-top:36px}
+    .manifest h2{font-size:clamp(1.8rem,8vw,2.6rem)}
+    .manifest .lead{font-size:1.12rem;margin-top:24px}
+    .manifest .body-text{font-size:1.1rem;margin-top:32px}
+    .manifest .closing{font-size:1.25rem;margin-top:28px}
 
-    .founder blockquote{font-size:clamp(1.35rem,5.8vw,1.75rem)}
+    .founder blockquote{font-size:clamp(1.3rem,5.6vw,1.7rem)}
 
-    .contact .lead{font-size:1.2rem}
-    .contact .note{font-size:1.08rem}
-    .contact .contacts{font-size:1.18rem}
-    .contact .btn{width:100%;padding:24px 24px;font-size:1.18rem}
+    .contact .lead{font-size:1.12rem}
+    .contact .note{font-size:1rem}
+    .contact .contacts{font-size:1.1rem}
+    .contact .btn{width:100%;padding:22px 24px;font-size:1.12rem}
   }
 </style>
 </head>
@@ -524,65 +508,65 @@
   <h2>Мышление,<span>которому мы придаём форму</span></h2>
 </section>
 
-<!-- ЭКРАН 4: кейсы -->
-
-<!-- Кейс 1: MCC -->
-<section class="case">
+<!-- ЭКРАН 4: компактные кейсы -->
+<section class="cases">
   <div class="wrap">
-    <div class="media">MCC</div>
-    <div class="text">
-      <div class="head">
-        <p class="name">MCC</p>
-        <p class="tag">Брендинг студии</p>
+
+    <!-- Кейс 1: MCC -->
+    <article class="case">
+      <div class="media">MCC</div>
+      <div class="caption">
+        <div class="head">
+          <p class="name">MCC</p>
+          <p class="tag">Брендинг студии</p>
+        </div>
+        <div class="part">
+          <p class="label">Задача</p>
+          <p>Собрать воедино смыслы студии и показать их так, чтобы клиент с первого взгляда понимал, с кем имеет дело.</p>
+        </div>
+        <div class="part">
+          <p class="label">Что нашли</p>
+          <p>Собственную карту смыслов — то, как студия думает, принимает решения и строит работу. Это и стало основой бренда.</p>
+        </div>
+        <div class="part">
+          <p class="label">Форма</p>
+          <p>Логотип, типографика, палитра и носители, которые звучат одинаково — от сайта до презентации.</p>
+        </div>
       </div>
-      <div class="part">
-        <p class="label">Задача</p>
-        <p>Собрать воедино смыслы студии и показать их так, чтобы клиент с первого взгляда понимал, с кем имеет дело.</p>
+    </article>
+
+    <!-- Кейс 2: Le Centre -->
+    <article class="case">
+      <div class="media">Le Centre</div>
+      <div class="caption">
+        <div class="head">
+          <p class="name">Le Centre Champéry</p>
+          <p class="tag">Ресторан в Альпах</p>
+        </div>
+        <div class="part">
+          <p class="label">Задача</p>
+          <p>Снова стать местом, куда хочется приходить за впечатлениями — гастрономическими и визуальными.</p>
+        </div>
+        <div class="part">
+          <p class="label">Что нашли</p>
+          <p>Символ, который уже был в самом месте — балкон, с которого когда-то объявляли новости деревни. Тогда он объединял людей. И сейчас заведение снова объединяет их вокруг себя.</p>
+        </div>
+        <div class="part">
+          <p class="label">Форма</p>
+          <p>Логотип, который работает как настоящий брендинг — на сайте, на меню, униформе. Теперь визуал работает на первое впечатление.</p>
+        </div>
       </div>
-      <div class="part">
-        <p class="label">Что нашли</p>
-        <p>Собственную карту смыслов — то, как студия думает, принимает решения и строит работу. Это и стало основой бренда.</p>
-      </div>
-      <div class="part">
-        <p class="label">Форма</p>
-        <p>Логотип, типографика, палитра и носители, которые звучат одинаково — от сайта до презентации.</p>
-      </div>
-    </div>
+    </article>
+
   </div>
-</section>
 
-<!-- Кейс 2: Le Centre -->
-<section class="case">
-  <div class="wrap">
-    <div class="media">Le Centre</div>
-    <div class="text">
-      <div class="head">
-        <p class="name">Le Centre Champéry</p>
-        <p class="tag">Ресторан в Альпах</p>
-      </div>
-      <div class="part">
-        <p class="label">Задача</p>
-        <p>Снова стать местом, куда хочется приходить за впечатлениями — гастрономическими и визуальными.</p>
-      </div>
-      <div class="part">
-        <p class="label">Что нашли</p>
-        <p>Символ, который уже был в самом месте — балкон, с которого когда-то объявляли новости деревни. Тогда он объединял людей. И сейчас заведение снова объединяет их вокруг себя.</p>
-      </div>
-      <div class="part">
-        <p class="label">Форма</p>
-        <p>Логотип, который работает как настоящий брендинг — на сайте, на меню, униформе. Теперь визуал работает на первое впечатление. Место запоминается и его узнают.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Кейсы 3–4: два сайта -->
-<section class="cases-two">
-  <div class="wrap">
+  <!-- Кейсы сеткой: сайты и остальные -->
+  <div class="wrap cases-grid">
     <div class="grid">
+
       <article class="case">
         <div class="media">Marco Corniola</div>
-        <div class="text">
+        <div class="caption">
           <div class="head">
             <p class="name">Marco Corniola</p>
             <p class="tag">Сайт · нейрохирург</p>
@@ -597,14 +581,14 @@
           </div>
           <div class="part">
             <p class="label">Форма</p>
-            <p>Структура, тексты и визуал, которые с первого экрана говорят: здесь работает высококлассный специалист.</p>
+            <p>Структура, тексты и визуал, которые говорят: здесь работает высококлассный специалист.</p>
           </div>
         </div>
       </article>
 
       <article class="case">
         <div class="media">ANEO</div>
-        <div class="text">
+        <div class="caption">
           <div class="head">
             <p class="name">ANEO Cryo Lounge</p>
             <p class="tag">Сайт · криотерапия и велнес</p>
@@ -623,17 +607,10 @@
           </div>
         </div>
       </article>
-    </div>
-  </div>
-</section>
 
-<!-- Кейсы 5–8: остальные -->
-<section class="cases-four">
-  <div class="wrap">
-    <div class="grid">
       <article class="case">
         <div class="media">MsFid</div>
-        <div class="text">
+        <div class="caption">
           <div class="head">
             <p class="name">MsFid</p>
             <p class="tag">Система бренда</p>
@@ -655,7 +632,7 @@
 
       <article class="case">
         <div class="media">Marie Zesiger</div>
-        <div class="text">
+        <div class="caption">
           <div class="head">
             <p class="name">Marie Zesiger</p>
             <p class="tag">Натуропатия · Женева</p>
@@ -677,7 +654,7 @@
 
       <article class="case">
         <div class="media">Time Immo</div>
-        <div class="text">
+        <div class="caption">
           <div class="head">
             <p class="name">Time Immo</p>
             <p class="tag">Недвижимость · Швейцария</p>
@@ -697,27 +674,6 @@
         </div>
       </article>
 
-      <article class="case">
-        <div class="media">Презентация</div>
-        <div class="text">
-          <div class="head">
-            <p class="name">Наша презентация</p>
-            <p class="tag">Презентация студии</p>
-          </div>
-          <div class="part">
-            <p class="label">Задача</p>
-            <p>У нас не было презентации — мы продавали в тексте и давали ссылку на сайт.</p>
-          </div>
-          <div class="part">
-            <p class="label">Что нашли</p>
-            <p>Сначала выстроили логику: что человек должен понять, что за чем идёт. Опирались на карту смыслов студии.</p>
-          </div>
-          <div class="part">
-            <p class="label">Форма</p>
-            <p>Презентация, в которой дизайн следует за смыслом, а не наоборот.</p>
-          </div>
-        </div>
-      </article>
     </div>
   </div>
 </section>
