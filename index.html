@@ -125,7 +125,6 @@
     border-top:1px solid var(--line);
   }
 
-  /* Усиленный разделитель между блоками */
   .section-sep{
     border-top:1px solid var(--line);
     margin-top:24px; 
@@ -141,7 +140,7 @@
     overflow-wrap:break-word;
   }
 
-  /* Ограничение ширины для редакционного текста */
+  /* Ограничение ширины и добавление воздуха справа */
   .editorial{
     display:grid;
     grid-template-columns:1fr;
@@ -158,7 +157,8 @@
   }
 
   .editorial .main {
-    max-width: 42ch; /* <--- Вот здесь ограничение ширины текста */
+    max-width: 100%;
+    padding-right: 24px; /* <--- Воздух справа для блока "Снаружи видно не всё" */
   }
 
   .editorial .main p{
@@ -180,7 +180,7 @@
   }
 
   .situation{
-    padding:32px 0; /* Чуть больше воздуха между ситуациями */
+    padding:32px 0;
     border-top:1px solid var(--line);
   }
 
@@ -194,13 +194,14 @@
     margin-bottom:10px;
   }
 
-  /* Ограничение ширины цитаты и ответа */
+  /* Добавлен отступ справа для цитат и ответов */
   .situation .quote{
     font-family:var(--serif);
     font-size:1rem;
     line-height:1.5;
     margin-bottom:10px;
-    max-width: 38ch; /* Читабельная ширина */
+    max-width: 100%;
+    padding-right: 16px; /* <--- Воздух справа */
     overflow-wrap:break-word;
   }
 
@@ -209,7 +210,8 @@
     font-size:0.9rem;
     font-weight:300;
     line-height:1.6;
-    max-width: 40ch;
+    max-width: 100%;
+    padding-right: 16px; /* <--- Воздух справа */
     overflow-wrap:break-word;
   }
 
@@ -325,7 +327,7 @@
   .cases-grid .case .media{aspect-ratio:4/3;margin-bottom:0}
   .cases-grid .case .text{width:calc(100% - 16px);margin-left:16px}
 
-  /* ---------- Манифест (терракота) ---------- */
+  /* ---------- Манифест ---------- */
   .manifest{
     padding:64px 0;
     background:var(--terracotta);
@@ -349,7 +351,7 @@
     margin-top:18px;
     font-size:0.92rem;
     color:rgba(27,26,24,.8);
-    max-width: 32ch; /* Ограничил ширину */
+    max-width: 32ch;
     margin-left:auto;
     margin-right:auto;
     line-height:1.6;
@@ -422,7 +424,7 @@
     color:var(--muted);
   }
 
-  /* ---------- Подвал (чёрный) ---------- */
+  /* ---------- Подвал ---------- */
   .contact{
     padding:64px 0 56px;
     background:var(--limo);
@@ -513,9 +515,8 @@
     .hero h1{font-size:clamp(3rem,7.5vw,6.2rem)}
     .hero h1 .small{font-size:0.3333em}
 
-    /* На десктопе текст растягивается шире, но всё еще в рамках колонки */
     .editorial{grid-template-columns:1fr 1.6fr;gap:56px;}
-    .editorial .main { max-width: 60ch; } /* На широком экране можно чуть шире */
+    .editorial .main { padding-right: 0; } /* Убираем воздух на десктопе */
     .editorial .side{font-size:clamp(1.6rem,3vw,2.6rem)}
     .editorial .main p{font-size:clamp(1.05rem,1.4vw,1.22rem)}
 
@@ -524,8 +525,7 @@
     .situation:first-child{padding-top:32px}
     .situation:nth-child(2n){padding-left:40px;padding-right:0;border-left:1px solid var(--line)}
     
-    /* На десктопе снимаем ограничение ширины для цитат, т.к. сетка сама держит */
-    .situation .quote, .situation .answer { max-width: 100%; }
+    .situation .quote, .situation .answer { padding-right: 0; }
 
     .cases-title{padding:80px 0 0}
     .cases-title h2{font-size:clamp(1.3rem,2vw,1.6rem)}
@@ -603,7 +603,7 @@
   </div>
 </section>
 
-<!-- «С чем приходят» (добавлен класс section-sep для визуального разделения) -->
+<!-- «С чем приходят» -->
 <section class="section section-sep situations wrap">
   <p class="eyebrow">С чем к нам приходят</p>
   <div class="list">
