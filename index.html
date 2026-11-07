@@ -6,16 +6,14 @@
 <title>MCC — смыслы и визуальный брендинг</title>
 <style>
   :root{
-    --bg:#f6f4f0;
-    --ink:#1c1b19;
-    --muted:#8a857d;
-    --line:#ddd8d0;
-    --card:#efece6;
-
+    --bg:#f7f5f1;
+    --ink:#1b1a18;
+    --muted:#8b867e;
+    --line:#e2ddd5;
     --terracotta:#b0593a;
     --terracotta-dark:#9c4a2f;
-    --limo:#151412;
-    --limo-ink:#e9e4da;
+    --limo:#141311;
+    --limo-ink:#eae5db;
 
     --serif:"Georgia","Times New Roman",serif;
     --sans:"Helvetica Neue",Arial,sans-serif;
@@ -33,9 +31,9 @@
   }
 
   .wrap{
-    max-width:1280px;
+    max-width:1240px;
     margin:0 auto;
-    padding:0 40px;
+    padding:0 48px;
   }
 
   /* ---------- ЭКРАН 1 ---------- */
@@ -47,15 +45,15 @@
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:96px 0 64px;
+    padding:120px 0 80px;
   }
 
   .hero h1{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2.4rem,6.8vw,6rem);
-    line-height:1.04;
-    letter-spacing:-0.02em;
+    font-size:clamp(2.6rem,7vw,6.4rem);
+    line-height:1.03;
+    letter-spacing:-0.025em;
     text-transform:uppercase;
   }
 
@@ -64,180 +62,214 @@
   .hero h1 .small{
     font-size:0.3333em;
     line-height:1.1;
-    margin-top:0.55em;
-    letter-spacing:0.01em;
+    margin-top:0.6em;
+    letter-spacing:0.02em;
   }
 
-  /* ---------- ЭКРАН 2: 4 карточки ---------- */
+  /* ---------- ЭКРАН 2 ---------- */
   .situations{
-    padding:120px 0;
+    padding:160px 0;
     border-top:1px solid var(--line);
   }
 
   .eyebrow{
-    font-size:0.82rem;
-    letter-spacing:0.18em;
+    font-size:0.8rem;
+    letter-spacing:0.22em;
     text-transform:uppercase;
     color:var(--muted);
-    margin-bottom:56px;
+    margin-bottom:72px;
     text-align:center;
   }
 
   .situations .grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:56px 64px;
+    gap:80px 96px;
   }
 
   .situation{
     display:grid;
-    grid-template-columns:56px 1fr;
-    gap:20px;
+    grid-template-columns:60px 1fr;
+    gap:24px;
   }
 
   .situation .num{
     font-family:var(--serif);
-    font-size:1.5rem;
+    font-size:1.7rem;
     color:var(--terracotta);
-    line-height:1.2;
+    line-height:1.1;
   }
 
   .situation .quote{
     font-family:var(--serif);
-    font-size:1.3rem;
-    line-height:1.5;
-    margin-bottom:16px;
+    font-size:1.4rem;
+    line-height:1.45;
+    margin-bottom:20px;
   }
 
   .situation .answer{
     color:var(--muted);
-    font-size:1.05rem;
+    font-size:1.08rem;
     line-height:1.6;
   }
 
   .situation .answer b{color:var(--ink);font-weight:600}
 
-  /* ---------- ЭКРАН 3: заголовок перед кейсами ---------- */
+  /* ---------- ЭКРАН 3: заголовок к кейсам ---------- */
   .cases-title{
-    padding:120px 0 0;
+    padding:160px 0 0;
     text-align:center;
   }
 
   .cases-title h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2rem,5.5vw,4.6rem);
-    line-height:1.06;
-    letter-spacing:-0.01em;
+    font-size:clamp(2.2rem,6vw,5rem);
+    line-height:1.05;
+    letter-spacing:-0.015em;
     text-transform:uppercase;
   }
 
   .cases-title h2 span{display:block}
 
-  /* ---------- ЭКРАН 4: кейсы ---------- */
+  /* ---------- ЭКРАН 4: кейс-разворот ---------- */
   .case{
-    padding:100px 0;
+    padding:140px 0;
     border-top:1px solid var(--line);
   }
 
   .case:first-of-type{border-top:none}
 
-  .case .inner{
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:64px;
-    align-items:center;
-  }
-
-  .case.rev .inner{grid-template-columns:1fr 1.1fr}
-  .case.rev .media{order:2}
-  .case.rev .info{order:1}
-
+  /* фото на всю ширину */
   .case .media{
+    width:100%;
+    aspect-ratio:16/9;
     background:var(--line);
-    aspect-ratio:4/3;
-    overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
     font-family:var(--serif);
-    font-size:1.6rem;
-    letter-spacing:0.08em;
+    font-size:clamp(1.4rem,3vw,2.4rem);
+    letter-spacing:0.1em;
     text-transform:uppercase;
     color:var(--muted);
+    overflow:hidden;
+    margin-bottom:64px;
   }
 
   .case .media img{
     width:100%;height:100%;object-fit:cover;display:block;
   }
 
+  /* под фото — три строки в аккуратной сетке */
+  .case .text{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
+
+  .case .head{
+    grid-column:1 / -1;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:24px;
+    padding-bottom:28px;
+    margin-bottom:48px;
+    border-bottom:1px solid var(--line);
+  }
+
   .case .name{
     font-family:var(--serif);
-    font-size:clamp(1.6rem,3vw,2.4rem);
-    line-height:1.15;
-    margin-bottom:6px;
+    font-size:clamp(1.8rem,3.4vw,2.8rem);
+    line-height:1.12;
   }
 
   .case .tag{
-    font-size:0.82rem;
-    letter-spacing:0.14em;
+    font-size:0.8rem;
+    letter-spacing:0.16em;
     text-transform:uppercase;
     color:var(--muted);
-    margin-bottom:28px;
+    white-space:nowrap;
   }
-
-  .case .part{margin-top:22px}
 
   .case .part .label{
     font-size:0.76rem;
-    letter-spacing:0.16em;
+    letter-spacing:0.18em;
     text-transform:uppercase;
     color:var(--terracotta);
-    margin-bottom:6px;
+    margin-bottom:12px;
   }
 
   .case .part p{
-    font-size:1.05rem;
-    line-height:1.65;
+    font-size:1.08rem;
+    line-height:1.68;
   }
 
-  /* две колонки для двух сайтов */
-  .cases-two{
-    padding:100px 0;
-    border-top:1px solid var(--line);
-  }
-
+  /* два сайта — 2×1, каждый как отдельный разворот */
   .cases-two .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:64px;
   }
 
-  .cases-two .case{padding:0;border:none}
-
-  .cases-two .case .inner{display:block}
-  .cases-two .case .media{margin-bottom:28px}
-
-  /* сетка 2×2 для остальных */
-  .cases-four{
-    padding:100px 0;
-    border-top:1px solid var(--line);
+  .cases-two .case{
+    padding:0;
+    border:none;
   }
 
+  .cases-two .case .media{
+    aspect-ratio:4/3;
+    margin-bottom:40px;
+  }
+
+  .cases-two .case .text{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .cases-two .case .head{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+    margin-bottom:32px;
+    padding-bottom:20px;
+  }
+
+  /* остальные — 2×2 */
   .cases-four .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:64px;
+    gap:96px 64px;
   }
 
-  .cases-four .case{padding:0;border:none}
+  .cases-four .case{
+    padding:0;
+    border:none;
+  }
 
-  .cases-four .case .inner{display:block}
-  .cases-four .case .media{margin-bottom:28px}
+  .cases-four .case .media{
+    aspect-ratio:4/3;
+    margin-bottom:40px;
+  }
+
+  .cases-four .case .text{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .cases-four .case .head{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+    margin-bottom:32px;
+    padding-bottom:20px;
+  }
 
   /* ---------- ЭКРАН 5: манифест ---------- */
   .manifest{
-    padding:160px 0;
+    padding:180px 0;
     background:var(--terracotta);
     color:var(--ink);
     text-align:center;
@@ -246,51 +278,51 @@
   .manifest h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.9rem,5vw,4.6rem);
+    font-size:clamp(2rem,5.4vw,5rem);
     line-height:1.05;
-    letter-spacing:-0.01em;
+    letter-spacing:-0.015em;
     text-transform:uppercase;
   }
 
   .manifest .lead{
-    margin-top:30px;
-    font-size:clamp(1.1rem,1.8vw,1.3rem);
-    color:rgba(28,27,25,.78);
-    max-width:42ch;
+    margin-top:36px;
+    font-size:clamp(1.15rem,1.9vw,1.4rem);
+    color:rgba(27,26,24,.8);
+    max-width:44ch;
     margin-left:auto;
     margin-right:auto;
     line-height:1.55;
   }
 
   .manifest .body-text{
-    margin-top:44px;
-    max-width:58ch;
+    margin-top:56px;
+    max-width:60ch;
     margin-left:auto;
     margin-right:auto;
-    font-size:clamp(1.1rem,1.7vw,1.25rem);
-    line-height:1.68;
+    font-size:clamp(1.15rem,1.8vw,1.3rem);
+    line-height:1.7;
   }
 
   .manifest .closing{
-    margin-top:40px;
+    margin-top:48px;
     font-family:var(--serif);
-    font-size:clamp(1.25rem,2.2vw,1.55rem);
+    font-size:clamp(1.3rem,2.3vw,1.65rem);
     line-height:1.42;
-    max-width:36ch;
+    max-width:38ch;
     margin-left:auto;
     margin-right:auto;
   }
 
   /* ---------- ЭКРАН 6: основатель ---------- */
   .founder{
-    padding:120px 0;
+    padding:160px 0;
     border-top:1px solid var(--line);
   }
 
   .founder .inner{
     display:grid;
-    grid-template-columns:300px 1fr;
-    gap:72px;
+    grid-template-columns:340px 1fr;
+    gap:96px;
     align-items:center;
   }
 
@@ -304,21 +336,21 @@
 
   .founder blockquote{
     font-family:var(--serif);
-    font-size:clamp(1.4rem,2.6vw,2.1rem);
-    line-height:1.42;
+    font-size:clamp(1.5rem,2.8vw,2.3rem);
+    line-height:1.4;
   }
 
   .founder .sign{
-    margin-top:32px;
-    font-size:0.9rem;
-    letter-spacing:0.12em;
+    margin-top:40px;
+    font-size:0.85rem;
+    letter-spacing:0.16em;
     text-transform:uppercase;
     color:var(--muted);
   }
 
   /* ---------- ЭКРАН 7: подвал ---------- */
   .contact{
-    padding:140px 0 120px;
+    padding:160px 0 140px;
     background:var(--limo);
     color:var(--limo-ink);
     text-align:center;
@@ -327,40 +359,40 @@
   .contact h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.9rem,4.8vw,3.6rem);
+    font-size:clamp(2rem,5vw,3.8rem);
     line-height:1.1;
     text-transform:uppercase;
-    letter-spacing:-0.01em;
+    letter-spacing:-0.015em;
     color:var(--limo-ink);
   }
 
   .contact .lead{
-    margin-top:32px;
-    max-width:52ch;
+    margin-top:40px;
+    max-width:54ch;
     margin-left:auto;
     margin-right:auto;
-    font-size:clamp(1.1rem,1.7vw,1.3rem);
-    line-height:1.68;
-    color:rgba(233,228,218,.72);
+    font-size:clamp(1.15rem,1.8vw,1.35rem);
+    line-height:1.7;
+    color:rgba(234,229,219,.72);
   }
 
   .contact .note{
-    margin-top:22px;
-    font-size:1.05rem;
-    color:rgba(233,228,218,.55);
+    margin-top:24px;
+    font-size:1.08rem;
+    color:rgba(234,229,219,.55);
   }
 
   .contact .contacts{
-    margin-top:48px;
-    font-size:clamp(1.1rem,1.6vw,1.25rem);
-    line-height:1.75;
+    margin-top:56px;
+    font-size:clamp(1.15rem,1.7vw,1.3rem);
+    line-height:1.8;
     color:var(--limo-ink);
   }
 
   .contact .contacts a{
     color:var(--limo-ink);
     text-decoration:none;
-    border-bottom:1px solid rgba(233,228,218,.35);
+    border-bottom:1px solid rgba(234,229,219,.35);
     transition:border-color .25s ease;
   }
 
@@ -368,14 +400,14 @@
 
   .contact .btn{
     display:inline-block;
-    margin-top:48px;
+    margin-top:56px;
     font-family:var(--sans);
     font-size:clamp(1.05rem,1.6vw,1.2rem);
     letter-spacing:0.04em;
     color:var(--ink);
     background:var(--terracotta);
     border:none;
-    padding:22px 64px;
+    padding:24px 72px;
     text-decoration:none;
     transition:background .25s ease;
   }
@@ -384,58 +416,60 @@
 
   /* ---------- АДАПТИВ ---------- */
   @media (max-width:1000px){
-    .case .inner{grid-template-columns:1fr;gap:40px}
-    .case.rev .inner{grid-template-columns:1fr}
-    .case.rev .media{order:0}
-    .case.rev .info{order:0}
-    .case .media{aspect-ratio:16/10}
+    .case .text{grid-template-columns:1fr;gap:32px}
+    .case .head{margin-bottom:36px}
+    .case .media{margin-bottom:48px}
 
-    .founder .inner{grid-template-columns:1fr;gap:40px;text-align:center}
-    .founder .photo{max-width:280px;margin:0 auto}
+    .founder .inner{grid-template-columns:1fr;gap:48px;text-align:center}
+    .founder .photo{max-width:300px;margin:0 auto}
   }
 
   @media (max-width:760px){
     .wrap{padding:0 24px}
 
-    .hero{padding:80px 0 56px}
+    .hero{padding:100px 0 64px}
     .hero h1{font-size:clamp(2.4rem,11vw,3.6rem)}
-    .hero h1 .small{margin-top:0.6em}
+    .hero h1 .small{margin-top:0.65em}
 
-    .situations,.cases-title,.cases-two,.cases-four,.founder{padding:88px 0}
-    .case{padding:72px 0}
-    .manifest{padding:100px 0}
-    .contact{padding:100px 0 92px}
+    .situations{padding:96px 0}
+    .cases-title{padding:96px 0 0}
+    .case{padding:88px 0}
+    .cases-two,.cases-four{padding:88px 0}
+    .manifest{padding:110px 0}
+    .founder{padding:96px 0}
+    .contact{padding:110px 0 100px}
 
-    .eyebrow{margin-bottom:40px}
+    .eyebrow{margin-bottom:48px}
 
-    .situations .grid{grid-template-columns:1fr;gap:44px}
-    .situation{grid-template-columns:44px 1fr;gap:16px}
-    .situation .num{font-size:1.3rem}
-    .situation .quote{font-size:1.25rem}
-    .situation .answer{font-size:1.05rem}
+    .situations .grid{grid-template-columns:1fr;gap:52px}
+    .situation{grid-template-columns:48px 1fr;gap:18px}
+    .situation .num{font-size:1.5rem}
+    .situation .quote{font-size:1.3rem}
+    .situation .answer{font-size:1.08rem}
 
-    .cases-title h2{font-size:clamp(1.9rem,8.4vw,2.7rem)}
+    .cases-title h2{font-size:clamp(1.9rem,8.4vw,2.8rem)}
+
+    .case .media{aspect-ratio:4/3;margin-bottom:40px}
+    .case .name{font-size:1.8rem}
+    .case .tag{font-size:0.8rem}
+    .case .part p{font-size:1.08rem;line-height:1.68}
 
     .cases-two .grid,
-    .cases-four .grid{grid-template-columns:1fr;gap:56px}
+    .cases-four .grid{grid-template-columns:1fr;gap:72px}
+    .cases-two .case .media,
+    .cases-four .case .media{margin-bottom:32px}
 
-    .case .media{aspect-ratio:4/3}
-    .case .name{font-size:1.7rem}
-    .case .tag{font-size:0.84rem;margin-bottom:24px}
-    .case .part{margin-top:24px}
-    .case .part p{font-size:1.05rem;line-height:1.66}
+    .manifest h2{font-size:clamp(1.9rem,8vw,2.8rem)}
+    .manifest .lead{font-size:1.2rem;margin-top:28px}
+    .manifest .body-text{font-size:1.18rem;margin-top:40px}
+    .manifest .closing{font-size:1.35rem;margin-top:36px}
 
-    .manifest h2{font-size:clamp(1.8rem,8vw,2.6rem)}
-    .manifest .lead{font-size:1.15rem}
-    .manifest .body-text{font-size:1.15rem}
-    .manifest .closing{font-size:1.3rem}
+    .founder blockquote{font-size:clamp(1.35rem,5.8vw,1.75rem)}
 
-    .founder blockquote{font-size:clamp(1.3rem,5.6vw,1.7rem)}
-
-    .contact .lead{font-size:1.15rem}
-    .contact .note{font-size:1.05rem}
-    .contact .contacts{font-size:1.15rem}
-    .contact .btn{width:100%;padding:22px 24px;font-size:1.15rem}
+    .contact .lead{font-size:1.2rem}
+    .contact .note{font-size:1.08rem}
+    .contact .contacts{font-size:1.18rem}
+    .contact .btn{width:100%;padding:24px 24px;font-size:1.18rem}
   }
 </style>
 </head>
@@ -492,100 +526,100 @@
 
 <!-- ЭКРАН 4: кейсы -->
 
-<!-- Кейс 1: MCC (брендинг) -->
+<!-- Кейс 1: MCC -->
 <section class="case">
   <div class="wrap">
-    <div class="inner">
-      <div class="media">MCC</div>
-      <div class="info">
+    <div class="media">MCC</div>
+    <div class="text">
+      <div class="head">
         <p class="name">MCC</p>
         <p class="tag">Брендинг студии</p>
-        <div class="part">
-          <p class="label">Задача</p>
-          <p>Собрать воедино смыслы студии и показать их так, чтобы клиент с первого взгляда понимал, с кем имеет дело.</p>
-        </div>
-        <div class="part">
-          <p class="label">Что нашли</p>
-          <p>Собственную карту смыслов — то, как студия думает, принимает решения и строит работу. Это и стало основой бренда.</p>
-        </div>
-        <div class="part">
-          <p class="label">Форма</p>
-          <p>Логотип, типографика, палитра и носители, которые звучат одинаково — от сайта до презентации.</p>
-        </div>
+      </div>
+      <div class="part">
+        <p class="label">Задача</p>
+        <p>Собрать воедино смыслы студии и показать их так, чтобы клиент с первого взгляда понимал, с кем имеет дело.</p>
+      </div>
+      <div class="part">
+        <p class="label">Что нашли</p>
+        <p>Собственную карту смыслов — то, как студия думает, принимает решения и строит работу. Это и стало основой бренда.</p>
+      </div>
+      <div class="part">
+        <p class="label">Форма</p>
+        <p>Логотип, типографика, палитра и носители, которые звучат одинаково — от сайта до презентации.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Кейс 2: Le Centre -->
-<section class="case rev">
+<section class="case">
   <div class="wrap">
-    <div class="inner">
-      <div class="media">Le Centre</div>
-      <div class="info">
+    <div class="media">Le Centre</div>
+    <div class="text">
+      <div class="head">
         <p class="name">Le Centre Champéry</p>
         <p class="tag">Ресторан в Альпах</p>
-        <div class="part">
-          <p class="label">Задача</p>
-          <p>Снова стать местом, куда хочется приходить за впечатлениями — гастрономическими и визуальными.</p>
-        </div>
-        <div class="part">
-          <p class="label">Что нашли</p>
-          <p>Символ, который уже был в самом месте — балкон, с которого когда-то объявляли новости деревни. Тогда он объединял людей. И сейчас заведение снова объединяет их вокруг себя.</p>
-        </div>
-        <div class="part">
-          <p class="label">Форма</p>
-          <p>Логотип, который работает как настоящий брендинг — на сайте, на меню, униформе. Теперь визуал работает на первое впечатление. Место запоминается и его узнают.</p>
-        </div>
+      </div>
+      <div class="part">
+        <p class="label">Задача</p>
+        <p>Снова стать местом, куда хочется приходить за впечатлениями — гастрономическими и визуальными.</p>
+      </div>
+      <div class="part">
+        <p class="label">Что нашли</p>
+        <p>Символ, который уже был в самом месте — балкон, с которого когда-то объявляли новости деревни. Тогда он объединял людей. И сейчас заведение снова объединяет их вокруг себя.</p>
+      </div>
+      <div class="part">
+        <p class="label">Форма</p>
+        <p>Логотип, который работает как настоящий брендинг — на сайте, на меню, униформе. Теперь визуал работает на первое впечатление. Место запоминается и его узнают.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Кейсы 3 и 4: два сайта в сетке 2×1 -->
+<!-- Кейсы 3–4: два сайта -->
 <section class="cases-two">
   <div class="wrap">
     <div class="grid">
       <article class="case">
-        <div class="inner">
-          <div class="media">Сайт · Marco Corniola</div>
-          <div class="info">
+        <div class="media">Marco Corniola</div>
+        <div class="text">
+          <div class="head">
             <p class="name">Marco Corniola</p>
             <p class="tag">Сайт · нейрохирург</p>
-            <div class="part">
-              <p class="label">Задача</p>
-              <p>Сайт, который подтверждает доверие к врачу и выглядит профессионально, но по-человечески.</p>
-            </div>
-            <div class="part">
-              <p class="label">Что нашли</p>
-              <p>Точность без медицинских штампов. В основе — изгиб позвоночника и ритм ультразвуковых волн.</p>
-            </div>
-            <div class="part">
-              <p class="label">Форма</p>
-              <p>Структура, тексты и визуал, которые с первого экрана говорят: здесь работает высококлассный специалист.</p>
-            </div>
+          </div>
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Сайт, который подтверждает доверие к врачу и выглядит профессионально, но по-человечески.</p>
+          </div>
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Точность без медицинских штампов. В основе — изгиб позвоночника и ритм ультразвуковых волн.</p>
+          </div>
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Структура, тексты и визуал, которые с первого экрана говорят: здесь работает высококлассный специалист.</p>
           </div>
         </div>
       </article>
 
       <article class="case">
-        <div class="inner">
-          <div class="media">Сайт · ANEO</div>
-          <div class="info">
+        <div class="media">ANEO</div>
+        <div class="text">
+          <div class="head">
             <p class="name">ANEO Cryo Lounge</p>
             <p class="tag">Сайт · криотерапия и велнес</p>
-            <div class="part">
-              <p class="label">Задача</p>
-              <p>Сайт, который передаёт заботу и восстановление, оставаясь аутентичным для криотерапии.</p>
-            </div>
-            <div class="part">
-              <p class="label">Что нашли</p>
-              <p>Идею «от льда к воде»: острые пики айсберга переходят в плавную каплю.</p>
-            </div>
-            <div class="part">
-              <p class="label">Форма</p>
-              <p>Сайт, который одинаково уместен в велнесе, медицине и спорте — и остаётся узнаваемым.</p>
-            </div>
+          </div>
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Сайт, который передаёт заботу и восстановление, оставаясь аутентичным для криотерапии.</p>
+          </div>
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Идею «от льда к воде»: острые пики айсберга переходят в плавную каплю.</p>
+          </div>
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Сайт, который одинаково уместен в велнесе, медицине и спорте — и остаётся узнаваемым.</p>
           </div>
         </div>
       </article>
@@ -593,94 +627,94 @@
   </div>
 </section>
 
-<!-- Кейсы 5–8: сетка 2×2 -->
+<!-- Кейсы 5–8: остальные -->
 <section class="cases-four">
   <div class="wrap">
     <div class="grid">
       <article class="case">
-        <div class="inner">
-          <div class="media">MsFid</div>
-          <div class="info">
+        <div class="media">MsFid</div>
+        <div class="text">
+          <div class="head">
             <p class="name">MsFid</p>
             <p class="tag">Система бренда</p>
-            <div class="part">
-              <p class="label">Задача</p>
-              <p>Была не проблема логотипа, а отсутствие системы.</p>
-            </div>
-            <div class="part">
-              <p class="label">Что нашли</p>
-              <p>Собрали её — и документы, приложение, сайт заговорили одинаково.</p>
-            </div>
-            <div class="part">
-              <p class="label">Форма</p>
-              <p>Единая визуальная и смысловая система для всех носителей.</p>
-            </div>
+          </div>
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Была не проблема логотипа, а отсутствие системы.</p>
+          </div>
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Собрали её — и документы, приложение, сайт заговорили одинаково.</p>
+          </div>
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Единая визуальная и смысловая система для всех носителей.</p>
           </div>
         </div>
       </article>
 
       <article class="case">
-        <div class="inner">
-          <div class="media">Marie Zesiger</div>
-          <div class="info">
+        <div class="media">Marie Zesiger</div>
+        <div class="text">
+          <div class="head">
             <p class="name">Marie Zesiger</p>
             <p class="tag">Натуропатия · Женева</p>
-            <div class="part">
-              <p class="label">Задача</p>
-              <p>Профессиональный знак, объединяющий заботу о теле и разуме — без шаблонных велнес-символов.</p>
-            </div>
-            <div class="part">
-              <p class="label">Что нашли</p>
-              <p>Росток и лучезарное солнце в точной геометрии. Тёплая палитра передаёт связь с природой.</p>
-            </div>
-            <div class="part">
-              <p class="label">Форма</p>
-              <p>Логотип и айдентика, которые выглядят спокойно и дорого.</p>
-            </div>
+          </div>
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Профессиональный знак, объединяющий заботу о теле и разуме — без шаблонных велнес-символов.</p>
+          </div>
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Росток и лучезарное солнце в точной геометрии. Тёплая палитра передаёт связь с природой.</p>
+          </div>
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Логотип и айдентика, которые выглядят спокойно и дорого.</p>
           </div>
         </div>
       </article>
 
       <article class="case">
-        <div class="inner">
-          <div class="media">Time Immo</div>
-          <div class="info">
+        <div class="media">Time Immo</div>
+        <div class="text">
+          <div class="head">
             <p class="name">Time Immo</p>
             <p class="tag">Недвижимость · Швейцария</p>
-            <div class="part">
-              <p class="label">Задача</p>
-              <p>Отразить ценность времени и связь компании с недвижимостью в одном узнаваемом знаке.</p>
-            </div>
-            <div class="part">
-              <p class="label">Что нашли</p>
-              <p>Архитектурные формы и дуга солнечных часов: время, стабильность и поддержка клиента.</p>
-            </div>
-            <div class="part">
-              <p class="label">Форма</p>
-              <p>Знак и песочная палитра, которые говорят о надёжности без лишних слов.</p>
-            </div>
+          </div>
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Отразить ценность времени и связь компании с недвижимостью в одном узнаваемом знаке.</p>
+          </div>
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Архитектурные формы и дуга солнечных часов: время, стабильность и поддержка клиента.</p>
+          </div>
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Знак и песочная палитра, которые говорят о надёжности без лишних слов.</p>
           </div>
         </div>
       </article>
 
       <article class="case">
-        <div class="inner">
-          <div class="media">Презентация MCC</div>
-          <div class="info">
+        <div class="media">Презентация</div>
+        <div class="text">
+          <div class="head">
             <p class="name">Наша презентация</p>
             <p class="tag">Презентация студии</p>
-            <div class="part">
-              <p class="label">Задача</p>
-              <p>У нас не было презентации — мы продавали в тексте и давали ссылку на сайт.</p>
-            </div>
-            <div class="part">
-              <p class="label">Что нашли</p>
-              <p>Сначала выстроили логику: что человек должен понять, что за чем идёт. Опирались на карту смыслов студии.</p>
-            </div>
-            <div class="part">
-              <p class="label">Форма</p>
-              <p>Презентация, в которой дизайн следует за смыслом, а не наоборот.</p>
-            </div>
+          </div>
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>У нас не было презентации — мы продавали в тексте и давали ссылку на сайт.</p>
+          </div>
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Сначала выстроили логику: что человек должен понять, что за чем идёт. Опирались на карту смыслов студии.</p>
+          </div>
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Презентация, в которой дизайн следует за смыслом, а не наоборот.</p>
           </div>
         </div>
       </article>
