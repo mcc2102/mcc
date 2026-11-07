@@ -2,846 +2,325 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MCC — смыслы и визуальный брендинг</title>
-
 <style>
-:root {
-  --bg: #f7f5f1;
-  --ink: #1b1a18;
-  --muted: #8b867e;
-  --line: #e2ddd5;
-  --terracotta: #b0593a;
-  --terracotta-dark: #9c4a2f;
-  --limo: #141311;
-  --limo-ink: #eae5db;
-  --serif: "Georgia", "Times New Roman", serif;
-  --sans: "Helvetica Neue", Arial, sans-serif;
+:root{
+  --bg:#f7f5f1;
+  --ink:#1b1a18;
+  --muted:#8b867e;
+  --line:#e2ddd5;
+  --terracotta:#b0593a;
+  --terracotta-dark:#9c4a2f;
+  --limo:#141311;
+  --limo-ink:#eae5db;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:"Helvetica Neue",Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--sans);line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.wrap{width:min(100% - 64px,1160px);margin:auto}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ШАПКА */
+.topbar{position:absolute;top:0;left:0;right:0;padding-top:27px;z-index:2}
+.topbar .inner{display:flex;align-items:center}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+.brand-mark{
+  width:34px;height:34px;border-radius:50%;flex:none;
+  background:conic-gradient(var(--terracotta) 0 33.3%,#efece6 33.3% 66.6%,#1b1a18 66.6% 100%);
+  border:1px solid rgba(27,26,24,.15)
+}
+.brand-name{font:17px var(--serif);letter-spacing:.08em;line-height:1}
+.brand-tag{display:block;margin-top:5px;font-size:8px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+
+/* ПЕРВЫЙ ЭКРАН */
+.hero{
+  min-height:88svh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:100px 0 65px
+}
+.hero h1{
+  font:400 clamp(48px,7.8vw,100px)/.98 var(--serif);
+  letter-spacing:-.045em;text-transform:uppercase
+}
+.hero h1 span{display:block}
+.hero h1 .small{
+  margin-top:17px;font-size:.36em;line-height:1.1;
+  letter-spacing:.06em
+}
+
+/* ОБЩИЕ СЕКЦИИ */
+.section{padding:65px 0;border-top:1px solid var(--line)}
+.eyebrow{
+  margin-bottom:24px;font-size:10px;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--muted)
+}
+
+/* ВВОДНЫЙ БЛОК */
+.intro{
+  display:grid;grid-template-columns:.8fr 1.2fr;
+  gap:8%;align-items:start
+}
+.intro-title{
+  font:400 clamp(28px,3.2vw,43px)/1.15 var(--serif);
+  letter-spacing:-.025em
+}
+.intro-copy{max-width:570px}
+.intro-copy p{
+  font:400 clamp(16px,1.5vw,19px)/1.65 var(--serif)
+}
+.intro-copy p+p{margin-top:12px}
+.intro-copy .accent{color:var(--muted)}
+
+/* С ЧЕМ ПРИХОДЯТ */
+.situations{
+  margin-top:25px;padding:65px 0 75px;
+  background:#f0ede7
+}
+.situations-inner{width:min(100% - 64px,1160px);margin:auto}
+.situations .eyebrow{margin-bottom:30px}
+.situations-list{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:9%
+}
+.situation{
+  padding:25px 0 28px;border-top:1px solid #d9d3ca
+}
+.situation .num{
+  margin-bottom:16px;color:var(--terracotta);
+  font:14px var(--serif);letter-spacing:.08em
+}
+.situation .quote{
+  max-width:470px;margin-bottom:13px;
+  font:400 clamp(18px,1.8vw,23px)/1.4 var(--serif)
+}
+.situation .answer{
+  max-width:440px;color:var(--muted);
+  font-size:13px;line-height:1.65
+}
+.situation .answer b{color:var(--ink);font-weight:600}
+
+/* ЗАГОЛОВОК КЕЙСОВ */
+.cases-title{
+  padding:78px 0 36px;text-align:center
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--sans);
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.55;
-  overflow-x: hidden;
-}
-
-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.wrap {
-  width: min(100% - 48px, 1160px);
-  margin-inline: auto;
-}
-
-/* HEADER */
-
-.topbar {
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: 5;
-  padding-top: 25px;
-}
-
-.topbar .inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  text-decoration: none;
-  color: var(--ink);
-}
-
-.brand-mark {
-  width: 32px;
-  height: 32px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: conic-gradient(
-    var(--terracotta) 0 33.3%,
-    #efece6 33.3% 66.6%,
-    #1b1a18 66.6% 100%
-  );
-  border: 1px solid rgba(27,26,24,.15);
-}
-
-.brand-name {
-  display: block;
-  font-family: var(--serif);
-  font-size: 17px;
-  letter-spacing: .08em;
-  line-height: 1;
-}
-
-.brand-tag {
-  display: block;
-  margin-top: 5px;
-  color: var(--muted);
-  font-size: 8px;
-  letter-spacing: .09em;
-  text-transform: uppercase;
-}
-
-/* HERO */
-
-.hero {
-  min-height: 88svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 100px;
-  padding-bottom: 70px;
-}
-
-.hero h1 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(54px, 10vw, 132px);
-  line-height: .96;
-  letter-spacing: -.055em;
-  text-transform: uppercase;
-}
-
-.hero h1 span {
-  display: block;
-}
-
-.hero h1 .small {
-  margin-top: 20px;
-  font-size: .34em;
-  line-height: 1.1;
-  letter-spacing: .08em;
-}
-
-/* COMMON SECTIONS */
-
-.section {
-  padding-block: 76px;
-  border-top: 1px solid var(--line);
-}
-
-.eyebrow {
-  margin-bottom: 30px;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: .17em;
-  text-transform: uppercase;
-}
-
-.editorial {
-  display: grid;
-  grid-template-columns: .85fr 1.15fr;
-  gap: 8%;
-  align-items: start;
-}
-
-.editorial .side {
-  max-width: 360px;
-  font-family: var(--serif);
-  font-size: clamp(30px, 4vw, 52px);
-  line-height: 1.12;
-  letter-spacing: -.025em;
-}
-
-.editorial .main {
-  max-width: 570px;
-}
-
-.editorial .main p {
-  font-family: var(--serif);
-  font-size: clamp(17px, 1.7vw, 21px);
-  line-height: 1.6;
-}
-
-.editorial .main p + p {
-  margin-top: 16px;
-}
-
-.editorial .main .accent {
-  color: var(--muted);
-}
-
-/* DIVIDER */
-
-.divider {
-  width: min(100% - 48px, 1160px);
-  height: 1px;
-  margin: 0 auto;
-  background: var(--line);
-}
-
-/* SITUATIONS */
-
-.situations .list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 9%;
-}
-
-.situation {
-  padding: 30px 0 34px;
-  border-top: 1px solid var(--line);
-}
-
-.situation .num {
-  margin-bottom: 22px;
-  color: var(--terracotta);
-  font-family: var(--serif);
-  font-size: 15px;
-  letter-spacing: .08em;
-}
-
-.situation .quote {
-  max-width: 480px;
-  margin-bottom: 17px;
-  font-family: var(--serif);
-  font-size: clamp(19px, 2vw, 25px);
-  line-height: 1.38;
-  letter-spacing: -.015em;
-}
-
-.situation .answer {
-  max-width: 440px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.situation .answer b {
-  color: var(--ink);
-  font-weight: 600;
-}
-
-/* CASES HEADING */
-
-.cases-title {
-  padding-top: 90px;
-  padding-bottom: 40px;
-  text-align: center;
-}
-
-.cases-title h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(25px, 3vw, 40px);
-  line-height: 1.2;
-  letter-spacing: -.025em;
-}
-
-.cases-title h2 span {
-  display: block;
-}
-
-/* CASES */
-
-.cases {
-  padding-bottom: 90px;
-}
-
-.case {
-  display: grid;
-  grid-template-columns: 1.55fr .75fr;
-  gap: 7%;
-  align-items: start;
-  padding: 54px 0;
-  border-top: 1px solid var(--line);
-}
-
-.case:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-
-.case .media {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #e8e3db;
-  color: var(--muted);
-  font-family: var(--serif);
-  font-size: 18px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-.case .text {
-  padding-top: 5px;
-  min-width: 0;
-}
-
-.case .name {
-  margin-bottom: 7px;
-  font-family: var(--serif);
-  font-size: clamp(23px, 2.5vw, 32px);
-  font-weight: 400;
-  line-height: 1.15;
-}
-
-.case .tag {
-  margin-bottom: 30px;
-  color: var(--muted);
-  font-size: 9px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-.case .part {
-  margin-top: 22px;
-}
-
-.case .part .label {
-  margin-bottom: 7px;
-  color: var(--terracotta);
-  font-size: 9px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-
-.case .part p {
-  font-family: var(--serif);
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--ink);
-}
-
-.cases-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 7%;
-  row-gap: 68px;
-  padding-top: 54px;
-  border-top: 1px solid var(--line);
-}
-
-.cases-grid .case {
-  display: block;
-  padding: 0;
-  border: 0;
-}
-
-.cases-grid .case .media {
-  aspect-ratio: 4 / 3;
-  margin-bottom: 23px;
-}
-
-.cases-grid .case .name {
-  font-size: 26px;
-}
-
-.cases-grid .case .tag {
-  margin-bottom: 23px;
-}
-
-.cases-grid .case .part {
-  margin-top: 17px;
-}
-
-.cases-grid .case .part p {
-  font-size: 14px;
-}
-
-/* MANIFEST */
-
-.manifest {
-  padding: 110px 0;
-  background: var(--terracotta);
-  color: var(--ink);
-  text-align: center;
-}
-
-.manifest h2 {
-  font-family: var(--serif);
-  font-size: clamp(38px, 6vw, 76px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -.04em;
-  text-transform: uppercase;
-}
-
-.manifest .lead {
-  max-width: 520px;
-  margin: 25px auto 0;
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(27,26,24,.8);
-}
-
-.manifest .body-text {
-  max-width: 650px;
-  margin: 55px auto 0;
-  font-family: var(--serif);
-  font-size: clamp(18px, 2vw, 23px);
-  line-height: 1.7;
-}
-
-.manifest .closing {
-  max-width: 540px;
-  margin: 35px auto 0;
-  font-family: var(--serif);
-  font-size: clamp(21px, 2.4vw, 28px);
-  line-height: 1.4;
-}
-
-/* FOUNDER */
-
-.founder {
-  padding-block: 100px;
-  border-top: 1px solid var(--line);
-}
-
-.founder .inner {
-  display: grid;
-  grid-template-columns: .75fr 1.25fr;
-  gap: 10%;
-  align-items: center;
-}
-
-.founder .photo {
-  width: 100%;
-  max-width: 370px;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  background: #e8e3db;
-}
-
-.founder blockquote {
-  max-width: 650px;
-  font-family: var(--serif);
-  font-size: clamp(27px, 3.4vw, 46px);
-  line-height: 1.3;
-  letter-spacing: -.025em;
-}
-
-.founder .sign {
-  margin-top: 30px;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-
-/* CONTACT */
-
-.contact {
-  padding: 100px 0 80px;
-  background: var(--limo);
-  color: var(--limo-ink);
-  text-align: center;
-}
-
-.contact h2 {
-  max-width: 850px;
-  margin: 0 auto;
-  font-family: var(--serif);
-  font-size: clamp(38px, 5.5vw, 68px);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -.035em;
-  text-transform: uppercase;
-}
-
-.contact .lead {
-  max-width: 560px;
-  margin: 28px auto 0;
-  color: rgba(234,229,219,.75);
-  font-size: 15px;
-  line-height: 1.75;
-}
-
-.contact .note {
-  margin-top: 15px;
-  color: rgba(234,229,219,.5);
-  font-size: 13px;
-}
-
-.contact .contacts {
-  margin-top: 38px;
-  font-size: 15px;
-  line-height: 1.9;
+.cases-title h2{
+  font:400 clamp(25px,3vw,36px)/1.2 var(--serif);
+  letter-spacing:-.02em
 }
-
-.contact .contacts a {
-  color: var(--limo-ink);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(234,229,219,.35);
-  transition: border-color .25s ease;
-}
-
-.contact .contacts a:hover {
-  border-color: var(--limo-ink);
-}
-
-.contact .btn {
-  display: inline-block;
-  margin-top: 35px;
-  padding: 17px 46px;
-  background: var(--terracotta);
-  color: var(--ink);
-  font-size: 13px;
-  letter-spacing: .04em;
-  text-decoration: none;
-  transition: background .25s ease;
+.cases-title h2 span{display:block}
+
+/* КЕЙСЫ */
+.cases{padding-bottom:75px}
+.cases-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:38px;row-gap:48px
 }
-
-.contact .btn:hover {
-  background: var(--terracotta-dark);
+.case{min-width:0}
+.case .media{
+  width:100%;aspect-ratio:4/3;
+  background:#e8e3db;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font:17px var(--serif);
+  letter-spacing:.08em;text-transform:uppercase
 }
-
-/* TABLET */
-
-@media (max-width: 900px) {
-  .wrap {
-    width: min(100% - 56px, 720px);
-  }
-
-  .editorial {
-    grid-template-columns: 1fr 1.3fr;
-    gap: 35px;
-  }
-
-  .case {
-    grid-template-columns: 1.2fr .8fr;
-    gap: 30px;
-  }
-
-  .case .part p {
-    font-size: 14px;
-  }
-
-  .founder .inner {
-    gap: 45px;
-  }
+.case .media img{transition:transform .6s ease}
+.case:hover .media img{transform:scale(1.025)}
+.case .text{
+  width:88%;margin:16px 0 0 auto;
+  text-align:right
 }
-
-/* MOBILE */
-
-@media (max-width: 640px) {
-  .wrap {
-    width: calc(100% - 40px);
-  }
-
-  .topbar {
-    padding-top: 20px;
-  }
-
-  .brand-mark {
-    width: 29px;
-    height: 29px;
-  }
-
-  .brand-name {
-    font-size: 15px;
-  }
-
-  .brand-tag {
-    font-size: 7px;
-  }
-
-  .hero {
-    min-height: 76svh;
-    padding-top: 90px;
-    padding-bottom: 50px;
-  }
-
-  .hero h1 {
-    font-size: clamp(48px, 13vw, 76px);
-    line-height: 1;
-    letter-spacing: -.045em;
-  }
-
-  .hero h1 .small {
-    margin-top: 17px;
-    font-size: .32em;
-    letter-spacing: .06em;
-  }
-
-  .section {
-    padding-block: 58px;
-  }
-
-  .eyebrow {
-    margin-bottom: 23px;
-    font-size: 9px;
-  }
-
-  .editorial {
-    display: block;
-  }
-
-  .editorial .side {
-    max-width: 340px;
-    margin-bottom: 25px;
-    font-size: 35px;
-    line-height: 1.12;
-  }
-
-  .editorial .main p {
-    font-size: 17px;
-    line-height: 1.65;
-  }
-
-  .editorial .main p + p {
-    margin-top: 13px;
-  }
-
-  .divider {
-    width: calc(100% - 40px);
-  }
-
-  .situations .list {
-    grid-template-columns: 1fr;
-  }
-
-  .situation {
-    padding: 25px 0 28px;
-  }
-
-  .situation .num {
-    margin-bottom: 15px;
-    font-size: 13px;
-  }
-
-  .situation .quote {
-    max-width: 100%;
-    margin-bottom: 13px;
-    font-size: 22px;
-    line-height: 1.38;
-  }
-
-  .situation .answer {
-    max-width: 100%;
-    font-size: 13px;
-    line-height: 1.7;
-  }
-
-  .cases-title {
-    padding-top: 65px;
-    padding-bottom: 30px;
-  }
-
-  .cases-title h2 {
-    font-size: 27px;
-    line-height: 1.2;
-  }
-
-  .cases {
-    padding-bottom: 60px;
-  }
-
-  .case {
-    display: flex;
-    flex-direction: column;
-    gap: 21px;
-    padding: 34px 0;
-  }
-
-  .case:first-child {
-    padding-top: 0;
-  }
-
-  .case .media {
-    aspect-ratio: 4 / 3;
-  }
-
-  .case .text {
-    width: 100%;
-    padding: 0;
-  }
-
-  .case .name {
-    font-size: 27px;
-  }
-
-  .case .tag {
-    margin-bottom: 22px;
-    font-size: 9px;
-  }
-
-  .case .part {
-    margin-top: 18px;
-  }
-
-  .case .part .label {
-    margin-bottom: 5px;
-    font-size: 9px;
-  }
-
-  .case .part p {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .cases-grid {
-    grid-template-columns: 1fr;
-    row-gap: 48px;
-    padding-top: 35px;
-  }
-
-  .cases-grid .case {
-    display: block;
-  }
-
-  .cases-grid .case .media {
-    aspect-ratio: 4 / 3;
-    margin-bottom: 20px;
-  }
-
-  .cases-grid .case .name {
-    font-size: 25px;
-  }
-
-  .cases-grid .case .tag {
-    margin-bottom: 20px;
-  }
-
-  .cases-grid .case .part {
-    margin-top: 15px;
-  }
-
-  .cases-grid .case .part p {
-    font-size: 14px;
-    line-height: 1.65;
-  }
-
-  .manifest {
-    padding: 75px 0;
-  }
-
-  .manifest h2 {
-    font-size: clamp(37px, 10vw, 53px);
-    line-height: 1.05;
-  }
-
-  .manifest .lead {
-    margin-top: 18px;
-    font-size: 14px;
-  }
-
-  .manifest .body-text {
-    margin-top: 35px;
-    font-size: 17px;
-    line-height: 1.7;
-  }
-
-  .manifest .closing {
-    margin-top: 25px;
-    font-size: 21px;
-  }
-
-  .founder {
-    padding-block: 65px;
-  }
-
-  .founder .inner {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .founder .photo {
-    max-width: 100%;
-    width: 72%;
-    margin-inline: auto;
-    aspect-ratio: 4 / 5;
-  }
-
-  .founder blockquote {
-    font-size: 27px;
-    line-height: 1.35;
-  }
-
-  .founder .sign {
-    margin-top: 20px;
-    font-size: 9px;
-  }
-
-  .contact {
-    padding: 75px 0 60px;
-  }
-
-  .contact h2 {
-    font-size: clamp(37px, 10vw, 52px);
-    line-height: 1.08;
-  }
-
-  .contact .lead {
-    margin-top: 22px;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .contact .note {
-    font-size: 12px;
-    line-height: 1.6;
-  }
-
-  .contact .contacts {
-    margin-top: 28px;
-    font-size: 14px;
-  }
-
-  .contact .btn {
-    width: 100%;
-    max-width: 280px;
-    padding: 17px 25px;
-    margin-top: 28px;
-  }
+.case .name{
+  font:400 22px/1.2 var(--serif);
+  margin-bottom:4px
+}
+.case .tag{
+  color:var(--muted);font-size:9px;
+  letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:14px
 }
-
-/* SMALL MOBILE */
-
-@media (max-width: 360px) {
-  .wrap {
-    width: calc(100% - 32px);
-  }
-
-  .hero h1 {
-    font-size: 45px;
-  }
-
-  .editorial .side {
-    font-size: 31px;
-  }
-
-  .situation .quote {
-    font-size: 20px;
-  }
-
-  .founder blockquote {
-    font-size: 24px;
-  }
+.case .part{margin-top:10px}
+.case .part .label{
+  display:inline-block;margin-bottom:3px;
+  color:var(--terracotta);font-size:8px;
+  letter-spacing:.14em;text-transform:uppercase
+}
+.case .part p{
+  color:#777168;font:12px/1.5 var(--serif)
+}
+
+/* ПЕРВЫЕ ДВА КЕЙСА */
+.featured-cases{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:38px;margin-bottom:52px
+}
+.featured-cases .case .media{aspect-ratio:5/4}
+.featured-cases .case .name{font-size:25px}
+
+/* МАНИФЕСТ */
+.manifest{
+  padding:66px 0;background:var(--terracotta);
+  color:var(--ink);text-align:center
+}
+.manifest h2{
+  font:400 clamp(29px,4vw,48px)/1.1 var(--serif);
+  letter-spacing:-.025em;text-transform:uppercase
+}
+.manifest .lead{
+  max-width:470px;margin:16px auto 0;
+  color:rgba(27,26,24,.8);font-size:14px;line-height:1.55
+}
+.manifest .body-text{
+  max-width:590px;margin:30px auto 0;
+  font:16px/1.65 var(--serif)
+}
+.manifest .closing{
+  max-width:480px;margin:20px auto 0;
+  font:19px/1.4 var(--serif)
+}
+
+/* ОСНОВАТЕЛЬ */
+.founder{padding:65px 0;border-top:1px solid var(--line)}
+.founder .inner{
+  display:grid;grid-template-columns:.65fr 1.35fr;
+  gap:9%;align-items:center
+}
+.founder .photo{
+  width:100%;max-width:290px;aspect-ratio:4/5;
+  background:#e8e3db;overflow:hidden
+}
+.founder blockquote{
+  max-width:620px;font:400 clamp(22px,2.7vw,34px)/1.35 var(--serif)
+}
+.founder .sign{
+  margin-top:20px;color:var(--muted);
+  font-size:9px;letter-spacing:.14em;text-transform:uppercase
+}
+
+/* КОНТАКТЫ */
+.contact{
+  padding:65px 0 55px;background:var(--limo);
+  color:var(--limo-ink);text-align:center
+}
+.contact h2{
+  font:400 clamp(29px,4vw,43px)/1.12 var(--serif);
+  letter-spacing:-.025em;text-transform:uppercase
+}
+.contact .lead{
+  max-width:490px;margin:19px auto 0;
+  color:rgba(234,229,219,.72);font-size:13px;line-height:1.65
+}
+.contact .note{
+  margin-top:10px;color:rgba(234,229,219,.5);font-size:12px
+}
+.contact .contacts{
+  margin-top:25px;font-size:13px;line-height:1.8
+}
+.contact .contacts a{
+  color:var(--limo-ink);text-decoration:none;
+  border-bottom:1px solid rgba(234,229,219,.35)
+}
+.contact .btn{
+  display:inline-block;margin-top:25px;padding:14px 38px;
+  background:var(--terracotta);color:var(--ink);
+  text-decoration:none;font-size:12px;letter-spacing:.04em;
+  transition:background .2s ease
+}
+.contact .btn:hover{background:var(--terracotta-dark)}
+
+/* ПЛАНШЕТ */
+@media(max-width:760px){
+  .wrap,.situations-inner{width:calc(100% - 48px)}
+  .intro{grid-template-columns:.8fr 1.2fr;gap:28px}
+  .featured-cases{gap:24px}
+  .cases-grid{gap:35px 24px}
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+@media(max-width:600px){
+  .wrap,.situations-inner{width:calc(100% - 40px)}
+  .topbar{padding-top:19px}
+  .brand-mark{width:29px;height:29px}
+  .brand-name{font-size:15px}
+  .brand-tag{font-size:7px}
+
+  .hero{min-height:76svh;padding:90px 0 50px}
+  .hero h1{font-size:clamp(47px,12.5vw,67px);line-height:1}
+  .hero h1 .small{margin-top:14px;font-size:.34em}
+
+  .section{padding:48px 0}
+  .eyebrow{font-size:9px;margin-bottom:19px}
+
+  .intro{display:block}
+  .intro-title{font-size:31px;margin-bottom:20px}
+  .intro-copy p{font-size:16px;line-height:1.6}
+  .intro-copy p+p{margin-top:10px}
+
+  .situations{
+    margin-top:18px;padding:48px 0 52px
+  }
+  .situations .eyebrow{margin-bottom:22px}
+  .situations-list{grid-template-columns:1fr}
+  .situation{padding:20px 0 23px}
+  .situation .num{margin-bottom:12px;font-size:12px}
+  .situation .quote{font-size:20px;line-height:1.38}
+  .situation .answer{font-size:12px;line-height:1.6}
+
+  .cases-title{padding:55px 0 26px}
+  .cases-title h2{font-size:25px}
+  .cases{padding-bottom:52px}
+  .featured-cases{
+    grid-template-columns:1fr;gap:36px;margin-bottom:38px
+  }
+  .featured-cases .case .media{aspect-ratio:4/3}
+  .cases-grid{grid-template-columns:1fr;gap:36px}
+  .case .media{aspect-ratio:4/3}
+  .case .text{
+    width:84%;margin:12px 0 0 auto;text-align:right
+  }
+  .case .name{font-size:20px}
+  .case .tag{font-size:8px;margin-bottom:10px}
+  .case .part{margin-top:7px}
+  .case .part .label{font-size:7px}
+  .case .part p{font-size:11px;line-height:1.45}
+
+  .manifest{padding:48px 0}
+  .manifest h2{font-size:31px}
+  .manifest .lead{margin-top:12px;font-size:12px}
+  .manifest .body-text{margin-top:22px;font-size:14px;line-height:1.6}
+  .manifest .closing{margin-top:15px;font-size:16px}
+
+  .founder{padding:48px 0}
+  .founder .inner{grid-template-columns:1fr;gap:22px}
+  .founder .photo{max-width:190px;margin:auto}
+  .founder blockquote{font-size:23px;line-height:1.35}
+  .founder .sign{margin-top:15px}
+
+  .contact{padding:48px 0 42px}
+  .contact h2{font-size:30px}
+  .contact .lead{margin-top:15px;font-size:12px}
+  .contact .note{font-size:11px}
+  .contact .contacts{margin-top:20px;font-size:12px}
+  .contact .btn{margin-top:20px;padding:13px 34px}
+}
+
+@media(max-width:360px){
+  .wrap,.situations-inner{width:calc(100% - 32px)}
+  .hero h1{font-size:44px}
+  .intro-title{font-size:28px}
+  .situation .quote{font-size:18px}
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <div class="topbar">
   <div class="wrap">
     <div class="inner">
@@ -856,7 +335,6 @@ img {
   </div>
 </div>
 
-<!-- HERO -->
 <header class="hero wrap">
   <h1>
     <span>Ваш бренд</span>
@@ -865,12 +343,11 @@ img {
   </h1>
 </header>
 
-<!-- EDITORIAL -->
 <section class="section wrap">
   <p class="eyebrow">Смыслы и визуальный брендинг</p>
-  <div class="editorial">
-    <p class="side">Снаружи видно не всё.</p>
-    <div class="main">
+  <div class="intro">
+    <p class="intro-title">Снаружи видно не всё.</p>
+    <div class="intro-copy">
       <p>Бывает, бизнес вырос — а сайт, меню, вывеска остались прежними.</p>
       <p class="accent">Не потому, что плохо сделаны. А потому, что форма не успела за смыслом.</p>
       <p>Мы сокращаем это расстояние. Находим то, что уже есть, — и придаём этому форму.</p>
@@ -878,92 +355,90 @@ img {
   </div>
 </section>
 
-<div class="divider" aria-hidden="true"></div>
+<section class="situations">
+  <div class="situations-inner">
+    <p class="eyebrow">С чем к нам приходят</p>
+    <div class="situations-list">
 
-<!-- SITUATIONS -->
-<section class="section situations wrap">
-  <p class="eyebrow">С чем к нам приходят</p>
-  <div class="list">
+      <div class="situation">
+        <p class="num">01</p>
+        <p class="quote">«Мы хорошо знаем, что делаем, но сложно объяснить, почему клиенту стоит выбрать именно нас».</p>
+        <p class="answer"><b>Стратегия и смыслы</b> → находим то, что делает бизнес особенным, и формулируем это так, чтобы клиент понял и выбрал.</p>
+      </div>
 
-    <div class="situation">
-      <p class="num">01</p>
-      <p class="quote">«Мы хорошо знаем, что делаем, но сложно объяснить, почему клиенту стоит выбрать именно нас».</p>
-      <p class="answer"><b>Стратегия и смыслы</b> → находим то, что делает бизнес особенным, и формулируем это так, чтобы клиент понял и выбрал.</p>
+      <div class="situation">
+        <p class="num">02</p>
+        <p class="quote">«Мы выросли, изменились, а наш образ будто остался в прошлом».</p>
+        <p class="answer"><b>Образ бренда</b> → помогаем выразить характер и уровень бизнеса через логотип и визуальный стиль.</p>
+      </div>
+
+      <div class="situation">
+        <p class="num">03</p>
+        <p class="quote">«Сайт есть, но он не продаёт. Люди заходят — и уходят».</p>
+        <p class="answer"><b>Сайты</b> → создаём сайты, которые раскрывают бизнес, его особенности и ценность для клиента.</p>
+      </div>
+
+      <div class="situation">
+        <p class="num">04</p>
+        <p class="quote">«Отправляем презентацию — и тишина. Клиент не понимает, за что платить».</p>
+        <p class="answer"><b>Презентации</b> → разрабатываем структуру, смыслы и тексты, которые помогают ясно представить компанию и её предложение.</p>
+      </div>
+
     </div>
-
-    <div class="situation">
-      <p class="num">02</p>
-      <p class="quote">«Мы выросли, изменились, а наш образ будто остался в прошлом».</p>
-      <p class="answer"><b>Образ бренда</b> → помогаем выразить характер и уровень бизнеса через логотип и визуальный стиль.</p>
-    </div>
-
-    <div class="situation">
-      <p class="num">03</p>
-      <p class="quote">«Сайт есть, но он не продаёт. Люди заходят — и уходят».</p>
-      <p class="answer"><b>Сайты</b> → создаём сайты, которые раскрывают бизнес, его особенности и ценность для клиента.</p>
-    </div>
-
-    <div class="situation">
-      <p class="num">04</p>
-      <p class="quote">«Отправляем презентацию — и тишина. Клиент не понимает, за что платить».</p>
-      <p class="answer"><b>Презентации</b> → разрабатываем структуру, смыслы и тексты, которые помогают ясно представить компанию и её предложение.</p>
-    </div>
-
   </div>
 </section>
 
-<!-- CASES TITLE -->
 <section class="cases-title wrap">
   <h2>Мышление,<span>которому мы придаём форму</span></h2>
 </section>
 
-<!-- CASES -->
 <section class="cases">
   <div class="wrap">
 
-    <article class="case">
-      <div class="media">MCC</div>
-      <div class="text">
-        <p class="name">MCC</p>
-        <p class="tag">Брендинг студии</p>
-        <div class="part">
-          <p class="label">Задача</p>
-          <p>Собрать воедино смыслы студии и показать их так, чтобы клиент с первого взгляда понимал, с кем имеет дело.</p>
-        </div>
-        <div class="part">
-          <p class="label">Что нашли</p>
-          <p>Собственную карту смыслов — то, как студия думает, принимает решения и строит работу. Это и стало основой бренда.</p>
-        </div>
-        <div class="part">
-          <p class="label">Форма</p>
-          <p>Логотип, типографика, палитра и носители, которые звучат одинаково — от сайта до презентации.</p>
-        </div>
-      </div>
-    </article>
+    <div class="featured-cases">
 
-    <article class="case">
-      <div class="media">Le Centre</div>
-      <div class="text">
-        <p class="name">Le Centre Champéry</p>
-        <p class="tag">Ресторан в Альпах</p>
-        <div class="part">
-          <p class="label">Задача</p>
-          <p>Снова стать местом, куда хочется приходить за впечатлениями — гастрономическими и визуальными.</p>
+      <article class="case">
+        <div class="media">MCC</div>
+        <div class="text">
+          <p class="name">MCC</p>
+          <p class="tag">Брендинг студии</p>
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Собрать воедино смыслы студии и показать их так, чтобы клиент с первого взгляда понимал, с кем имеет дело.</p>
+          </div>
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Собственную карту смыслов — то, как студия думает, принимает решения и строит работу. Это и стало основой бренда.</p>
+          </div>
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Логотип, типографика, палитра и носители, которые звучат одинаково — от сайта до презентации.</p>
+          </div>
         </div>
-        <div class="part">
-          <p class="label">Что нашли</p>
-          <p>Символ, который уже был в самом месте — балкон, с которого когда-то объявляли новости деревни. Тогда он объединял людей. И сейчас заведение снова объединяет их вокруг себя.</p>
-        </div>
-        <div class="part">
-          <p class="label">Форма</p>
-          <p>Логотип, который работает как настоящий брендинг — на сайте, на меню, униформе. Теперь визуал работает на первое впечатление.</p>
-        </div>
-      </div>
-    </article>
+      </article>
 
-  </div>
+      <article class="case">
+        <div class="media">Le Centre</div>
+        <div class="text">
+          <p class="name">Le Centre Champéry</p>
+          <p class="tag">Ресторан в Альпах</p>
+          <div class="part">
+            <p class="label">Задача</p>
+            <p>Снова стать местом, куда хочется приходить за впечатлениями — гастрономическими и визуальными.</p>
+          </div>
+          <div class="part">
+            <p class="label">Что нашли</p>
+            <p>Символ, который уже был в самом месте — балкон, с которого когда-то объявляли новости деревни. Тогда он объединял людей. И сейчас заведение снова объединяет их вокруг себя.</p>
+          </div>
+          <div class="part">
+            <p class="label">Форма</p>
+            <p>Логотип, который работает как настоящий брендинг — на сайте, на меню, униформе. Теперь визуал работает на первое впечатление.</p>
+          </div>
+        </div>
+      </article>
 
-  <div class="wrap">
+    </div>
+
     <div class="cases-grid">
 
       <article class="case">
@@ -1070,7 +545,6 @@ img {
   </div>
 </section>
 
-<!-- MANIFEST -->
 <section class="manifest">
   <div class="wrap">
     <h2>Помогаем найти смысл</h2>
@@ -1082,7 +556,6 @@ img {
   </div>
 </section>
 
-<!-- FOUNDER -->
 <section class="founder wrap">
   <div class="inner">
     <div class="photo">
@@ -1095,7 +568,6 @@ img {
   </div>
 </section>
 
-<!-- CONTACT -->
 <footer class="contact" id="contact">
   <div class="wrap">
     <h2>Обсудим ваш проект?</h2>
