@@ -3,19 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCC — бутик-студия упаковки бизнеса смыслов</title>
+<title>MCC — смыслы и визуальный брендинг</title>
 <style>
   :root{
-    --bg:#f8f6f2;
+    --bg:#f7f5f1;
     --ink:#1b1a18;
     --muted:#8b867e;
-    --line:#e6e1d8;
-
+    --line:#e2ddd5;
     --terracotta:#b0593a;
     --terracotta-dark:#9c4a2f;
-    --forest:#1f3a2c;
-    --forest-ink:#eae5db;
-    --gold:#b08d57;
+    --limo:#141311;
+    --limo-ink:#eae5db;
 
     --serif:"Georgia","Times New Roman",serif;
     --sans:"Helvetica Neue",Arial,sans-serif;
@@ -33,11 +31,11 @@
     overflow-x:hidden;
   }
 
-  /* -------- Воздух по краям: на мобильных 28px -------- */
+  /* -------- Воздух по краям: 32px -------- */
   .wrap{
     max-width:1200px;
     margin:0 auto;
-    padding:0 28px;
+    padding:0 32px;
   }
 
   /* ---------- Шапка с логотипом ---------- */
@@ -104,8 +102,8 @@
   .hero h1{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2.4rem,10.5vw,3.4rem);
-    line-height:1.04;
+    font-size:clamp(2.6rem,10.5vw,3.6rem);
+    line-height:1.03;
     letter-spacing:-0.02em;
     text-transform:uppercase;
     max-width:100%;
@@ -118,18 +116,8 @@
   .hero h1 .small{
     font-size:0.36em;
     line-height:1.1;
-    margin-top:0.7em;
+    margin-top:0.65em;
     letter-spacing:0.02em;
-    color:var(--gold);
-  }
-
-  .hero .note{
-    margin-top:36px;
-    font-size:0.72rem;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    color:var(--muted);
-    max-width:32ch;
   }
 
   /* ---------- Секции ---------- */
@@ -139,10 +127,10 @@
   }
 
   .eyebrow{
-    font-size:0.68rem;
+    font-size:0.7rem;
     letter-spacing:0.2em;
     text-transform:uppercase;
-    color:var(--gold);
+    color:var(--muted);
     margin-bottom:28px;
     overflow-wrap:break-word;
   }
@@ -234,14 +222,6 @@
 
   .cases-title h2 span{display:block}
 
-  .cases-title .sub{
-    margin-top:12px;
-    font-size:0.65rem;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
   /* ---------- Кейсы ---------- */
   .cases{padding:32px 0 48px}
 
@@ -332,15 +312,13 @@
   .cases-grid .case .media{aspect-ratio:4/3;margin-bottom:0}
   .cases-grid .case .text{width:calc(100% - 16px);margin-left:16px}
 
-  /* ---------- Манифест (тёмно-зелёный) ---------- */
+  /* ---------- Манифест (терракота) ---------- */
   .manifest{
     padding:64px 0;
-    background:var(--forest);
-    color:var(--forest-ink);
+    background:var(--terracotta);
+    color:var(--ink);
     text-align:center;
   }
-
-  .manifest .eyebrow{color:var(--gold)}
 
   .manifest h2{
     font-family:var(--serif);
@@ -352,13 +330,12 @@
     max-width:100%;
     overflow-wrap:break-word;
     word-break:break-word;
-    color:var(--forest-ink);
   }
 
   .manifest .lead{
     margin-top:18px;
     font-size:0.92rem;
-    color:rgba(234,229,219,.75);
+    color:rgba(27,26,24,.8);
     max-width:100%;
     line-height:1.6;
     overflow-wrap:break-word;
@@ -371,7 +348,7 @@
     line-height:1.7;
     max-width:100%;
     overflow-wrap:break-word;
-    color:rgba(234,229,219,.9);
+    color:rgba(27,26,24,.9);
   }
 
   .manifest .closing{
@@ -381,7 +358,7 @@
     line-height:1.45;
     max-width:100%;
     overflow-wrap:break-word;
-    color:var(--forest-ink);
+    color:var(--ink);
   }
 
   /* ---------- Основатель ---------- */
@@ -424,11 +401,11 @@
     color:var(--muted);
   }
 
-  /* ---------- Подвал ---------- */
+  /* ---------- Подвал (чёрный) ---------- */
   .contact{
     padding:64px 0 56px;
-    background:#141311;
-    color:var(--forest-ink);
+    background:var(--limo);
+    color:var(--limo-ink);
     text-align:center;
   }
 
@@ -439,7 +416,7 @@
     line-height:1.14;
     text-transform:uppercase;
     letter-spacing:-0.01em;
-    color:var(--forest-ink);
+    color:var(--limo-ink);
     max-width:100%;
     overflow-wrap:break-word;
     word-break:break-word;
@@ -464,20 +441,20 @@
     margin-top:28px;
     font-size:0.92rem;
     line-height:1.7;
-    color:var(--forest-ink);
+    color:var(--limo-ink);
     max-width:100%;
     overflow-wrap:break-word;
   }
 
   .contact .contacts a{
-    color:var(--forest-ink);
+    color:var(--limo-ink);
     text-decoration:none;
     border-bottom:1px solid rgba(234,229,219,.35);
     transition:border-color .25s ease;
     word-break:break-word;
   }
 
-  .contact .contacts a:hover{border-color:var(--forest-ink)}
+  .contact .contacts a:hover{border-color:var(--limo-ink)}
 
   .contact .btn{
     display:inline-block;
@@ -486,18 +463,18 @@
     font-size:0.9rem;
     letter-spacing:0.06em;
     text-transform:uppercase;
-    color:var(--forest-ink);
-    background:transparent;
-    border:1px solid var(--gold);
+    color:var(--ink);
+    background:var(--terracotta);
+    border:none;
     padding:16px 24px;
     width:100%;
     max-width:320px;
     text-decoration:none;
-    transition:background .25s ease, color .25s ease;
+    transition:background .25s ease;
     text-align:center;
   }
 
-  .contact .btn:hover{background:var(--gold);color:#141311}
+  .contact .btn:hover{background:var(--terracotta-dark);color:var(--ink)}
 
   /* ---------- Планшет и десктоп ---------- */
   @media (min-width:760px){
@@ -582,12 +559,11 @@
     <span>Больше</span>
     <span class="small">Чем видно</span>
   </h1>
-  <p class="note">Смыслы и визуальный брендинг</p>
 </header>
 
 <!-- Редакционный блок -->
 <section class="section wrap">
-  <p class="eyebrow">О студии</p>
+  <p class="eyebrow">Смыслы и визуальный брендинг</p>
   <div class="editorial">
     <p class="side">Снаружи видно не всё.</p>
     <div class="main">
@@ -628,7 +604,6 @@
 <!-- Заголовок к кейсам -->
 <section class="cases-title wrap">
   <h2>Мышление,<span>которому мы придаём форму</span></h2>
-  <p class="sub">Избранные проекты</p>
 </section>
 
 <!-- Кейсы -->
@@ -787,7 +762,6 @@
 <!-- Манифест -->
 <section class="manifest">
   <div class="wrap">
-    <p class="eyebrow">Философия</p>
     <h2>Помогаем найти смысл</h2>
     <p class="lead">Тот, что уже есть внутри. Просто его пока не видно снаружи.</p>
     <div class="body-text">
