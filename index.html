@@ -626,27 +626,34 @@
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
 
 
-/* Композиция 01: сдержанная асимметрия и крупный альбом проектов. */
-.section.wrap, .founder.wrap, .cases-title.wrap, .cases > .wrap { max-width:1120px; }
-.editorial .side { max-width:12ch; }
-.editorial .main { max-width:44ch; }
-.cases-title h2 { max-width:23ch; }
-.gallery-track .case .media { aspect-ratio:4/3; }
-.gallery-track .case .text { gap:24px; }
-.manifest .wrap { max-width:960px; }
+/* Композиция 02: крупный проект и подпись рядом, как в выставочном каталоге. */
+.section.wrap, .founder.wrap, .cases-title.wrap, .cases > .wrap { max-width:1160px; }
+.editorial .side { font-size:25px; }
+.gallery-track .case .media { aspect-ratio:1/1; }
+.gallery-track .case .text { max-width:54ch; }
+.manifest .wrap { max-width:920px; }
+.manifest h2 { max-width:none; }
+.founder .photo { max-width:220px; }
 @media(min-width:760px) {
- .editorial { grid-template-columns:1fr 1fr; gap:100px; }
- .section > .eyebrow { margin-bottom:40px; }
- .editorial .side { font-size:32px; }
- .situation .quote { font-size:18px; max-width:36ch; }
- .gallery-track .case .media { aspect-ratio:16/9; }
- .gallery-track .case .text { grid-template-columns:1fr 1.2fr 1.2fr 1.2fr; gap:32px; }
- .manifest .wrap { display:grid; grid-template-columns:1fr 1.25fr; column-gap:72px; }
- .manifest h2 { grid-column:1; grid-row:1 / span 3; font-size:34px; }
- .manifest .lead, .manifest .body-text, .manifest .closing { grid-column:2; }
- .manifest .lead { margin-top:0; }
- .manifest .closing { font-size:23px; }
- .founder .inner { grid-template-columns:240px 1fr; max-width:780px; margin:auto; }
+ .editorial { grid-template-columns:1fr 1.5fr; gap:64px; }
+ .situations .list { grid-template-columns:1fr; }
+ .situation { display:grid; grid-template-columns:40px 1fr 1fr; gap:32px; align-items:start; }
+ .situation .num { margin:3px 0 0; }
+ .situation .quote { font-size:18px; margin:0; }
+ .situation .answer { font-size:14px; margin:0; }
+ .gallery-track .case { grid-template-columns:minmax(0,2fr) minmax(240px,1fr); gap:40px; align-items:start; }
+ .gallery-track .case .media { aspect-ratio:1/1; }
+ .gallery-track .case .text { display:block; padding-top:12px; }
+ .gallery-track .case .name { font-size:26px; }
+ .gallery-track .case .tag { margin:10px 0 28px; }
+ .gallery-track .case .part { margin-top:18px; }
+ .gallery-track .case .part p { font-size:15px; }
+ .manifest .wrap { display:grid; grid-template-columns:1fr 1fr; gap:0 64px; }
+ .manifest h2 { grid-column:1 / -1; margin-bottom:30px; font-size:34px; }
+ .manifest .lead { margin:0; }
+ .manifest .body-text { margin:0; }
+ .manifest .closing { grid-column:1 / -1; margin-top:32px; font-size:22px; }
+ .founder .inner { grid-template-columns:220px 1fr; max-width:760px; margin:auto; }
 }
 
 </style>
