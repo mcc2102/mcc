@@ -625,6 +625,30 @@
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
 
+
+/* Композиция 01: сдержанная асимметрия и крупный альбом проектов. */
+.section.wrap, .founder.wrap, .cases-title.wrap, .cases > .wrap { max-width:1120px; }
+.editorial .side { max-width:12ch; }
+.editorial .main { max-width:44ch; }
+.cases-title h2 { max-width:23ch; }
+.gallery-track .case .media { aspect-ratio:4/3; }
+.gallery-track .case .text { gap:24px; }
+.manifest .wrap { max-width:960px; }
+@media(min-width:760px) {
+ .editorial { grid-template-columns:1fr 1fr; gap:100px; }
+ .section > .eyebrow { margin-bottom:40px; }
+ .editorial .side { font-size:32px; }
+ .situation .quote { font-size:18px; max-width:36ch; }
+ .gallery-track .case .media { aspect-ratio:16/9; }
+ .gallery-track .case .text { grid-template-columns:1fr 1.2fr 1.2fr 1.2fr; gap:32px; }
+ .manifest .wrap { display:grid; grid-template-columns:1fr 1.25fr; column-gap:72px; }
+ .manifest h2 { grid-column:1; grid-row:1 / span 3; font-size:34px; }
+ .manifest .lead, .manifest .body-text, .manifest .closing { grid-column:2; }
+ .manifest .lead { margin-top:0; }
+ .manifest .closing { font-size:23px; }
+ .founder .inner { grid-template-columns:240px 1fr; max-width:780px; margin:auto; }
+}
+
 </style>
 </head>
 <body>
