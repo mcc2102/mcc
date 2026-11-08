@@ -120,16 +120,7 @@
   .case .part .label{font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--terracotta);margin-bottom:2px}
   .case .part p{font-family:var(--serif);font-size:0.78rem;line-height:1.55;color:var(--muted);max-width:30ch;margin-left:auto;margin-right:auto;overflow-wrap:break-word;text-align:center}
 
-  /* Горизонтальная галерея для кейсов на мобильных */
-  .cases-scroll{
-    display:flex;
-    gap:20px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    padding:0 40px 16px;
-    margin:0 -40px;
-    scrollbar-width:none;
+  
   }
   .cases-scroll::-webkit-scrollbar{display:none}
   .cases-scroll .case{
@@ -145,7 +136,7 @@
 
   .cases-grid{display:grid;grid-template-columns:1fr;gap:28px;padding-top:28px;border-top:1px solid var(--line)}
   .cases-grid .case{padding:0;border:none;gap:8px}
-  .cases-grid .case .media{aspect-ratio:4/3;margin-bottom:0}
+  .cases-grid .case .media{aspect-ratio:2/3;margin-bottom:0}
   .cases-grid .case .text{width:100%;padding-top:8px}
 
   /* Манифест */
@@ -179,15 +170,15 @@
      ========================================== */
   @media (max-width:759px){
     .wrap{
-      padding-left:40px !important;
-      padding-right:40px !important;
+      padding-left:32px !important;
+      padding-right:32px !important;
     }
 
     .cases-scroll{
-      padding-left:40px !important;
-      padding-right:40px !important;
-      margin-left:-40px !important;
-      margin-right:-40px !important;
+      padding-left:32px !important;
+      padding-right:32px !important;
+      margin-left:-32px !important;
+      margin-right:-32px !important;
     }
 
     .editorial{
