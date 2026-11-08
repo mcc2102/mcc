@@ -31,20 +31,21 @@
     overflow-x:hidden;
   }
 
-  /* -------- Воздух по краям: на мобильных 36px -------- */
+  /* ---------- Общая композиция (компактно) ---------- */
   .wrap{
-    max-width:1200px;
+    max-width:1160px;
     margin:0 auto;
-    padding:0 36px;
+    padding-left:clamp(22px,5vw,64px);
+    padding-right:clamp(22px,5vw,64px);
   }
 
   /* ---------- Шапка-логотип ---------- */
   .topbar{
     position:absolute;
-    top:28px;
+    top:24px;
     left:0;
     right:0;
-    z-index:2;
+    z-index:5;
   }
   .topbar .inner{
     display:flex;
@@ -55,38 +56,38 @@
   .brand{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
     text-decoration:none;
     color:var(--ink);
   }
   .brand-mark{
-    width:34px;
-    height:34px;
+    width:32px;
+    height:32px;
     border-radius:50%;
     background:conic-gradient(
       var(--terracotta) 0 33.3%,
       #efece6 33.3% 66.6%,
       #1b1a18 66.6% 100%
     );
-    border:1px solid rgba(27,26,24,.15);
+    border:1px solid rgba(27,26,24,.12);
     flex:0 0 auto;
   }
   .brand-name{
     font-family:var(--serif);
-    font-size:1.05rem;
-    letter-spacing:0.04em;
+    font-size:1rem;
+    letter-spacing:0.05em;
     text-transform:uppercase;
     line-height:1;
   }
   .brand-tag{
-    font-size:0.58rem;
+    font-size:0.55rem;
     letter-spacing:0.12em;
     text-transform:uppercase;
     color:var(--muted);
-    line-height:1.3;
+    line-height:1.25;
   }
 
-  /* ---------- ЭКРАН 1 ---------- */
+  /* ---------- ЭКРАН 1 (без изменений) ---------- */
   .hero{
     position:relative;
     min-height:100vh;
@@ -96,13 +97,13 @@
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:120px 0 64px;
+    padding:110px 0 56px;
   }
 
   .hero h1{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2.6rem,11vw,3.6rem);
+    font-size:clamp(2.6rem,10.5vw,3.6rem);
     line-height:1.03;
     letter-spacing:-0.02em;
     text-transform:uppercase;
@@ -120,87 +121,86 @@
     letter-spacing:0.02em;
   }
 
-  /* ---------- Секции ---------- */
+  /* ---------- Секции (компактно) ---------- */
   .section{
-    padding:64px 0;
+    padding-top:64px;
+    padding-bottom:64px;
     border-top:1px solid var(--line);
   }
 
-  .divider{
-    height:1px;
-    background:var(--line);
-    margin:0 36px;
-  }
-
   .eyebrow{
-    font-size:0.72rem;
-    letter-spacing:0.18em;
+    font-size:0.62rem;
+    letter-spacing:0.16em;
     text-transform:uppercase;
     color:var(--muted);
-    margin-bottom:32px;
+    margin-bottom:24px;
     overflow-wrap:break-word;
   }
 
+  /* Редакционный блок */
   .editorial{
     display:grid;
     grid-template-columns:1fr;
-    gap:24px;
+    gap:16px;
+    max-width:920px;
+    margin:0 auto;
   }
 
   .editorial .side{
     font-family:var(--serif);
-    font-size:1.3rem;
-    line-height:1.3;
-    max-width:100%;
+    font-size:1.08rem;
+    line-height:1.35;
     overflow-wrap:break-word;
   }
 
   .editorial .main p{
     font-family:var(--serif);
-    font-size:0.98rem;
-    line-height:1.65;
-    max-width:100%;
+    font-size:0.86rem;
+    line-height:1.7;
     overflow-wrap:break-word;
   }
 
-  .editorial .main p + p{margin-top:16px}
+  .editorial .main p + p{margin-top:12px}
   .editorial .main .accent{color:var(--muted)}
 
-  /* ---------- «С чем приходят» ---------- */
+  /* ---------- «С чем приходят» (компактно) ---------- */
   .situations .list{
     display:grid;
     grid-template-columns:1fr;
     gap:0;
+    max-width:920px;
+    margin:0 auto;
   }
 
   .situation{
-    padding:28px 0;
+    padding-top:22px;
+    padding-bottom:22px;
     border-top:1px solid var(--line);
   }
 
+  .situation:first-child{border-top:none;padding-top:0}
+
   .situation .num{
     font-family:var(--serif);
-    font-size:0.85rem;
+    font-size:0.72rem;
     color:var(--terracotta);
     letter-spacing:0.1em;
-    margin-bottom:12px;
+    margin-bottom:10px;
   }
 
   .situation .quote{
     font-family:var(--serif);
-    font-size:1.05rem;
-    line-height:1.45;
-    margin-bottom:12px;
-    max-width:100%;
+    font-size:0.94rem;
+    line-height:1.5;
+    margin-bottom:10px;
     overflow-wrap:break-word;
   }
 
   .situation .answer{
     color:var(--muted);
-    font-size:0.92rem;
+    font-size:0.78rem;
     font-weight:300;
     line-height:1.6;
-    max-width:100%;
     overflow-wrap:break-word;
   }
 
@@ -208,119 +208,115 @@
 
   /* ---------- Заголовок к кейсам ---------- */
   .cases-title{
-    padding:56px 0 0;
+    padding-top:42px;
     text-align:center;
   }
 
   .cases-title h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:1.25rem;
-    line-height:1.25;
-    letter-spacing:0;
+    font-size:0.98rem;
+    line-height:1.35;
+    letter-spacing:0.02em;
     text-transform:uppercase;
-    max-width:100%;
     overflow-wrap:break-word;
     word-break:break-word;
   }
 
   .cases-title h2 span{display:block}
 
-  /* ---------- Кейсы ---------- */
-  .cases{padding:40px 0 56px}
-
-  .case{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:14px;
-    padding:36px 0;
-    border-top:1px solid var(--line);
+  /* ---------- Кейсы (компактно) ---------- */
+  .cases{
+    padding:30px 0 56px;
   }
 
-  .case:first-child{border-top:none;padding-top:0}
+  .case,
+  .cases-grid .case{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    padding:0;
+    border:none;
+    min-width:0;
+  }
 
   .case .media{
+    width:100%;
+    max-width:none;
     aspect-ratio:4/3;
+    margin:0;
     background:var(--line);
     display:flex;
     align-items:center;
     justify-content:center;
     font-family:var(--serif);
-    font-size:1.1rem;
+    font-size:1rem;
     letter-spacing:0.08em;
     text-transform:uppercase;
     color:var(--muted);
     overflow:hidden;
-    width:100%;
-    max-width:100%;
   }
 
   .case .media img{width:100%;height:100%;object-fit:cover;display:block}
 
-  /* подпись под фото — мелкая, сдвинута вправо */
-  .case .text{
-    max-width:100%;
+  .case .text,
+  .cases-grid .case .text{
+    width:100%;
+    margin:0;
+    padding:0;
+    max-width:440px;
     overflow-wrap:break-word;
-    width:calc(100% - 16px);
-    margin-left:16px;
-    padding-right:0;
-    padding-top:2px;
   }
 
-  .case .name{
+  .case .name,
+  .cases-grid .case .name{
     font-family:var(--serif);
     font-weight:400;
-    font-size:1rem;
-    line-height:1.2;
-    margin-bottom:2px;
-    max-width:100%;
+    font-size:0.95rem;
+    line-height:1.3;
+    margin-bottom:3px;
     overflow-wrap:break-word;
   }
 
   .case .tag{
-    font-size:0.6rem;
-    letter-spacing:0.14em;
+    font-size:0.56rem;
+    letter-spacing:0.12em;
     text-transform:uppercase;
     color:var(--muted);
-    margin-bottom:10px;
-    max-width:100%;
+    margin-bottom:12px;
     overflow-wrap:break-word;
   }
 
   .case .part{margin-top:10px}
 
   .case .part .label{
-    font-size:0.58rem;
-    letter-spacing:0.16em;
+    font-size:0.53rem;
+    letter-spacing:0.14em;
     text-transform:uppercase;
     color:var(--terracotta);
-    margin-bottom:2px;
+    margin-bottom:3px;
   }
 
-  .case .part p{
+  .case .part p,
+  .cases-grid .case .part p{
     font-family:var(--serif);
-    font-size:0.8rem;
+    font-size:0.76rem;
     line-height:1.55;
     color:var(--muted);
-    max-width:100%;
     overflow-wrap:break-word;
   }
 
   .cases-grid{
     display:grid;
     grid-template-columns:1fr;
-    gap:32px;
+    gap:28px;
     padding-top:32px;
     border-top:1px solid var(--line);
   }
 
-  .cases-grid .case{padding:0;border:none;gap:10px}
-  .cases-grid .case .media{aspect-ratio:4/3;margin-bottom:0}
-  .cases-grid .case .text{width:calc(100% - 16px);margin-left:16px}
-
-  /* ---------- Манифест ---------- */
+  /* ---------- Манифест (сдержанно) ---------- */
   .manifest{
-    padding:72px 0;
+    padding:76px 0;
     background:var(--terracotta);
     color:var(--ink);
     text-align:center;
@@ -329,40 +325,47 @@
   .manifest h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.5rem,6.5vw,3.6rem);
-    line-height:1.1;
+    font-size:clamp(1.5rem,4vw,2.8rem);
+    line-height:1.12;
     letter-spacing:-0.01em;
     text-transform:uppercase;
-    max-width:100%;
     overflow-wrap:break-word;
     word-break:break-word;
   }
 
   .manifest .lead{
-    margin-top:20px;
-    font-size:0.95rem;
+    margin-top:18px;
+    font-size:0.86rem;
     color:rgba(27,26,24,.8);
-    max-width:100%;
-    line-height:1.55;
+    max-width:32ch;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.6;
     overflow-wrap:break-word;
   }
 
   .manifest .body-text{
-    margin-top:28px;
+    margin-top:22px;
     font-family:var(--serif);
-    font-size:0.92rem;
-    line-height:1.65;
-    max-width:100%;
+    font-size:0.84rem;
+    line-height:1.7;
+    max-width:58ch;
+    margin-left:auto;
+    margin-right:auto;
     overflow-wrap:break-word;
+    color:rgba(27,26,24,.9);
   }
 
   .manifest .closing{
-    margin-top:24px;
+    margin-top:20px;
     font-family:var(--serif);
-    font-size:1.05rem;
-    line-height:1.4;
-    max-width:100%;
+    font-size:0.96rem;
+    line-height:1.45;
+    max-width:34ch;
+    margin-left:auto;
+    margin-right:auto;
     overflow-wrap:break-word;
+    color:var(--ink);
   }
 
   /* ---------- Основатель ---------- */
@@ -374,15 +377,17 @@
   .founder .inner{
     display:grid;
     grid-template-columns:1fr;
-    gap:28px;
+    gap:24px;
     text-align:center;
+    max-width:920px;
+    margin:0 auto;
   }
 
   .founder .photo{
     aspect-ratio:4/5;
     background:var(--line);
     overflow:hidden;
-    max-width:260px;
+    max-width:220px;
     margin:0 auto;
     width:100%;
   }
@@ -391,15 +396,17 @@
 
   .founder blockquote{
     font-family:var(--serif);
-    font-size:1.1rem;
-    line-height:1.45;
-    max-width:100%;
+    font-size:0.96rem;
+    line-height:1.55;
+    max-width:36ch;
+    margin-left:auto;
+    margin-right:auto;
     overflow-wrap:break-word;
   }
 
   .founder .sign{
-    margin-top:24px;
-    font-size:0.72rem;
+    margin-top:20px;
+    font-size:0.62rem;
     letter-spacing:0.14em;
     text-transform:uppercase;
     color:var(--muted);
@@ -407,7 +414,7 @@
 
   /* ---------- Подвал ---------- */
   .contact{
-    padding:72px 0 64px;
+    padding:76px 0 64px;
     background:var(--limo);
     color:var(--limo-ink);
     text-align:center;
@@ -416,37 +423,37 @@
   .contact h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.5rem,6vw,3rem);
-    line-height:1.12;
+    font-size:clamp(1.6rem,4vw,2.8rem);
+    line-height:1.14;
     text-transform:uppercase;
     letter-spacing:-0.01em;
     color:var(--limo-ink);
-    max-width:100%;
     overflow-wrap:break-word;
     word-break:break-word;
   }
 
   .contact .lead{
-    margin-top:24px;
-    font-size:0.95rem;
+    margin-top:20px;
+    font-size:0.86rem;
     line-height:1.65;
     color:rgba(234,229,219,.72);
-    max-width:100%;
+    max-width:38ch;
+    margin-left:auto;
+    margin-right:auto;
     overflow-wrap:break-word;
   }
 
   .contact .note{
-    margin-top:16px;
-    font-size:0.9rem;
+    margin-top:14px;
+    font-size:0.82rem;
     color:rgba(234,229,219,.55);
   }
 
   .contact .contacts{
-    margin-top:32px;
-    font-size:0.95rem;
+    margin-top:26px;
+    font-size:0.82rem;
     line-height:1.7;
     color:var(--limo-ink);
-    max-width:100%;
     overflow-wrap:break-word;
   }
 
@@ -462,14 +469,15 @@
 
   .contact .btn{
     display:inline-block;
-    margin-top:32px;
+    margin-top:26px;
     font-family:var(--sans);
-    font-size:0.95rem;
-    letter-spacing:0.04em;
+    font-size:0.82rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
     color:var(--ink);
     background:var(--terracotta);
     border:none;
-    padding:16px 24px;
+    padding:14px 22px;
     width:100%;
     max-width:320px;
     text-decoration:none;
@@ -481,181 +489,129 @@
 
   /* ---------- Планшет и десктоп ---------- */
   @media (min-width:760px){
-    .wrap{padding:0 48px}
-    .divider{margin:0 48px}
-    .topbar{top:40px}
-    .brand-mark{width:40px;height:40px}
-    .brand-name{font-size:1.15rem}
-    .brand-tag{font-size:0.6rem}
+    .topbar{top:36px}
+    .brand-mark{width:38px;height:38px}
+    .brand-name{font-size:1.1rem}
+    .brand-tag{font-size:0.58rem}
 
-    .section{padding:100px 0}
-    .hero{padding:130px 0 72px}
-    .hero h1{font-size:clamp(2.8rem,7vw,6rem)}
+    .hero{padding:120px 0 72px}
+    .hero h1{font-size:clamp(3rem,7.5vw,6.2rem)}
     .hero h1 .small{font-size:0.3333em}
+
+    .section{padding-top:96px;padding-bottom:96px}
 
     .editorial{grid-template-columns:1fr 1.6fr;gap:56px}
     .editorial .side{font-size:clamp(1.6rem,3vw,2.6rem)}
-    .editorial .main p{font-size:clamp(1.05rem,1.4vw,1.25rem)}
+    .editorial .main p{font-size:clamp(1.05rem,1.4vw,1.22rem)}
 
     .situations .list{grid-template-columns:1fr 1fr}
     .situation{padding:32px 40px 32px 0}
+    .situation:first-child{padding-top:32px}
     .situation:nth-child(2n){padding-left:40px;padding-right:0;border-left:1px solid var(--line)}
 
-    .cases-title{padding:80px 0 0}
+    .cases-title{padding-top:80px}
     .cases-title h2{font-size:clamp(1.3rem,2vw,1.6rem)}
-    .cases{padding:56px 0 80px}
-    .case{grid-template-columns:2fr 1fr;gap:40px;padding:48px 0}
 
-    .case .text{width:100%;margin-left:0;padding-top:8px;padding-right:0}
-    .case .media{aspect-ratio:16/10}
-    .case .name{font-size:1.5rem;margin-bottom:6px}
-    .case .tag{font-size:0.72rem;margin-bottom:28px}
-    .case .part{margin-top:18px}
-    .case .part .label{font-size:0.72rem;margin-bottom:6px}
-    .case .part p{font-size:0.98rem;line-height:1.62;color:var(--ink)}
+    .cases > .wrap:first-child{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:36px;
+    }
 
-    .cases-grid{grid-template-columns:1fr 1fr;gap:48px;padding-top:56px}
-    .cases-grid .case .name{font-size:1.3rem}
-    .cases-grid .case .part p{font-size:0.94rem}
-    .cases-grid .case .text{width:100%;margin-left:0}
+    .cases-grid{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:36px 28px;
+      padding-top:36px;
+    }
 
-    .manifest{padding:120px 0}
-    .manifest h2{font-size:clamp(2rem,5vw,4.4rem)}
-    .manifest .lead{font-size:clamp(1.05rem,1.7vw,1.25rem);max-width:44ch;margin-left:auto;margin-right:auto}
-    .manifest .body-text{font-size:clamp(1rem,1.5vw,1.15rem);max-width:58ch;margin-left:auto;margin-right:auto;margin-top:36px}
-    .manifest .closing{font-size:clamp(1.2rem,2.1vw,1.5rem);max-width:38ch;margin-left:auto;margin-right:auto;margin-top:32px}
+    .case .media{aspect-ratio:4/3}
+    .case .text,
+    .cases-grid .case .text{max-width:100%}
 
-    .founder{padding:100px 0}
+    .manifest{padding:100px 0}
+    .manifest h2{font-size:clamp(1.8rem,4.5vw,3.6rem)}
+    .manifest .lead{font-size:clamp(0.95rem,1.4vw,1.05rem);max-width:44ch;margin-left:auto;margin-right:auto}
+    .manifest .body-text{font-size:clamp(0.9rem,1.3vw,1rem);max-width:58ch;margin-left:auto;margin-right:auto;margin-top:26px}
+    .manifest .closing{font-size:clamp(1rem,1.6vw,1.2rem);max-width:38ch;margin-left:auto;margin-right:auto;margin-top:24px}
+
+    .founder{padding:80px 0}
     .founder .inner{grid-template-columns:1fr 1.4fr;gap:64px;text-align:left}
     .founder .photo{max-width:none;margin:0}
-    .founder blockquote{font-size:clamp(1.4rem,2.6vw,2.1rem)}
+    .founder blockquote{font-size:clamp(1.2rem,2.2vw,1.7rem);max-width:100%;margin-left:0}
 
-    .contact{padding:120px 0 100px}
-    .contact h2{font-size:clamp(2rem,4.5vw,3.6rem)}
-    .contact .lead{font-size:clamp(1.05rem,1.5vw,1.2rem);max-width:54ch;margin-left:auto;margin-right:auto}
-    .contact .contacts{font-size:clamp(1rem,1.4vw,1.15rem)}
-    .contact .btn{width:auto;max-width:none;padding:22px 64px;font-size:clamp(1rem,1.4vw,1.12rem)}
+    .contact{padding:100px 0 88px}
+    .contact h2{font-size:clamp(1.8rem,4vw,3.2rem)}
+    .contact .lead{font-size:clamp(0.95rem,1.4vw,1.05rem);max-width:54ch;margin-left:auto;margin-right:auto}
+    .contact .contacts{font-size:clamp(0.9rem,1.3vw,1rem)}
+    .contact .btn{width:auto;max-width:none;padding:18px 48px;font-size:clamp(0.82rem,1vw,0.9rem)}
   }
 
-/* Уточнённая композиция. Первый экран и исходная палитра сохранены. */
-.section.wrap, .founder.wrap, .cases-title.wrap, .cases > .wrap {
-  max-width:1040px;
-}
-.section.wrap, .founder.wrap, .cases-title.wrap { padding-left:36px; padding-right:36px; }
-.section { padding-top:64px; padding-bottom:64px; }
-.eyebrow { font-size:10px; letter-spacing:0; margin-bottom:28px; }
-.editorial { gap:24px; }
-.editorial .side { font-size:24px; line-height:1.25; }
-.editorial .main { max-width:48ch; }
-.editorial .main p { font-size:16px; line-height:1.65; }
-.editorial .main p + p { margin-top:12px; }
-.divider { display:none; }
-.situation { padding:24px 0; }
-.situation .num { font-size:12px; letter-spacing:0; margin-bottom:10px; }
-.situation .quote { font-size:17px; line-height:1.5; max-width:34ch; }
-.situation .answer { font-size:14px; line-height:1.65; max-width:44ch; }
-.cases-title { padding-top:48px; text-align:left; }
-.cases-title h2 { font-size:24px; line-height:1.25; text-transform:none; }
-.cases { padding:28px 0 64px; }
-.gallery-tools { display:flex; align-items:center; justify-content:flex-end; gap:12px; margin-bottom:16px; }
-.gallery-count { margin-right:auto; color:var(--muted); font-size:12px; font-variant-numeric:tabular-nums; }
-.gallery-arrow { width:40px; height:40px; display:grid; place-items:center; border:1px solid var(--line); border-radius:50%; background:transparent; color:var(--ink); cursor:pointer; }
-.gallery-arrow svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.2; }
-.gallery-arrow:hover { border-color:var(--ink); }
-.gallery-arrow:focus-visible { outline:1px solid var(--ink); outline-offset:4px; }
-.gallery-arrow:disabled { opacity:.35; cursor:default; }
-.gallery-track { min-width:0; }
-.gallery-track .case { display:grid; grid-template-columns:1fr; border:0; padding:0; gap:24px; }
-.gallery-track .case[hidden] { display:none; }
-.gallery-track .case .media { aspect-ratio:4/3; font-size:20px; letter-spacing:0; }
-.gallery-track .case .text { margin:0; padding:0; width:100%; }
-.gallery-track .case .name { font-size:22px; margin-bottom:5px; }
-.gallery-track .case .tag { font-size:10px; letter-spacing:0; margin-bottom:18px; }
-.gallery-track .case .part { margin-top:12px; }
-.gallery-track .case .part .label { font-size:10px; letter-spacing:0; margin-bottom:4px; }
-.gallery-track .case .part p { font-size:14px; line-height:1.6; color:var(--ink); max-width:62ch; }
-.manifest { padding:64px 0; text-align:left; }
-.manifest .wrap { max-width:880px; }
-.manifest h2 { font-size:28px; line-height:1.2; letter-spacing:0; text-transform:none; max-width:20ch; }
-.manifest .lead { font-size:16px; margin:20px 0 0; max-width:42ch; }
-.manifest .body-text { font-size:15px; line-height:1.7; margin:24px 0 0; max-width:54ch; }
-.manifest .closing { font-size:20px; line-height:1.4; margin:24px 0 0; max-width:34ch; }
-.founder { padding-top:64px; padding-bottom:64px; }
-.founder .inner { text-align:left; align-items:center; gap:28px; }
-.founder .photo { max-width:240px; margin:0; }
-.founder blockquote { font-size:22px; line-height:1.45; max-width:30ch; }
-.founder .sign { font-size:10px; letter-spacing:0; margin-top:20px; }
-.contact { padding:64px 0; }
-.contact .wrap { max-width:800px; }
-.contact h2 { font-size:30px; line-height:1.25; letter-spacing:0; text-transform:none; }
-.contact .lead { font-size:15px; line-height:1.7; max-width:48ch; margin:20px auto 0; }
-.contact .note { font-size:13px; line-height:1.6; }
-.contact .contacts { font-size:14px; margin-top:28px; }
-.contact .btn { font-size:14px; padding:15px 28px; letter-spacing:0; margin-top:28px; }
-@media (min-width:760px) {
-  .section.wrap, .founder.wrap, .cases-title.wrap { padding-left:48px; padding-right:48px; }
-  .section { padding-top:72px; padding-bottom:72px; }
-  .editorial { grid-template-columns:1fr 1.4fr; gap:48px; }
-  .editorial .side { font-size:30px; }
-  .editorial .main p { font-size:17px; }
-  .situations .list { column-gap:48px; }
-  .situation, .situation:nth-child(2n) { padding:24px 0; border-left:0; }
-  .situation .quote { font-size:19px; }
-  .situation .answer { font-size:15px; }
-  .cases-title { padding-top:56px; }
-  .cases-title h2 { font-size:32px; }
-  .cases { padding-bottom:72px; }
-  .gallery-track .case .media { aspect-ratio:16/9; }
-  .gallery-track .case .text { display:grid; grid-template-columns:1fr 1.3fr 1.3fr 1.3fr; column-gap:24px; align-items:start; }
-  .gallery-track .case .name { grid-column:1; grid-row:1; font-size:22px; }
-  .gallery-track .case .tag { grid-column:1; grid-row:2; margin-top:8px; margin-bottom:0; }
-  .gallery-track .case .part { grid-row:1 / span 2; margin-top:0; }
-  .gallery-track .case .part p { font-size:14px; }
-  .manifest { padding:72px 0; }
-  .manifest h2 { font-size:38px; }
-  .manifest .lead { font-size:18px; }
-  .manifest .body-text { font-size:17px; }
-  .manifest .closing { font-size:25px; }
-  .founder .inner { grid-template-columns:240px 1fr; gap:56px; }
-  .founder blockquote { font-size:28px; }
-  .contact { padding:72px 0; }
-  .contact h2 { font-size:38px; }
-  .contact .lead { font-size:16px; }
-  .contact .btn { width:auto; }
-}
-@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  /* ---------- Мобильная галерея: горизонтальный просмотр ---------- */
+  @media (max-width:759px){
+    .wrap{padding-left:22px;padding-right:22px}
 
+    .section{padding-top:48px;padding-bottom:48px}
 
-/* Композиция 02: крупный проект и подпись рядом, как в выставочном каталоге. */
-.section.wrap, .founder.wrap, .cases-title.wrap, .cases > .wrap { max-width:1160px; }
-.editorial .side { font-size:25px; }
-.gallery-track .case .media { aspect-ratio:1/1; }
-.gallery-track .case .text { max-width:54ch; }
-.manifest .wrap { max-width:920px; }
-.manifest h2 { max-width:none; }
-.founder .photo { max-width:220px; }
-@media(min-width:760px) {
- .editorial { grid-template-columns:1fr 1.5fr; gap:64px; }
- .situations .list { grid-template-columns:1fr; }
- .situation { display:grid; grid-template-columns:40px 1fr 1fr; gap:32px; align-items:start; }
- .situation .num { margin:3px 0 0; }
- .situation .quote { font-size:18px; margin:0; }
- .situation .answer { font-size:14px; margin:0; }
- .gallery-track .case { grid-template-columns:minmax(0,2fr) minmax(240px,1fr); gap:40px; align-items:start; }
- .gallery-track .case .media { aspect-ratio:1/1; }
- .gallery-track .case .text { display:block; padding-top:12px; }
- .gallery-track .case .name { font-size:26px; }
- .gallery-track .case .tag { margin:10px 0 28px; }
- .gallery-track .case .part { margin-top:18px; }
- .gallery-track .case .part p { font-size:15px; }
- .manifest .wrap { display:grid; grid-template-columns:1fr 1fr; gap:0 64px; }
- .manifest h2 { grid-column:1 / -1; margin-bottom:30px; font-size:34px; }
- .manifest .lead { margin:0; }
- .manifest .body-text { margin:0; }
- .manifest .closing { grid-column:1 / -1; margin-top:32px; font-size:22px; }
- .founder .inner { grid-template-columns:220px 1fr; max-width:760px; margin:auto; }
-}
+    .editorial{gap:16px}
+    .editorial .side{font-size:1.08rem}
+    .editorial .main p{font-size:0.86rem}
 
+    .situations .list{grid-template-columns:1fr}
+    .situation{padding:22px 0}
+    .situation .quote{font-size:0.94rem}
+    .situation .answer{font-size:0.78rem}
+
+    .cases-title{padding-top:42px}
+    .cases-title h2{font-size:0.98rem}
+
+    .cases > .wrap:first-child,
+    .cases-grid{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:minmax(0,86%);
+      grid-template-columns:none;
+      gap:20px;
+      overflow-x:auto;
+      overflow-y:hidden;
+      scroll-snap-type:x mandatory;
+      scroll-padding-left:22px;
+      padding-left:22px;
+      padding-right:22px;
+      scrollbar-width:none;
+      -webkit-overflow-scrolling:touch;
+      border-top:none;
+      padding-top:0;
+      margin-left:-22px;
+      margin-right:-22px;
+    }
+
+    .cases > .wrap:first-child::-webkit-scrollbar,
+    .cases-grid::-webkit-scrollbar{display:none}
+
+    .cases > .wrap:first-child .case,
+    .cases-grid .case{scroll-snap-align:start}
+
+    .case .media{aspect-ratio:4/3}
+    .case .text,
+    .cases-grid .case .text{max-width:100%}
+    .case .name,
+    .cases-grid .case .name{font-size:0.92rem}
+    .case .tag{font-size:0.54rem;margin-bottom:10px}
+    .case .part{margin-top:8px}
+    .case .part .label{font-size:0.51rem}
+    .case .part p,
+    .cases-grid .case .part p{font-size:0.74rem;line-height:1.55}
+
+    .manifest{padding:58px 0}
+    .manifest .lead,
+    .manifest .body-text{font-size:0.82rem}
+    .manifest .closing{font-size:0.92rem}
+
+    .founder .inner{gap:24px}
+    .founder blockquote{font-size:0.96rem}
+
+    .contact{padding:60px 0 52px}
+  }
 </style>
 </head>
 <body>
@@ -696,9 +652,6 @@
     </div>
   </div>
 </section>
-
-<!-- Разделитель-воздух -->
-<div class="divider" aria-hidden="true"></div>
 
 <!-- «С чем приходят» -->
 <section class="section situations wrap">
@@ -924,60 +877,6 @@
     <a class="btn" href="https://wa.me/79235703335" target="_blank" rel="noopener">Написать</a>
   </div>
 </footer>
-
-
-<script>
-(() => {
-  const section = document.querySelector('.cases');
-  if (!section) return;
-  const cases = Array.from(section.querySelectorAll('.case'));
-  const wrap = document.createElement('div');
-  wrap.className = 'wrap';
-  const controls = document.createElement('div');
-  controls.className = 'gallery-tools';
-  controls.innerHTML = '<span class="gallery-count" aria-live="polite" aria-atomic="true"></span><button class="gallery-arrow" type="button" aria-label="Предыдущий кейс" title="Предыдущий кейс"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7"/></svg></button><button class="gallery-arrow" type="button" aria-label="Следующий кейс" title="Следующий кейс"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7"/></svg></button>';
-  const track = document.createElement('div');
-  track.className = 'gallery-track';
-  track.setAttribute('role', 'region');
-  track.setAttribute('aria-label', 'Кейсы студии MCC');
-  track.tabIndex = 0;
-  cases.forEach(item => track.append(item));
-  wrap.append(controls, track);
-  section.replaceChildren(wrap);
-  const [prev, next] = controls.querySelectorAll('button');
-  let index = 0;
-  function show(value) {
-    index = Math.max(0, Math.min(cases.length - 1, value));
-    cases.forEach((item, i) => { item.hidden = i !== index; });
-    controls.querySelector('.gallery-count').textContent = String(index + 1).padStart(2, '0') + ' / ' + String(cases.length).padStart(2, '0');
-    prev.disabled = index === 0;
-    next.disabled = index === cases.length - 1;
-  }
-  prev.addEventListener('click', () => show(index - 1));
-  next.addEventListener('click', () => show(index + 1));
-  track.addEventListener('keydown', event => {
-    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-      event.preventDefault(); show(index + (event.key === 'ArrowRight' ? 1 : -1));
-    }
-  });
-  let startX = null;
-  let startY = null;
-  track.addEventListener('touchstart', event => {
-    const point = event.touches[0];
-    if (point) { startX = point.clientX; startY = point.clientY; }
-  }, { passive:true });
-  track.addEventListener('touchend', event => {
-    const point = event.changedTouches[0];
-    if (point && startX !== null && startY !== null) {
-      const dx = point.clientX - startX;
-      const dy = point.clientY - startY;
-      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(index + (dx < 0 ? 1 : -1));
-    }
-    startX = startY = null;
-  }, { passive:true });
-  show(0);
-})();
-</script>
 
 </body>
 </html>
